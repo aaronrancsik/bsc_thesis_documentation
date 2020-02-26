@@ -1,0 +1,101 @@
+\documentclass[12pt,a4paper,oneside]{report} %class
+
+% hungarian language
+\usepackage{t1enc}
+\usepackage[magyar]{babel}
+\selectlanguage{magyar}
+\usepackage[utf8]{inputenc}
+
+\usepackage{csquotes}
+
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+
+% images
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+% margins
+\addtolength{\oddsidemargin}{-1.2cm}
+\addtolength{\evensidemargin}{-1.2cm}
+\addtolength{\textwidth}{2.4cm}
+\addtolength{\topmargin}{-1.5cm}
+\addtolength{\textheight}{3cm}
+
+% set TOC depth
+\setcounter{tocdepth}{4}
+
+% hyperref for TOC
+\usepackage[unicode]{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+
+% add bibtex
+\usepackage[backend=biber]{biblatex}
+\BiblatexHungarianWarningOff
+\addbibresource{./mainbibliography.bib}
+
+
+
+%top matter
+\title{%
+	\includegraphics[scale=0.1]{logo_oe}\\
+	ÓBUDAI EGYETEM\\
+	Neumann János Informatikai kar\\
+	Mérnök informatikus BSc\\
+	\vfill
+	\large \textbf{Programozás oktatás\\}
+	\large Projektmunka dokumentáció
+	\vfill
+}
+\author{Ráncsik Áron}
+\date{\today}
+
+\begin{document}
+
+\pagenumbering{Alph}
+\begin{titlepage}
+\maketitle
+\thispagestyle{empty}
+\end{titlepage}
+\pagenumbering{arabic}
+
+
+\newpage
+\tableofcontents
+\newpage
+
+
+% Introductory chapters
+\chapter{Bevezetés}
+\par 
+A legkülönbözőbb oktatásokban is manapság elterjedt\cite{riar2020game} gyakorlat az oktatott anyag játékos megfogalmazása, idegen szóval a \cite{Deterding2011} \textit{gamification}. A módszer lényege , hogy a megtanítani kívánt ismeretet nyers forma helyett játékos formában tesszük emészthetővé a tanulók számára. 
+\par 
+Dolgozatomban egy olyan programozás oktató rendszert dolgozok ki mely, a programozás oktatást igyekszik minél szélesebb korosztály számára elérhetővé és érhetővé tenni.
+\section{Módszertan}
+\subsection{Vizuális programozási környezet}
+\subsection{Kiterjesztett valóság}
+\subsection{Kinect szenzor}
+\subsection{Gépi látás}
+\subsubsection{Kamera mozgás becslés}
+\subsubsection{Markerek keresése}
+\subsection{Játék integráció}
+
+
+\newpage
+\chapter*{Irodalomjegyzék}
+\addcontentsline{toc}{chapter}{Irodalomjegyzék}  
+\printbibliography[heading=none]
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{Ábrák jegyzéke}
+
+
+\end{document}
