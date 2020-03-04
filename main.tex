@@ -85,6 +85,98 @@ programozást lehessen akár kézvezérléssel megvalósítani. A programozás m
 \section{Algoritmus elmélet}
 Az algoritmus definiálása nehéz feladat, erre nem vállalkoznék, az kijelenthető, hogy azokat a feladatokat lehet algoritmizálni melyek működése Turing gép segítségével megvalósítható. Olyan programot szeretnék készíteni, mely ebben a kategóriába tartozik. 
 \section{Módszertan}
+\label{modtan}
+A korában megfogalmazott cél elérése érdekében végzett kutatómunkát részletezi.
+\subsection{Vizuális programozási környezet}
+\label{vizuprogkor}
+Több megoldás létezik, mely vizuális programozási lehetőséget tesz lehetővé, ezeknek az összehasonlításáról lesz szó ebben a fejezetben. 
+\subsubsection{Kész megoldások vizuális programozásra} 
+
+\paragraph{Scratch} 
+\label{scratch}
+Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környezet \cite{maloney2010scratch} \cite{resnick2009scratch} \cite{ScratchUrl2019Jan}, mely vizuális programozást tesz lehetővé. Az alapvető célja olyan média alkalmazások mint pl.: animáció, köszöntések, történet mesélés, zeneklip elkészítésének folyamata közben megtanítani a programozást. Az egyedüli, intuitív tanulás is előnyben részesíti. Főleg kisebb 8-16 éves korosztály számára készült. 
+\par Az elkészült program alapértelmezetten egy saját ``{színpad}'' környezetben futtatható. Esemény vezérelt programozást is lehetővé tesz, ebben az esetben az egyszerre fellépő konkurens utasítások között esetleges versenyhelyzetet kezeli, de nem minden esetben úgy ahogy azt elsőre a használó gondolná.  A programból \textit{broadcast} utasításokkal, saját parancsok, szkriptek végrehajtása lehetséges. A \textit{broadcast} utasítássokkal lehetséges a külvilággal történő kommunikáció is, de körülményes. Kiegészítőkkel bővíthető, de így sem nem lehet az alap működésre kiható szignifikáns módosításokat végrehajtani.
+\subparagraph{Előnyei} 
+\begin{itemize}
+	\item Szabadon elérhető, nyílt forráskódú.
+	\item Kész megoldásról beszélve, sokkal kevesebb munka segítségével lehet használni.
+	\item Egyedi működés \textit{broadcast} utasításokkal lehetséges.
+	\item Az alap környezet többnyire magas szintű előre definiált utasításokban gazdag pl.: animációk
+	\item Kezdők számára is egyszerűen érthető felület.
+	\item Tapasztalatok alapján nagyon ismert az általános iskolások körében.
+	\item Érthető, naprakész dokumentáció áll rendelkezésre
+\end{itemize}
+\subparagraph{Hátrányai} 
+\begin{itemize}
+	\item A \textit{broadcast} utasításon kívül máshogy nem megoldható egyedi utasítás létrehozása.
+	\item Az elkészült program csak a saját környezetén belül futtatható, nem lehetséges egyedi környezetben futtatni.
+	\item Az elkészült program egyszerűen nem alakítható valódi programkóddá. (Van harmadik féltől származó kész megoldás)
+	\item Monolitikus, bővítésre nézve többnyire zárt rendszer.
+	\item Ugyan van webes felület, de saját oldalba nem ágyazható.
+\end{itemize}
+
+\paragraph{Snap!} \label{snap}Új, még kevésbé  ismert, teljes megoldás \cite{harvey2013snap}, segítségével vizuálisan van lehetőségünk programozni. A \nameref{scratch}-el szemben több szabadságot biztosít a személyre szabhatóság tekintetében. Sokkal bonyolultabb problémák megoldására is alkalmas, az objektum orientált paradigmát is támogatja. A környezet kevésbé kezdő barát. \textit{Url} utasításokkal webes  csatlakozó felületen keresztül tud fogadó és küldőként is könnyen kommunikálni a külvilággal. A felhő alapú gépi tanulás szolgáltatásokhoz csatlakoztatva akár ``AI'' fejlesztésre is alkalmas \cite{kahn2018ai}. A párhuzamos ciklusokat időosztásos módszerrel futtatja párhuzamosan ``yield'' utasítások segítségével, de erre is igaz. hogy mindezt igyekszik elrejteni a felhasználók elől és nem igényel különösebb beavatkozást az alapvető működéshez hozzá lehet szokni.
+\subparagraph{Előnyei} 
+\begin{itemize}
+	\item Szabadon elérhető, nyílt forráskódú.
+	\item Kész megoldásról beszélve, sokkal kevesebb munka segítségével lehet használni.
+	\item Egyedi működés \textit{url} utasításokkal lehetséges. Sokkal kényelmesebben mint \nameref{scratch} esetén.
+	\item Az alap környezet előre definiált utasításokban gazdag pl.: \textit{sprite}-ok vezérlése.
+	\item Bonyolultabb problémák megoldására is alkalmas.
+	\item Érthető, naprakész dokumentáció áll rendelkezésre
+	\item Van webes felülete, de saját oldalba nem ágyazható.
+	\item Egyedi blokkok létrehozását támogatja.
+	\item Objektum orientált paradigmát támogatja
+\end{itemize}
+\subparagraph{Hátrányai} 
+\begin{itemize}
+	\item Az elkészült program csak a saját környezetén belül futtatható, nem lehetséges egyedi környezetben futtatni.
+	\item Az elkészült program nem alakítható valódi programkóddá.
+	\item Nem biztosít felhasználható könyvárat, csak a projekt forrását felhasználva lehet egyedi alkalmazásokban használni.
+	\item Jelenleg (\date{\today}) béta állapotban van.
+	\item Monolitikus, bővítésre nézve többnyire zárt rendszer.
+	\item A objektum orientáltság különböző megkötésekkel érhető el.
+\end{itemize}
+
+\paragraph{GP} Általános célú blokk alapú \cite{ohshima2015module} \cite{monig2015blocks} programozási nyelv. Egy valódi programozási nyelv mely blokk és kód alapú programozási lehetőséggel is rendelkezik.  Sok alacsony szintű funkciók érhetőek el benne. Sokkal közelebb áll a valóságos programozáshoz a korábban említett lehetőségekhez képest, rendelkezik webes felülettel és a külvilággal internetes \textit{get}, \textit{put} utasítás lehetséges a kommunikáció egyedi rendszerekkel. Támogatja az objektum orientált paradigmát. Tartalmaz bonyolultabb adatszerkezeteket is.
+\subparagraph{Előnyei} 
+\begin{itemize}
+	\item Kész megoldásról beszélve, sokkal kevesebb munka segítségével lehet használni.
+	\item Egyedi működés \textit{get, put} utasításokkal lehetséges. Sokkal kényelmesebben mint \nameref{scratch} esetén.
+	\item Az alap környezet többnyire alacsony szintű előre definiált utasításokban gazdag pl.: \textit{set pixel} utasítás blokk.
+	\item Bonyolultabb problémák megoldására is alkalmas.
+	\item Moduláris módon készült.
+	\item Érthető, naprakész dokumentáció áll rendelkezésre.
+\end{itemize}
+\subparagraph{Hátrányai} 
+\begin{itemize}
+	\item Az elkészült program csak a saját környezeten belül futtatható, nem lehetséges saját környezetben futtatni.
+	\item Az elkészült program nem alakítható valódi programkóddá.
+	\item Ugyan van webes felület, de saját oldalba nem ágyazható.
+\end{itemize}
+
+\paragraph{Alice} Interaktív 3D Animációs környezet \cite{cooper2000alice}. Az idézett kutatás által megfogalmazottan a  célja egy 3D-s környezet interaktív fejlesztése melyben szabadon lehet felfedezni az elkészült alkotást. Főleg szkript alapú prototípus fejlesztő környezet. 
+\subparagraph{Előnyei} 
+\begin{itemize}
+	\item Kész munka elvileg kevesebb munka lehet átalakítani, felhasználni
+	\item Adott 3D környezet
+	\item Esemény vezérelt programozás tanítására is alkalmas
+\end{itemize}
+\subparagraph{Hátrányai} 
+\begin{itemize}
+	\item Az elkészült program csak a saját környezeten belül futtatható, nem lehetséges saját környezetben futtatni.
+	\item Nem vizuális egy sajátos egyedi szkript nyelvvel rendelkezik.
+	\item Az elkészült program nem alakítható valódi programkóddá.
+	\item Nincs webes felülete, futtatható állományok telepítését igényli.
+	\item Kissé régi, idejét múlt, már kevésbé támogatott.
+\end{itemize}
+
+\paragraph{Egyéb kész megoldások}
+A fenti részben az általam, a dolgozatommal legjobban összehasonlítható szempontok alapján fontosnak tartott kész megoldásokat mutattam be. Természetesen rengeteg egyéb kész alkalmazás létezik mely vizuális programozási lehetőséget biztosít. Felsorolás szintjén itt leírok pár szerintem említésre méltó alkalmazást. 
+\begin{itemize}
+	\item Game Maker \cite{jenson2016exploring} alapvetően 2D saját szkript nyelvvel rendelkezik. A teljes verzió pénzbe kerül.
+	\item Stencyl \cite{liu2014making} Alapvetően játék készítő alkalmazás melyben vizuálisan lehet programozni.
+\end{itemize}
 \subsection{Vizuális programozási környezet}
 \subsection{Kiterjesztett valóság}
 \subsection{Kinect szenzor}
