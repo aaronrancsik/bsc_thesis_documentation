@@ -231,6 +231,46 @@ Kipróbáltam, teszteltem a felsorolt megoldásokat továbbá a korábbi elemzé
 A dolgozat igényeit nem lehet kész megoldásokkal pl. \nameref{scratch}, \nameref{snap} stb. kielégíteni, mert túlságosan zárt működésük nem teszik lehetővé, hogy egyedei játékhoz lehessen programozni ezekben az alkalmazásokban.
 A Blockly kellőképpen módosítható és könnyen beilleszthető, vizuális programozást biztosító programkönyvtár, mely megfelel a feladat részéről támasztott elvárásoknak.
 
+
+\section{Da Vinci}
+Az célok között szerepelt a Da Vinci robot egyszerű vezérlése. Az elkövetkező részben, igyekszem körbejárni a lehetőségeket és azok előnyeit hátrányait. Az egyetemen egy 2010-es első generációs da Vinci classic rendszerhez van lehetőség hozzáférni. Ezért ehhez készült az alkalmazás. A továbbiakban mindig erről a modellről lesz szó.
+\paragraph{Robot Operating System}
+Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan a fizikai Da Vinci rendszerhez hozzáférnem, egy olyan környezetre van szükségem ami képes biztosítani a Da Vinci robotot virtuálisan. Ugyan sok rendszer elérhető csak felsorolás szintjén néhány mely robot vezérlő környezetet biztosít azonban az egyik legkorábbi és legnépszerűbb lehetőség a Robot Operating System \cite{quigley2009ros} továbbiakban csak ROS. Dolgozatomban több szempont miatt is a legjobb választásnak a ROS rendszert bizonyult. Attól a hátrányától eltekintve, hogy nem multiplatform azaz csak Ubuntu GNU/Linux és annak is csak bizonyos verzióihoz elérhető rengeteg előnnyel rendelkezik. Sok robot vezérléssel kapcsolatos alapfunkciót tartalmaz, amit így nem kell újból megírni, biztosít egy jól elszeparált keretet külön a kommunikációra és az üzleti logikára.
+\subparagraph{Előnyei} 
+\begin{compactitem}
+	\item Szabadon elérhető, nyílt forráskódú
+	\item Kiforrót
+	\item Népszerű
+	\item Moduláris
+	\item Kutatási célokhoz megfelelő
+	\item Érthető, naprakész, jó dokumentáció áll rendelkezésre
+\end{compactitem}
+\subparagraph{Hátrányai} 
+\begin{compactitem}
+	\item Nem multiplatform, csak Ubuntu GNU/Linux és annak is csak bizonyos verzióihoz elérhető
+\end{compactitem}
+
+\subsubsection{Da Vinci Research Kit}
+\label{davinci}
+A Da Vinci Research Kit \cite{kazanzides2014open} továbbiakban DVRK egy nyílt forráskódú rendszer ami lehetővé teszi a Da Vinci robot karok programozását. A ROS rendszerhez kapcsolódik, könnyen lehetséges az utasításait használni egy ROS modult  node-ot biztosít használatra.  A célkitűzéseimhez képest viszonylag alacsony-szintű Da Vinci robot kar vezérlő utasítások kiadására alkalmas.
+
+\subsubsection{iRob SurgicalSubtask Automation Framework}
+\label{irob}
+Nagy Tamás és Haidegger Tamas által fejlesztett keretrendszer  \cite{irobsaf2019}.
+Alapvetően arra a célra készült, hogy részleges automatizáció segítségével levegye a sebészekről a kognitív terhelést. Részfolyamatok automatizálását teszi lehetővé a keretrendszer. A ROS rendszerben elérhető node-okat biztosít, a DVRK rendszerre épül. Felépít egy hierarchikus node rendszert melynek a legmagasabb szintjén magas-szintű utasítások kiadása lehetséges. Számomra a céloknak tökéletesen megfelelő.
+\subparagraph{Előnyei} 
+\begin{compactitem}
+	\item Szabadon elérhető, nyílt forráskódú
+	\item Moduláris
+	\item Kutatási célokhoz megfelelő
+	\item Érthető, naprakész, jó dokumentáció áll rendelkezésre
+\end{compactitem}
+\subparagraph{Hátrányai} 
+\begin{compactitem}
+	\item Jelenleg fejlesztés alatt áll.
+\end{compactitem}
+
+
 \section{Kiterjesztett valóság}
 \label{kitvalo}
 A \cite{azuma2001recent} kutatásból idézve  kiterjesztett valóságot a következő módon definiálhatjuk: Kiterjesztett valóság az a rendszer, ami a következőket teljesíti:
@@ -250,6 +290,7 @@ Virtuális objektumokat szeretnénk elhelyezni a kamera képen úgy, hogy azok m
 \subsection{Markerek keresése}
 
 
+\chapter{Megvalósítás}
 
 
 \newpage
