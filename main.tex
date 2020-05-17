@@ -1,12 +1,18 @@
 \documentclass[12pt,a4paper,oneside]{report} %class
 
+% encode foregin characters
+\usepackage[T1]{fontenc}
+
 % hungarian language
+\PassOptionsToPackage{defaults=hu-min,classmod=unchanged}{magyar.ldf}
 \usepackage{t1enc}
 \usepackage[magyar]{babel}
 \selectlanguage{magyar}
 \usepackage[utf8]{inputenc}
 
 \usepackage{csquotes}
+
+\usepackage{paralist}
 
 %\usepackage{float}
 %\usepackage{tabularx}
@@ -67,6 +73,13 @@
 \end{titlepage}
 \pagenumbering{arabic}
 
+\pagenumbering{Alph}
+\begin{abstract}
+	\thispagestyle{empty}
+	Your abstract goes here...
+	...
+\end{abstract}
+\pagenumbering{arabic}
 
 \newpage
 \tableofcontents
