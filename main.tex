@@ -14,7 +14,7 @@
 
 \usepackage{paralist}
 
-%\usepackage{float}
+
 %\usepackage{tabularx}
 %\usepackage[table]{xcolor}
 
@@ -28,6 +28,9 @@
 \addtolength{\textwidth}{2.4cm}
 \addtolength{\topmargin}{-1.5cm}
 \addtolength{\textheight}{3cm}
+
+% Figures right after text
+\usepackage{float}
 
 % set TOC depth
 \setcounter{tocdepth}{4}
@@ -73,12 +76,12 @@
 \end{titlepage}
 \pagenumbering{arabic}
 
-\pagenumbering{Alph}
-\begin{abstract}
-	\thispagestyle{empty}
-	Your abstract goes here...
-	...
-\end{abstract}
+%\pagenumbering{Alph}
+%\begin{abstract}
+%	\thispagestyle{empty}
+%	Your abstract goes here...
+%	...
+%\end{abstract}
 \pagenumbering{arabic}
 
 \tableofcontents
@@ -86,9 +89,9 @@
 % Introductory chapters
 \chapter{Bevezetés}
 \par 
-Az oktatásban manapság elterjedt\cite{riar2020game} gyakorlat az oktatott anyag játékos megfogalmazása, idegen szóval a \cite{Deterding2011}\textit{gamification}. A módszer lényege, hogy a megtanítani kívánt ismeretet egyszerű, nyers forma helyett, játékos formában tesszük emészthetővé a tanulók számára. Dolgozatomban szeretném a tanulni vágyok elé tárni a programozást, olyan formában, hogy az ne okozzon nehézséget, illetve a tanulás emléke inkább egy élmény legyen, egy unalmas óra helyett.
-\par Az alábbi célokat tűztem ki. Legyen lehetőség kézvezérléssel végezni a programozást. Programozás egyik motivációja , hogy a felhasználók által készített különböző programkódok, ágensek egymás ellen tudjanak versenyezni. A megmérettetést akár már létező, ismert számítógépes játékokhoz csatlakozva, vagy saját egyedi játékban tehetik meg. Egy másik tervezett funkció, hogy az írt kódok összecsapását pedig kiterjesztett valóságon keresztül szeretném követni. További cél, hogy legyen lehetőség az egyetemen elérhető DaVinci roboton is könnyen magas-szintű programkódot futtatni.
-\par Röviden összefoglalva, a következő irodalomkutatást készítettem a fent megfogalmazott célokra. Első lépésként,  a kitűzött célokat  megvalósítsa érdekében, a \ref{vizuprogkor} részben a vizuális programozási környezet elkészítésének lehetőségeit részletezem, mely abban segít, hogy egy konkrét programozási nyelv tanulásának kezdeti nehézségein átugorva vizuális eszközökkel teszi elérhetővé a programozást, akár laikusok számára is. A \nameref{modtan} szekció \ref{davinci} részben azt vizsgálom, milyen lehetőségek vannak a Da Vinci robot egyszerű maga-szintű programozására. A \ref{kitvalo} szekcióban a kiterjesztett valóság megvalósításának lehetőségeit részletezem. A \nameref{modtan} utolsó szekciójában \ref{kezvez} a kézvezérlés funkció megvalósításához szükséges ismereteket igyekszem analizálni. 
+Az oktatásban manapság elterjedt gyakorlat az oktatott anyag játékos megfogalmazása \cite{riar2020game}, idegen szóval a \textit{gamification} \cite{Deterding2011}. A módszer lényege, hogy a megtanítani kívánt ismeretet egyszerű, nyers forma helyett, játékos formában tesszük érthetőé a tanulók számára. Dolgozatomban a programozást szeretném a tanulni vágyok elé tárni, olyan formában, hogy az ne okozzon nehézséget, illetve a tanulás emléke inkább egy élmény legyen, egy unalmas óra helyett.
+\par Az alábbi célokat tűztem ki. Programozás egyik motivációjának azt szeretném, hogy a felhasználók által készített különböző programkódok, ágensek, egymás ellen tudjanak versenyezni. A programozáshoz ne legyen szükséges konkrét programozási nyelv ismerete. Legyen lehetőség kézvezérléssel végezni a programozást. Az ágensek megmérettetését akár már létező, ismert számítógépes játékokhoz csatlakozva, vagy saját egyedi játékban is lelehessen bonyolítani. További tervezett funkció, hogy az írt kódok összecsapását, kiterjesztett valóságon keresztül is legyen lehetőség követni. Úgy gondolom, hogy a programozásoktatást egyik legszemléletesebb területe a robotprogramozás, ezért azt célt is kitűztem, hogy az egyetemen elérhető da Vinci robotot is lehessen a rendszer által vezérelni. Magas-szintű program utasítások biztosításának a segítségével könnyen, érthetően lehet szemléltetni a robotika területét is, és a programozáson belül az orvostudomány iránt is érdeklődést kiváltani a fiatalokban.
+\par Röviden összefoglalva, a következő irodalomkutatást készítettem a fent megfogalmazott célok ügyében. Első lépésként,  a kitűzött célok  megvalósítsa érdekében, a \ref{vizuprogkor} részben a vizuális programozási környezet elkészítésének lehetőségeit részletezem, mely abban segít, hogy egy konkrét programozási nyelv tanulásának kezdeti nehézségein átugorva vizuális eszközökkel teszi elérhetővé a programozást, akár laikusok számára is. A \nameref{modtan} szekció \ref{davinci} részben azt vizsgálom, milyen lehetőségek vannak a Da Vinci robot egyszerű maga-szintű programozására. A \ref{kitvalo} szekcióban a napjainkban népszerű kiterjesztett valóság megvalósításának lehetőségeit részletezem. A \nameref{modtan} utolsó szekciójában \ref{kezvez} a kézvezérlés funkció megvalósításához szükséges ismereteket igyekszem analizálni. 
 \par 
 
 %\section{Algoritmus elmélet}
@@ -96,11 +99,11 @@ Az oktatásban manapság elterjedt\cite{riar2020game} gyakorlat az oktatott anya
 
 \chapter{Módszertan}
 \label{modtan}
-Itt a korában megfogalmazott célok elérése érdekében végzett kutatómunkát részletezem.
+A korában megfogalmazott célok elérése érdekében végzett kutatómunkát részletezem, ebben a fejezetben.
 \section{Vizuális programozási környezet}
 \subsection{Alternatív megoldások vizuális programozásra}
 \label{vizuprogkor}
-Mivel a dolgozatban részben vizuális  programozást  is szeretnék biztosítani, ezért megvizsgálom milyen konkurens megoldások léteznek erre a célra. Az alábbiakban bemutatok és elemzek több kutatást, korábbi kész alkalmazásokat és programkönyvtárakat melyek mindegyike a vizuális blokk alapú programozást nyújtja.
+Mivel a dolgozatban vizuális  programozást  is szeretnék biztosítani, ezért megvizsgálom milyen konkurens megoldások léteznek erre a célra. Az alábbiakban bemutatok és elemzek több kutatást, korábbi kész alkalmazásokat és programkönyvtárakat melyek mindegyike a vizuális blokk alapú programozást biztosítja.
 \paragraph{Scratch} 
 \label{scratch}
 Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környezet \cite{maloney2010scratch, resnick2009scratch, ScratchUrl2019Jan}, mely vizuális programozást tesz lehetővé. Az alapvető célja olyan média alkalmazások mint pl.: animáció, köszöntések, történet mesélés, zeneklip elkészítésének folyamata közben megtanítani a programozást. Az egyedüli, intuitív tanulás is előnyben részesíti. Főleg kisebb 8-16 éves korosztály számára készült. 
@@ -226,16 +229,17 @@ Microsoft által fejlesztett, összetett, vizuális programozói környezet tám
 \end{compactitem}
 
 \subsubsection{Választott vizuális programozási környezet}
-Kipróbáltam, teszteltem a felsorolt megoldásokat továbbá a korábbi elemzés összevetése  után a Blockly környezet használata mellet döntöttem.
-A dolgozat igényeit nem lehet kész megoldásokkal pl. \nameref{scratch}, \nameref{snap} stb. kielégíteni, mert túlságosan zárt működésük nem teszik lehetővé, hogy egyedei játékhoz lehessen programozni ezekben az alkalmazásokban.
-A Blockly kellőképpen módosítható és könnyen beilleszthető, vizuális programozást biztosító programkönyvtár, mely megfelel a feladat részéről támasztott elvárásoknak.
+Kipróbáltam, teszteltem a legtöbb felsorolt megoldást, továbbá a korábbi elemzés összevetése  után a Blockly környezet használata mellet döntöttem.
+A dolgozat igényeit nem lehet kész megoldásokkal pl. \nameref{scratch}, \nameref{snap} stb. kielégíteni, mert túlságosan zárt működésük nem teszik lehetővé, hogy egyedi környezethez lehessen programozni ezekben az alkalmazásokban.
+A Blockly kellőképpen módosítható és könnyen beilleszthető, vizuális programozást biztosító programkönyvtár, mely megfelel a feladat részéről támasztott elvárásoknak. A Blocky kellőképpen egyszerűen használható és könnyen egyedi igényeknek megfelelően alakítható.
 
 
 \section{Da Vinci}
-Az célok között szerepelt a Da Vinci robot egyszerű vezérlése. Az elkövetkező részben, igyekszem körbejárni a lehetőségeket és azok előnyeit hátrányait. Az egyetemen egy 2010-es első generációs da Vinci classic rendszerhez van lehetőség hozzáférni. Ezért ehhez készült az alkalmazás. A továbbiakban mindig erről a modellről lesz szó.
-\paragraph{Robot Operating System}
-Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan a fizikai Da Vinci rendszerhez hozzáférnem, egy olyan környezetre van szükségem ami képes biztosítani a Da Vinci robotot virtuálisan. Ugyan sok rendszer elérhető csak felsorolás szintjén néhány mely robot vezérlő környezetet biztosít azonban az egyik legkorábbi és legnépszerűbb lehetőség a Robot Operating System \cite{quigley2009ros} továbbiakban csak ROS. Dolgozatomban több szempont miatt is a legjobb választásnak a ROS rendszert bizonyult. Attól a hátrányától eltekintve, hogy nem multiplatform azaz csak Ubuntu GNU/Linux és annak is csak bizonyos verzióihoz elérhető rengeteg előnnyel rendelkezik. Sok robot vezérléssel kapcsolatos alapfunkciót tartalmaz, amit így nem kell újból megírni, biztosít egy jól elszeparált keretet külön a kommunikációra és az üzleti logikára.
-\subparagraph{Előnyei} 
+A célok között szerepelt a da Vinci robot egyszerű vezérlése. 
+Az elkövetkező részben, igyekszem körbejárni a lehetőségeket és elemezni előnyeit hátrányait, melyek segítségével lehet kapcsolódni a da Vinci rendszerhez. Az egyetemen egy 2010-ben bemutatott első generációs da Vinci classic rendszerhez van lehetőség hozzáférni, ezért ehhez készül az alkalmazás. A továbbiakban mindig erről a modellről lesz szó.
+\subsection{Robot Operating System}
+Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan egy fizikai da Vinci rendszerrel dolgozni, egy olyan környezetre van szükség ami képes biztosítani da Vinci robotot virtuálisan. Több rendszer elérhető mely robot programozás vezérlő környezetet biztosít, csak felsorolás szintjén néhány \cite{BibEntry2020May, montemerlo2003perspectives}, azonban az egyik legkorábbi és legnépszerűbb lehetőség a Robot Operating System \cite{quigley2009ros} továbbiakban csak ROS. A ROS órási és növekvő közösséggel rendelkezik, \textit{de facto} standard az iparban és kutatásban. Dolgozatomban több szempont miatt is a legjobb választásnak a ROS rendszert bizonyult. Attól a hátrányától eltekintve, hogy nem multiplatform azaz csak Ubuntu GNU/Linux és annak is csak bizonyos verzióihoz támogatott hivatalosan, rengeteg előnnyel rendelkezik. Sok robotvezérléssel kapcsolatos alapfunkciót tartalmaz, amit így nem kell újból megírni, biztosít egy jól elszeparált keretet külön a kommunikációra és az üzleti logikára.
+\paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú
 	\item Kiforrót
@@ -244,27 +248,27 @@ Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan a fizikai 
 	\item Kutatási célokhoz megfelelő
 	\item Érthető, naprakész, jó dokumentáció áll rendelkezésre
 \end{compactitem}
-\subparagraph{Hátrányai} 
+\paragraph{Hátrányai} 
 \begin{compactitem}
 	\item Nem multiplatform, csak Ubuntu GNU/Linux és annak is csak bizonyos verzióihoz elérhető
 \end{compactitem}
 
-\subsubsection{Da Vinci Research Kit}
+\subsection{Da Vinci Research Kit}
 \label{davinci}
-A Da Vinci Research Kit \cite{kazanzides2014open} továbbiakban DVRK egy nyílt forráskódú rendszer ami lehetővé teszi a Da Vinci robot karok programozását. A ROS rendszerhez kapcsolódik, könnyen lehetséges az utasításait használni egy ROS modult  node-ot biztosít használatra.  A célkitűzéseimhez képest viszonylag alacsony-szintű Da Vinci robot kar vezérlő utasítások kiadására alkalmas.
-
-\subsubsection{iRob SurgicalSubtask Automation Framework}
+A da Vinci Research Kit továbbiakban dVRK egy nyílt forráskódú rendszer ami lehetővé teszi a Da Vinci robot karok programozását \cite{kazanzides2014open}. A ROS rendszerhez kapcsolódik, könnyen lehetséges az utasításait használni egy ROS  modult biztosít használatra.  A célkitűzéseimhez képest viszonylag alacsony-szintű da Vinci robotkarvezérlő utasítások kiadására alkalmas.
+Ennek a modulnak a segítségivel lehetséges a ROS rendszerrel da Vinci robotot vezérelni, továbbá virtuálisan szimulált robotkar létrehozása is lehetséges. Erre keretrendszerre mindenképp szükség van amennyiben ROS rendszerhez szeretnénk kapcsolnia a da Vinci robotot. 
+\subsection{iRob Surgical Subtask Automation Framework}
 \label{irob}
-Nagy Tamás és Haidegger Tamas által fejlesztett keretrendszer  \cite{irobsaf2019}.
-Alapvetően arra a célra készült, hogy részleges automatizáció segítségével levegye a sebészekről a kognitív terhelést. Részfolyamatok automatizálását teszi lehetővé a keretrendszer. A ROS rendszerben elérhető node-okat biztosít, a DVRK rendszerre épül. Felépít egy hierarchikus node rendszert melynek a legmagasabb szintjén magas-szintű utasítások kiadása lehetséges. Számomra a céloknak tökéletesen megfelelő.
-\subparagraph{Előnyei} 
+Nagy D. Tamás és Haidegger Tamás által fejlesztett keretrendszer továbbiakban SAF \cite{irobsaf2019}.
+Alapvetően arra a célra készült, hogy részleges automatizáció segítségével levegye a sebészekről a kognitív terhelést. Részfolyamatok automatizálását teszi lehetővé a keretrendszer. A ROS rendszerben elérhető modulokat biztosít, a dVRK rendszerre épül. Használata során felépít egy hierarchikus modul rendszert, melynek a legmagasabb szintjén magas-szintű utasítások kiadása lehetséges. Számomra a céloknak tökéletesen megfelelő.
+\paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú
 	\item Moduláris
 	\item Kutatási célokhoz megfelelő
 	\item Érthető, naprakész, jó dokumentáció áll rendelkezésre
 \end{compactitem}
-\subparagraph{Hátrányai} 
+\paragraph{Hátrányai} 
 \begin{compactitem}
 	\item Jelenleg fejlesztés alatt áll.
 \end{compactitem}
@@ -272,14 +276,14 @@ Alapvetően arra a célra készült, hogy részleges automatizáció segítség�
 
 \section{Kiterjesztett valóság}
 \label{kitvalo}
-A \cite{azuma2001recent} kutatásból idézve  kiterjesztett valóságot a következő módon definiálhatjuk: Kiterjesztett valóság az a rendszer, ami a következőket teljesíti:
-\begin{compactitem}
-	\item Kombinálja a valós és virtuális objektumokat a valós környezetben.
-	\item Azonnal fut, és valós időben.
-	\item Egymáshoz rögzíti (igazítja) %a valós és virtuális objektumokat.
-\end{compactitem}
-Virtuális objektumokat szeretnénk elhelyezni a kamera képen úgy, hogy azok mozgása a kamera 3D mozgásához igazodjon. 
- \par Több létező megoldás van kiterjesztett valóság elkészítéséhez, ezen megoldások összehasonlításáról lesz itt szó.
+%A \cite{azuma2001recent} kutatásból idézve  kiterjesztett valóságot a következő módon definiálhatjuk: Kiterjesztett valóság az a rendszer, ami a következőket teljesíti:
+%\begin{compactitem}
+%	\item Kombinálja a valós és virtuális objektumokat a valós környezetben.
+%	\item Azonnal fut, és valós időben.
+%	\item Egymáshoz rögzíti (igazítja) %a valós és virtuális objektumokat.
+%\end{compactitem}
+%Virtuális objektumokat szeretnénk elhelyezni a kamera képen úgy, hogy azok mozgása a kamera 3D mozgásához igazodjon. 
+% \par Több létező megoldás van kiterjesztett valóság elkészítéséhez, ezen megoldások összehasonlításáról lesz itt szó.
 
 \section{Kézvezérlés}
 \label{kezvez}
@@ -290,16 +294,56 @@ Virtuális objektumokat szeretnénk elhelyezni a kamera képen úgy, hogy azok m
 
 
 \chapter{Megvalósítás}
+\section{Da Vinci vizuális programozási környezete}
+A korábbi irodalomkatatusban arra a következtetésre jutottam hogy a Blockly rendszert fogom használni a  grafikus programozás megvalósítására.
+A da Vinci kar programozásának a példáján keresztül fogom bemutatni a létrehozott vizuális programozási környezetet.
+A Blockly egy JavaScript könyvtár melyet böngészőből lehetséges használni. Az Blocly használatával készült weboldal kiszolgálásához NodeJS szervert választottam. Úgy gondolom, hogy NodeJS segítségével kellőképpen egyszerűen lehetséges a weboldal kiszolgálása és WebSocket szervert készítése is könnyen megvalósítható. A NodeJS szerver segítségével három fontosabb modult létrehoztam. A vizuális programozást biztosító továbbiakban ''editor`` modul, a felhasználó által létrehozott ágens futtatására alkalmas ''view`` modul és a különböző felhasználók adminisztratív kezelésére szolgáló ''control`` modul.
+\subsection{Control}
+Ennek a modulnak a segítségével ki tudjuk listázni az alkalmazáshoz csatlakozott felhasználókat. A csatlakozott felhasználók által létrehozott Blockly utasítás struktúrák minden módodaíráskor automatikusan mentésre kerülnek. A ''control`` modul segítségével lehetséges egy felhasználó egy mentett struktúrájának a betöltése a  ''view`` modulba. Az teljes alkalmazásnak van olyan funkciója melynek segítségével a felhasználók által létrehozott ágensek küzdhetnek egymással, ennek a kezelése is ebből a modulból érhető el ez keserűbb részletezem. Jelen példában maradunk a da Vinci programozásánál. A da Vinci számára létrehozott algoritmust miután betöltjük a ''view`` modulba akkor ''control`` modulnak van lehetősége azt elindítani a da Vinci rendszeren. 
+\subsection{Editor}
+Ez a módul ténylegesen használja a Blockly könyvtárat. Böngészőből a felhasználóknak van lehetősége ezt a modult használni. Ennek a segítségével vizuálisan lehetséges algoritmusokat létrehozni. Amennyiben a da Vinci rendszert szeretnénk programozni szükséges volt egyedi utasítások létrehozására, hogy a da Vinci rendszer számára tudunk magas-szintű utasításokat létrehozni. Jelen esetben még csak tárgyak megfogásának utasítását lehetséges használni. 
+\begin{figure}[H]
+	\centering
+	\label{fig:myblockly}
+	\includegraphics[width=10cm]{myblockly}
+	\caption{A felhasználó által használható editor felület. }
+\end{figure}
+
+\subsection{View}
+Ebbe a modulba töltjük  a felhasználók által létrehozott algoritmust, illetve itt van lehetőség annak futtatására. A ''control`` modul tölti be a kiválasztott felhasználó Blockly utasításait, a Blockly utasításokat JavaScript nyelvi utasításokra fordul ebben a modulban. A különböző Blockly utasítások számára itt lehetséges egyedi JavaScript utasításokat definiálni. A JavaScript-re fordított ágens kódját ''JS-Interpreter`` segítségével futtatom \cite{BibEntry2020Feb}. A ''JS-Interpreter`` egy JavaScriptben írt JavaScript értelmező ''sandbox`` környezet, melyben biztonságosan van lehetőségem elválasztani az ágensek kódjait a böngésző valós JavaScript motorjától. Az ágensek kódja csak és kizárólag egyedileg definiált függvények segítségével tudnak kommunikálni a valós környezettel az a dokumentáció ''API hívásnak`` nevezi, jelen esetben a ''JS-Interpreter``-t könyvtárat használó fejlesztő feladata ennek a hivatkozott ''API`` elkészítése. Az utasítások végrehajtása nem valós-időben történik, folyamatosan megvárja a utasítás végrehajtásának sikerességét. 
+
+\begin{figure}[H]
+\centering
+\label{fig:davinciblock}
+\includegraphics[width=10cm]{davinciblock}
+\caption{A da Vinci számára törénő utasítás kiadására alkalmas Blockly vezérlési szerkezet }
+\end{figure}
+
 \section{Da Vinci webes elérhetősége}
-Először meg kellet ismerkednem a korábban részletezett \ref{irob}, \cite{irobsaf2019} keretrendszettszer és ROS architektúra használatával. Az irob\_saf keretrendszer működését a \ref{fig:irob} ábra szemlélteti.
-\begin{figure}
+Először meg kellet ismerkednem a ROS architektúra és a korábban részletezett \ref{irob} SAF keretrendszer használatával.
+A SAF felépítését a \ref{fig:irob} ábra szemlélteti. A SAF ''subtask`` nevű legfelső moduljában található ''megfogás`` művelet külső meghívásának megvalósítását készítettem el. A meglévő SAF kódból leágazva Létrehoztam egy  ROS web modult, amely ROS action kezelésére alkalmas. Az új modul a ''web`` témakörre van feliratkozva, innen vár goal definíciókat, amiket kiszolgálhat. Jelenleg csak a megfogás művelet van implementálva, de később kibővíthető a további műveletek elvégzésére is. ROS szolgáltatásként lehetséges elindítani a webes modult. Összefoglalva a következőképpen működik: a ROS web modul a következő részben ismertetett \nameref{roslibjs} segítségével lehetséges megszólítani. A webes kérés ROS action formában érkezik. Amennyiben kérés érkezett a SAF \nameref{irob} modult hívja a kérésnek megfelelő utasítással. A mennyiben a kiadott utasítás sikeresen befejeződött ezt egy action alapértelmezett műjkédésének megfelelően egy sikeres callback függvény segítségével visszajelzi a kérést kiadó böngészőnek. A böngésző és a  ROS közötti kommunikáció a \nameref{roslibjs} működéséből következően WebShocket protokollon keresztül történik. A WebShocket protokol előnye a http-vel szemben, hogy kétirányú kapcsolat könnyű kialakítására alkalmas.
+
+\begin{figure}[H]
 	\label{fig:irob}
 \begin{center}
 	\includegraphics[width=14cm]{irobArch}
-	\caption{A irob\_saf keretrendszer működését szemléltei}
+	\caption{A SAF sematikus működése, felépítése \cite{Abc-irobotics2020May} }
 \end{center}
 \end{figure}
+\begin{figure}[H]
+	\centering
+	\label{fig:irob_web}
+	\includegraphics[width=14cm]{irob_web}
+	\caption{ROS web node ki/be meneteli csatlakozásai \cite{Abc-irobotics2020May} }
+\end{figure}
 \newpage
+\subsection{Standard ROS JavaScript könyvtár}
+\label{roslibjs}
+A Standard ROS JavaScript könyvtár továbbiakban roslibjs a Robot Web Tools része \cite{toris2015robot}.  Alap JavaScript könyvtár, ami a ROS környezettel való böngészőből történő interakció kialakítására készítettek. A Robot Web Tools olyan eszközök fejlesztésének gyűjteménye melyek célkitűzése a ROS rendszer böngészőből történő használatához készítenek, napjainkban is folyamatosan egyre több funkciót lehetséges elérni benne. A könyvtár két részből áll. Biztosít egy JavaScript könyvtárat melyen keresztül kéréseket tudunk megfogalmazni a ROS szerver számára nevezzük ezt most JavaScript könyvtárnak. A Robot Web Tools legfontosabb része a \textit{rosbridge} protokoll ami a kiadott kérések fogadására van. A \textit{rosbridge\_server} egy ROS szolgáltatás amit el kell indítani, hogy továbbítsa a kéréseinket megfelelő modulok számára.
+\subsubsection{JavaScript könyvtár}  A segítségével ROS alapértelmezett kommunikációs rendszeréhez lehet kéréseket küldeni, üzenet küldések, szervizhívások, és akcióhívások segítségével. A hívás válaszakor egy eseménykezelő \textit{callback} függvény meghívódik (WebShocket-es esemény hatására), amiben le tudjuk kezelni, hogy mi történjen a kiadott utasítás után. Mint korábban már említettem a hálózati kommunikáció a WebShcoket protokoll \cite{fette2011websocket} használatával történik, ennek a segítségével hálózaton keresztül egyszerű esemény alapú programozást lehet megvalósítani, a JavaScript az ilyen típusú programozás közkedvelt nyelve.
+\section{Da Vinci vizuális programozás összefoglaló}
+A ROS modulok használata jelenleg Ubuntu 16.04-es verzióval van tesztelve. A Web modulokat én a mindenkori legfrissebb Manjaro Linux alól tesztelem, de elvi szinten bármilyen disztribúció alkalmas ezek használatra, a megfelelő függőségek feltelítése után. Az Ubuntu 16.04-et javaslom virtualizált környezetben futtatni.
+Az alkalmazás szimulációval történő  da Vinci programozás használathoz a következőket kell tenni. A SAF keretrendszer leírásának megfelelően  el kell indítani egy dVRK PSM kar szimulációt \cite{irobotics2020May}. Majd egy SAF ''dummy`` objektumot kell elhelyezni a szimulációban. A szimulált kar állapotát ''home`` pozíció kell hozni. ''Dummy vision`` elindítás is szükséges. Következő szükséges lépés továbbra is a leírásának megfelelően irob\_robot szolgáltatás majd surgeme\_server szolgáltatás elindítása. A leírástól eltérve kell folyatni. Ez után a web\_actions modul futtatása szükséges. Következő lépésként pedig a '' rosbridge\_websocket`` futtatása szükséges. Ezek után meg vagyunk ROS oldalról. A következőkben az NodeJS szerver modul leírásának megfelelő utasítások futtatása szükséges \cite{aaronrancsik2020May}. Amennyiben ezzel is megvagyunk az alkalmazás localhost hálózton elindította szolgáltatásait. Melyet modern böngészők segítségivel el lehet érni.
 \chapter*{Irodalomjegyzék}
 \addcontentsline{toc}{chapter}{Irodalomjegyzék}  
 \printbibliography[heading=none]
