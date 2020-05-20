@@ -301,7 +301,7 @@ A Blockly egy JavaScript könyvtár melyet böngészőből lehetséges használn
 \subsection{Control}
 Ennek a modulnak a segítségével ki tudjuk listázni az alkalmazáshoz csatlakozott felhasználókat. A csatlakozott felhasználók által létrehozott Blockly utasítás struktúrák minden módodaíráskor automatikusan mentésre kerülnek. A ''control`` modul segítségével lehetséges egy felhasználó egy mentett struktúrájának a betöltése a  ''view`` modulba. Az teljes alkalmazásnak van olyan funkciója melynek segítségével a felhasználók által létrehozott ágensek küzdhetnek egymással, ennek a kezelése is ebből a modulból érhető el ez keserűbb részletezem. Jelen példában maradunk a da Vinci programozásánál. A da Vinci számára létrehozott algoritmust miután betöltjük a ''view`` modulba akkor ''control`` modulnak van lehetősége azt elindítani a da Vinci rendszeren. 
 \subsection{Editor}
-Ez a módul ténylegesen használja a Blockly könyvtárat. Böngészőből a felhasználóknak van lehetősége ezt a modult használni. Ennek a segítségével vizuálisan lehetséges algoritmusokat létrehozni. Amennyiben a da Vinci rendszert szeretnénk programozni szükséges volt egyedi utasítások létrehozására, hogy a da Vinci rendszer számára tudunk magas-szintű utasításokat létrehozni. Jelen esetben még csak tárgyak megfogásának utasítását lehetséges használni. 
+Ez a módul ténylegesen használja a Blockly könyvtárat. Böngészőből a felhasználóknak van lehetősége ezt a modult használni. Ennek a segítségével vizuálisan lehetséges algoritmusokat létrehozni. A da Vinci rendszert programozásához szükséges volt egyedi utasítások létrehozása, hogy a da Vinci rendszer számára tudjunk magas-szintű utasításokat létrehozni. Jelen esetben még csak tárgyak megfogásának utasítását lehetséges használni.
 \begin{figure}[H]
 	\centering
 	\label{fig:myblockly}
@@ -310,13 +310,13 @@ Ez a módul ténylegesen használja a Blockly könyvtárat. Böngészőből a fe
 \end{figure}
 
 \subsection{View}
-Ebbe a modulba töltjük  a felhasználók által létrehozott algoritmust, illetve itt van lehetőség annak futtatására. A ''control`` modul tölti be a kiválasztott felhasználó Blockly utasításait, a Blockly utasításokat JavaScript nyelvi utasításokra fordul ebben a modulban. A különböző Blockly utasítások számára itt lehetséges egyedi JavaScript utasításokat definiálni. A JavaScript-re fordított ágens kódját ''JS-Interpreter`` segítségével futtatom \cite{BibEntry2020Feb}. A ''JS-Interpreter`` egy JavaScriptben írt JavaScript értelmező ''sandbox`` környezet, melyben biztonságosan van lehetőségem elválasztani az ágensek kódjait a böngésző valós JavaScript motorjától. Az ágensek kódja csak és kizárólag egyedileg definiált függvények segítségével tudnak kommunikálni a valós környezettel az a dokumentáció ''API hívásnak`` nevezi, jelen esetben a ''JS-Interpreter``-t könyvtárat használó fejlesztő feladata ennek a hivatkozott ''API`` elkészítése. Az utasítások végrehajtása nem valós-időben történik, folyamatosan megvárja a utasítás végrehajtásának sikerességét. 
+Ebbe a modulba töltjük  a felhasználók által létrehozott algoritmust, illetve itt van lehetőség annak futtatására. A ''control`` modul tölti be a kiválasztott felhasználó Blockly utasításait, a Blockly utasítások JavaScript nyelvi utasításokra fordulnak ebben a modulban. A különböző Blockly utasítások számára itt lehetséges egyedi JavaScript utasításokat definiálni. A JavaScript-re fordított ágens kódját ''JS-Interpreter`` segítségével futtatom \cite{BibEntry2020Feb}. A ''JS-Interpreter`` egy JavaScriptben írt JavaScript értelmező ''sandbox`` környezet, melyben biztonságosan van lehetőségem elválasztani az ágensek kódjait a böngésző valós JavaScript motorjától. Az ágensek kódja csak és kizárólag egyedileg definiált függvények segítségével tudnak kommunikálni a valós környezettel ezt a dokumentáció ''API hívásnak`` nevezi, jelen esetben a ''JS-Interpreter``-t könyvtárat használó fejlesztő feladata a hivatkozott ''API`` elkészítése. Az utasítások végrehajtása nem valós-időben történik, folyamatosan megvárja a utasítás végrehajtásának sikerességét. 
 
 \begin{figure}[H]
 \centering
 \label{fig:davinciblock}
 \includegraphics[width=10cm]{davinciblock}
-\caption{A da Vinci számára törénő utasítás kiadására alkalmas Blockly vezérlési szerkezet }
+\caption{A da Vinci számára történő utasítás kiadására alkalmas Blockly vezérlési szerkezet }
 \end{figure}
 
 \section{Da Vinci webes elérhetősége}
