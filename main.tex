@@ -298,20 +298,39 @@ Unity Technologies által fejlesztet játékmotor. 2D és 3D számítógépes j�
 Rengeteg játékkészítéssel kapcsolatos funkciót biztosít. Kiterjesztett valóság megvalósításához rendelkezik saját megoldással. Itt \cite{kim2014using} egy példa látható arra, hogyan lehetséges a Unity kiterjesztett valóság megoldását használni és milyen előnyök származnak ebből. Az előbbi hivatkozott példában láthatjuk, hogy rengeteg kényelmi funkcióval rendelkezik, melyek használata, csupán kiterjesztett valóság rendszerekben, játékmotor nélkül, sokkal körülményesebb.  További előnye, hogy a Unity rendszerrel készült alkalmazások az összes ma használatos platformra fordíthatóak. 
 \paragraph{Előnyei} 
 \begin{compactitem}
-	\item Szabadon elérhető, nyílt forráskódú
 	\item Ingyenesen használható
 	\item Érthető, naprakész, jó dokumentáció áll rendelkezésre
-	\item Cross-platform: Windows, Linux, Mac, iOS, macOS, Web eszközöket támogatja.
+	\item Használata könnyű
 \end{compactitem}
 \paragraph{Hátrányai} 
 \begin{compactitem}
 	\item Nagyon nagy függőség
-	\item Kifejezetten játék fejlesztésre van, rengeteg extra funkcióval rendelkezik.
-	\item Nem lehetséges mint modul használni
+	\item Kifejezetten játék fejlesztésre van, rengeteg extra funkcióval rendelkezik
+	\item Nem lehetséges csak modulként használni
 	\item Feltétlen alkalmazkodni kell a használatához
+	\item Nem nyílt a forráskódja
 \end{compactitem}
 \paragraph{Konklúzió}
-Úgy gondolom, hogy túlságosan nagy erőforrás és munka pazarlás lenne Unity-t csak kiterjesztett valóság elkészítésére használni. Egyáltalán nem vagy csak nagyon sok plusz munka árán lehetne alkalmazásba integrálni, inkább az alkalmazást kellene a Unity-be integrálni használata esetén.
+Úgy gondolom, hogy túlságosan nagy erőforrás és munka pazarlás lenne Unity-t csak kiterjesztett valóság elkészítésére használni. Egyáltalán nem vagy csak nagyon sok plusz munka árán lehetne alkalmazásba integrálni, inkább az alkalmazást kellene a Unity-ba integrálni használata esetén.
+
+\subsubsection{Unreal Engine}
+Egy szoftver amiy valósidejű 3D grafika készítésére készítettek \cite{unrealengine}. Szűkebb értelemben játékmotornak is lehet  nevezni. Szintén rendelkezik saját megoldással virtuális valóság, kiterjesztett valóság és kevert valóság számára is.
+\paragraph{Konklúzió} Többnyire ugyan azok igazak rá mint a Unitire ezért külön nem tárgyalom. A fejlesztést meghatározná, a motor használatához kellene alkalmazkodni.
+\subsubsection{Mobil megoldások}
+\paragraph{iOS ARKit}
+Az ARKit segítségével, Apple iOS platformra lehetséges kiterjesztett valóság alkalmazást készíteni \cite{arkit}. A korábban említett különböző maga-szintű megoldások pl. Unity ezt a rendszert használja ha iOS platformra készítünk projektet. Egy AR alkalmazás számára szükséges összes funkciót megvalósítja, pl. a telefon kamera pozíció becslését, virtuális objektumok elhelyezését.
+\paragraph{ARCore}
+Hasonlóan az ARKite-hez, az ARCore az Android operációs rendszerrel rendelkező telefonokon elérhető kiterjesztett valóságot biztosító API \cite{arcore}.
+\paragraph{Konklúzió}
+Az előbb említett megoldások használatához Andoid vagy iOS alkalmazás készítése szükséges. A legtöbb játékmotor is ezeket a megoldásokat használja mobil platformokon. 
+\subsubsection{Egyéb kész megoldások}
+\paragraph{Vuforia}
+\paragraph{Wikitude}
+\paragraph{EasyAR}
+\paragraph{Kudan}
+\subsubsection{Egyedi megoldás}
+
+
 \section{Kézvezérlés}
 \label{kezvez}
 
