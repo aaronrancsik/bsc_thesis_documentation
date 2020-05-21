@@ -110,11 +110,11 @@ A korában megfogalmazott célok elérése érdekében végzett kutatómunkát r
 \subsection{Alternatív megoldások vizuális programozásra}
 \label{vizuprogkor}
 Mivel a dolgozatban vizuális  programozást  is szeretnék biztosítani, ezért megvizsgálom milyen konkurens megoldások léteznek erre a célra. Az alábbiakban bemutatok és elemzek több kutatást, korábbi kész alkalmazásokat és programkönyvtárakat melyek mindegyike a vizuális blokk alapú programozást biztosítja.
-\paragraph{Scratch} 
+\subsubsection{Scratch} 
 \label{scratch}
 Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környezet \cite{maloney2010scratch, resnick2009scratch, ScratchUrl2019Jan}, mely vizuális programozást tesz lehetővé. Az alapvető célja olyan média alkalmazások mint pl.: animáció, köszöntések, történet mesélés, zeneklip elkészítésének folyamata közben megtanítani a programozást. Az egyedüli, intuitív tanulás is előnyben részesíti. Főleg kisebb 8-16 éves korosztály számára készült. 
 \par Az elkészült program alapértelmezetten egy saját ``{színpad}'' környezetben futtatható. Esemény vezérelt programozást is lehetővé tesz, ebben az esetben az egyszerre fellépő konkurens utasítások között esetleges versenyhelyzetet kezeli, de nem minden esetben úgy ahogy azt elsőre a használó gondolná.  A programból \textit{broadcast} utasításokkal, saját parancsok, szkriptek végrehajtása lehetséges. A \textit{broadcast} utasítássokkal lehetséges a külvilággal történő kommunikáció is, de körülményes. Kiegészítőkkel bővíthető, de így sem nem lehet az alap működésre kiható szignifikáns módosításokat végrehajtani.
-\subparagraph{Előnyei} 
+\paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú.
 	\item Kész megoldásról beszélve, sokkal kevesebb munka segítségével lehet használni.
@@ -124,7 +124,7 @@ Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környeze
 	\item Tapasztalatok alapján nagyon ismert az általános iskolások körében.
 	\item Érthető, naprakész dokumentáció áll rendelkezésre
 \end{compactitem}
-\subparagraph{Hátrányai} 
+\paragraph{Hátrányai} 
 \begin{compactitem}
 	\item A \textit{broadcast} utasításon kívül máshogy nem megoldható egyedi utasítás létrehozása.
 	\item Az elkészült program csak a saját környezetén belül futtatható, nem lehetséges egyedi környezetben futtatni.
@@ -133,8 +133,8 @@ Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környeze
 	\item Ugyan van webes felület, de saját oldalba nem ágyazható.
 \end{compactitem}
 
-\paragraph{Snap} \label{snap}Új, még kevésbé  ismert, teljes megoldás \cite{harvey2013snap}, segítségével vizuálisan van lehetőségünk programozni. A \nameref{scratch}-el szemben több szabadságot biztosít a személyre szabhatóság tekintetében. Sokkal bonyolultabb problémák megoldására is alkalmas, az objektum orientált paradigmát is támogatja. A környezet kevésbé kezdő barát. \textit{Url} utasításokkal webes  csatlakozó felületen keresztül tud fogadó és küldőként is könnyen kommunikálni a külvilággal. A felhő alapú gépi tanulás szolgáltatásokhoz csatlakoztatva akár ``AI'' fejlesztésre is alkalmas \cite{kahn2018ai}. A párhuzamos ciklusokat időosztásos módszerrel futtatja párhuzamosan ``yield'' utasítások segítségével, de erre is igaz. hogy mindezt igyekszik elrejteni a felhasználók elől és nem igényel különösebb beavatkozást az alapvető működéshez hozzá lehet szokni.
-\subparagraph{Előnyei} 
+\subsubsection{Snap} \label{snap}Új, még kevésbé  ismert, teljes megoldás \cite{harvey2013snap}, segítségével vizuálisan van lehetőségünk programozni. A \nameref{scratch}-el szemben több szabadságot biztosít a személyre szabhatóság tekintetében. Sokkal bonyolultabb problémák megoldására is alkalmas, az objektum orientált paradigmát is támogatja. A környezet kevésbé kezdő barát. \textit{Url} utasításokkal webes  csatlakozó felületen keresztül tud fogadó és küldőként is könnyen kommunikálni a külvilággal. A felhő alapú gépi tanulás szolgáltatásokhoz csatlakoztatva akár ``AI'' fejlesztésre is alkalmas \cite{kahn2018ai}. A párhuzamos ciklusokat időosztásos módszerrel futtatja párhuzamosan ``yield'' utasítások segítségével, de erre is igaz. hogy mindezt igyekszik elrejteni a felhasználók elől és nem igényel különösebb beavatkozást az alapvető működéshez hozzá lehet szokni.
+\paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú.
 	\item Kész megoldásról beszélve, sokkal kevesebb munka segítségével lehet használni.
@@ -146,7 +146,7 @@ Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környeze
 	\item Egyedi blokkok létrehozását támogatja.
 	\item Objektum orientált paradigmát támogatja
 \end{compactitem}
-\subparagraph{Hátrányai} 
+\paragraph{Hátrányai} 
 \begin{compactitem}
 	\item Az elkészült program csak a saját környezetén belül futtatható, nem lehetséges egyedi környezetben futtatni.
 	\item Az elkészült program nem alakítható valódi programkóddá.
@@ -156,8 +156,8 @@ Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környeze
 	\item A objektum orientáltság különböző megkötésekkel érhető el.
 \end{compactitem}
 
-\paragraph{GP} Általános célú blokk alapú \cite{ohshima2015module} \cite{monig2015blocks} programozási nyelv. Egy valódi programozási nyelv mely blokk és kód alapú programozási lehetőséggel is rendelkezik.  Sok alacsony szintű funkciók érhetőek el benne. Sokkal közelebb áll a valóságos programozáshoz a korábban említett lehetőségekhez képest, rendelkezik webes felülettel és a külvilággal internetes \textit{get}, \textit{put} utasítás lehetséges a kommunikáció egyedi rendszerekkel. Támogatja az objektum orientált paradigmát. Tartalmaz bonyolultabb adatszerkezeteket is.
-\subparagraph{Előnyei} 
+\subsubsection{GP} Általános célú blokk alapú \cite{ohshima2015module} \cite{monig2015blocks} programozási nyelv. Egy valódi programozási nyelv mely blokk és kód alapú programozási lehetőséggel is rendelkezik.  Sok alacsony szintű funkciók érhetőek el benne. Sokkal közelebb áll a valóságos programozáshoz a korábban említett lehetőségekhez képest, rendelkezik webes felülettel és a külvilággal internetes \textit{get}, \textit{put} utasítás lehetséges a kommunikáció egyedi rendszerekkel. Támogatja az objektum orientált paradigmát. Tartalmaz bonyolultabb adatszerkezeteket is.
+\paragraph{Előnyei} 
 \begin{compactitem}
 	\item Kész megoldásról beszélve, sokkal kevesebb munka segítségével lehet használni.
 	\item Egyedi működés \textit{get, put} utasításokkal lehetséges. \newline Sokkal kényelmesebben mint \nameref{scratch} esetén.
@@ -166,21 +166,21 @@ Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környeze
 	\item Moduláris módon készült.
 	\item Érthető, naprakész dokumentáció áll rendelkezésre.
 \end{compactitem}
-\subparagraph{Hátrányai} 
+\paragraph{Hátrányai} 
 \begin{compactitem}
 	\item Az elkészült program csak a saját környezeten belül futtatható, nem lehetséges saját környezetben futtatni.
 	\item Az elkészült program nem alakítható valódi programkóddá.
 	\item Ugyan van webes felület, de saját oldalba nem ágyazható.
 \end{compactitem}
 
-\paragraph{Alice} Interaktív 3D Animációs környezet \cite{cooper2000alice}. Az idézett kutatás által megfogalmazottan a  célja egy 3D-s környezet interaktív fejlesztése melyben szabadon lehet felfedezni az elkészült alkotást. Főleg szkript alapú prototípus fejlesztő környezet. 
-\subparagraph{Előnyei} 
+\subsubsection{Alice} Interaktív 3D Animációs környezet \cite{cooper2000alice}. Az idézett kutatás által megfogalmazottan a  célja egy 3D-s környezet interaktív fejlesztése melyben szabadon lehet felfedezni az elkészült alkotást. Főleg szkript alapú prototípus fejlesztő környezet. 
+\paragraph{Előnyei} 
 \begin{compactitem}
 	\item Kész munka elvileg kevesebb munka lehet átalakítani, felhasználni
 	\item Adott 3D környezet
 	\item Esemény vezérelt programozás tanítására is alkalmas
 \end{compactitem}
-\subparagraph{Hátrányai} 
+\paragraph{Hátrányai} 
 \begin{compactitem}
 	\item Az elkészült program csak a saját környezeten belül futtatható, nem lehetséges saját környezetben futtatni.
 	\item Nem vizuális egy sajátos egyedi szkriptnyelvvel rendelkezik.
@@ -189,18 +189,18 @@ Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környeze
 	\item Kissé régi, idejét múlt, már kevésbé támogatott.
 \end{compactitem}
 
-\paragraph{Egyéb kész megoldások}
+\subsubsection{Egyéb kész megoldások}
 A fenti részben az általam, a dolgozatommal legjobban összehasonlítható szempontok alapján fontosnak tartott kész megoldásokat mutattam be. Természetesen rengeteg egyéb kész alkalmazás létezik mely vizuális programozási lehetőséget biztosít. Felsorolás szintjén itt leírok pár szerintem említésre méltó alkalmazást. 
 \begin{compactitem}
 	\item Game Maker \cite{jenson2016exploring} 2D játék készítő, vizuális és saját szkriptnyelvvel is rendelkezik. A teljes verzió pénzbe kerül.
 	\item Stencyl \cite{liu2014making} 2D Játék készítő alkalmazás melyben vizuálisan lehet programozni.
 \end{compactitem}
 A továbbiakban kész alkalmazások helyett, vizuális programozásra készült programkönyvtárak bemutatásával fogom folytatni az választható megoldások listáját.  
-\paragraph{Blockly}
+\subsubsection{Blockly}
 \label{blocly}
 Google által fejlesztett, vizuális programozást támogató program könyvtár \cite{BlocklyUrl2020Feb} \cite{pasternak2017tips}. A vizuális megjelenésért felelős, nem egy programozási nyelv, csak egy vizuális leíró nyelv, mely könnyedén exportálható vallós programozási kóddá. Több létező programozási nyelv kódot lehet a vizuális környezetből generálni, többek között: Javascript, Python, Lua, Dart nyelvű kódokat is. A Blockly könyvtárat sok kész alkalmazás használja a saját egyedi vizuális környezetének megvalósítására.
 Például a korábban említett \nameref{scratch}, \nameref{snap} is használja vizuális könyvtárként, de az ezután részletezett \nameref{pxt} környezet is Blockly-t használ a vizuális megjelenítésre.
-\subparagraph{Előnyei} 
+\paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú.
 	\item Kezdők számára is egyszerűen érthető felület.
@@ -211,16 +211,16 @@ Például a korábban említett \nameref{scratch}, \nameref{snap} is használja 
 	\item Bármilyen futtatási környezetbe könnyen integrálható.
 	\item Rengeteg programkód generálható.
 \end{compactitem}
-\subparagraph{Hátrányai} 
+\paragraph{Hátrányai} 
 \begin{compactitem}
 	\item Csak egy vizuális programozást támogató  ``drag \& dropp'' programkönyvtár.
 	\item Viszonylag régi technológiákkal készült, nehézkes modern környezetben használni.
 \end{compactitem}
 
-\paragraph{MakeCode (PXT)}
+\subsubsection{MakeCode (PXT)}
 \label{pxt}
 Microsoft által fejlesztett, összetett, vizuális programozói környezet támogató, nyílt forráskódú programkönyvtár \cite{seneviratne2019makecode}. A \nameref{blocly} könyvtárat felhasználja a blokk alapú vizuális programozás biztosítására. A blokk alapú programozáson túl biztosít lehetőséget a szöveges programozásra is, egy beépített weboldalon futamítható fejlesztő környezetben. Abban különbözik a korábban alternatív lehetőségektől, hogy egyben nyújt egy teljes fejlesztő környezetet, amihez könnyen hozzá lehet csatolni egy saját \textit{target} modult egyedi utasításokkal. \cite{devine2018makecode} Kutatás részletesen bemutatja, hogyan lehet használni beágyazott rendszerekhez. A fejlesztő környezethez alacsony szintű mikrokontrollerhez való fordítót csatlakoztatva.
-\subparagraph{Előnyei} 
+\paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú.
 	\item Kezdők számára is egyszerűen érthető felület.
@@ -228,16 +228,16 @@ Microsoft által fejlesztett, összetett, vizuális programozói környezet tám
 	\item Program könyvtár, könnyen bővíthető egyedi utasításokkal
 	\item A program futtatási környezetére nincs erős megkötés.
 \end{compactitem}
-\subparagraph{Hátrányai} 
+\paragraph{Hátrányai} 
 \begin{compactitem}
 	\item Integrálása korlátozott, alkalmazkodni kell a felépítéséhez, ettől eltérni nem lehetséges könnyen.
 	\item Béta verzióban van a fejlesztés.
 \end{compactitem}
 
-\subsubsection{Választott vizuális programozási környezet}
+\subsection{Választott vizuális programozási környezet}
 Kipróbáltam, teszteltem a legtöbb felsorolt megoldást, továbbá a korábbi elemzés összevetése  után a Blockly környezet használata mellet döntöttem.
 A dolgozat igényeit nem lehet kész megoldásokkal pl. \nameref{scratch}, \nameref{snap} stb. kielégíteni, mert túlságosan zárt működésük nem teszik lehetővé, hogy egyedi környezethez lehessen programozni ezekben az alkalmazásokban.
-A Blockly kellőképpen módosítható és könnyen beilleszthető, vizuális programozást biztosító programkönyvtár, mely megfelel a feladat részéről támasztott elvárásoknak. A Blocky kellőképpen egyszerűen használható és könnyen egyedi igényeknek megfelelően alakítható.
+A Blockly kellőképpen módosítható és könnyen egyedi környezetbe illeszthető, vizuális programozást biztosító programkönyvtár, mely megfelel a feladat részéről támasztott elvárásoknak, továbbá kellőképpen egyszerűen használható.
 
 
 \section{Da Vinci}
