@@ -14,7 +14,13 @@
 
 \usepackage{paralist}
 
+% for esoteric file path
+\usepackage{grffile}
 
+% load pdf files
+\usepackage{pdfpages}
+
+ 
 %\usepackage{tabularx}
 %\usepackage[table]{xcolor}
 
@@ -68,10 +74,10 @@
 \date{\today}
 
 \begin{document}
-
+\includepdf[page={1,2}]{resources/feladatlap}
 \pagenumbering{Alph}
 \begin{titlepage}
-\maketitle
+%\maketitle
 \thispagestyle{empty}
 \end{titlepage}
 \pagenumbering{arabic}
