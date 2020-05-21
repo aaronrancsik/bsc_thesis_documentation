@@ -282,15 +282,36 @@ Alapvetően arra a célra készült, hogy részleges automatizáció segítség�
 
 \section{Kiterjesztett valóság}
 \label{kitvalo}
-%A \cite{azuma2001recent} kutatásból idézve  kiterjesztett valóságot a következő módon definiálhatjuk: Kiterjesztett valóság az a rendszer, ami a következőket teljesíti:
-%\begin{compactitem}
-%	\item Kombinálja a valós és virtuális objektumokat a valós környezetben.
-%	\item Azonnal fut, és valós időben.
-%	\item Egymáshoz rögzíti (igazítja) %a valós és virtuális objektumokat.
-%\end{compactitem}
-%Virtuális objektumokat szeretnénk elhelyezni a kamera képen úgy, hogy azok mozgása a kamera 3D mozgásához igazodjon. 
-% \par Több létező megoldás van kiterjesztett valóság elkészítéséhez, ezen megoldások összehasonlításáról lesz itt szó.
-
+A célok között szerepelt egy olyan funkció, melynek a segítségével lehetséges kiterjesztett valóság segítésével követni a játékmenetet. Itt szeretném részletezni a hasonló megoldásokat azokból levont következtetéseket.
+A \cite{azuma2001recent} kutatásból idézve  kiterjesztett valóságot a következő módon definiálhatjuk. Az a rendszer, ami a következőket teljesíti:
+\begin{compactitem}
+	\item Kombinálja a valós és virtuális objektumokat a valós környezetben.
+	\item Azonnal fut, és valós időben.
+	\item Egymáshoz rögzíti (igazítja) %a valós és virtuális objektumokat.
+\end{compactitem}
+Virtuális objektumokat szeretnénk elhelyezni a kamera képen úgy, hogy azok mozgása a kamera 3D mozgásához igazodjon. 
+\par Több létező megoldás van kiterjesztett valóság elkészítéséhez, ezen megoldások összehasonlításáról lesz itt szó.
+A legtöbb esetben nagyobb gyártók szolgáltatásaként lehetséges különböző kiterjesztett valóság
+\subsection{Alternatív kiterjesztett valóság megoldások}
+\subsubsection{Unity}
+Unity Technologies által fejlesztet játékmotor. 2D és 3D számítógépes játékok elkészítésre alkalmas. Napjaink egyik, ha nem a legnépszerűbb játék fejlesztő motorja \cite{haas2014history}.
+Rengeteg játékkészítéssel kapcsolatos funkciót biztosít. Kiterjesztett valóság megvalósításához rendelkezik saját megoldással. Itt \cite{kim2014using} egy példa látható arra, hogyan lehetséges a Unity kiterjesztett valóság megoldását használni és milyen előnyök származnak ebből. Az előbbi hivatkozott példában láthatjuk, hogy rengeteg kényelmi funkcióval rendelkezik, melyek használata, csupán kiterjesztett valóság rendszerekben, játékmotor nélkül, sokkal körülményesebb.  További előnye, hogy a Unity rendszerrel készült alkalmazások az összes ma használatos platformra fordíthatóak. 
+\paragraph{Előnyei} 
+\begin{compactitem}
+	\item Szabadon elérhető, nyílt forráskódú
+	\item Ingyenesen használható
+	\item Érthető, naprakész, jó dokumentáció áll rendelkezésre
+	\item Cross-platform: Windows, Linux, Mac, iOS, macOS, Web eszközöket támogatja.
+\end{compactitem}
+\paragraph{Hátrányai} 
+\begin{compactitem}
+	\item Nagyon nagy függőség
+	\item Kifejezetten játék fejlesztésre van, rengeteg extra funkcióval rendelkezik.
+	\item Nem lehetséges mint modul használni
+	\item Feltétlen alkalmazkodni kell a használatához
+\end{compactitem}
+\paragraph{Konklúzió}
+Úgy gondolom, hogy túlságosan nagy erőforrás és munka pazarlás lenne Unity-t csak kiterjesztett valóság elkészítésére használni. Egyáltalán nem vagy csak nagyon sok plusz munka árán lehetne alkalmazásba integrálni, inkább az alkalmazást kellene a Unity-be integrálni használata esetén.
 \section{Kézvezérlés}
 \label{kezvez}
 
@@ -298,6 +319,7 @@ Alapvetően arra a célra készült, hogy részleges automatizáció segítség�
 \section{Kamera mozgás becslés}
 \subsection{Markerek keresése}
 
+\chapter{Részletes munkaterv}
 
 \chapter{Megvalósítás}
 \section{Da Vinci vizuális programozási környezete}
