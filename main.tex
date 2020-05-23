@@ -401,10 +401,27 @@ Számomra fontos volt, hogy az AR rendszer átlátható kegyen, nem csak egy has
 \end{figure}
 
 A különböző megoldásokat összehasonlítva, a saját AR megoldás megvalósítása mellet döntöttem. Fő indokom, egy olyan rendszer készítése, melynek a működése megérthető ennélfogva, amennyire lehetséges nem támaszkodik fekete-dobozokra.
-
+\section{Mások által elkészült tanulmányozható megoldások}
+todo
 \section{Saját AR elméleti felépítése}
 Annak érdekében, hogy saját AR rendszert készítsek, igyekeztem utána járni a lehetséges módszereknek, és azok alapfogalmainak.
-Alapvetően abból indultam ki, hogy egy átlagos telefon kameraképeivel működjön a rendszer, így reális minőségű képekkel tudok dolgozni. 
+Alapvetően abból indultam ki, hogy egy átlagos telefon kameraképeivel működjön a rendszer, így reális minőségű képekkel tudok dolgozni.
+\subsection{Kamera kalibráció}
+Kalibrált képen a valóságban egyenes szakaszok a képeken is így fognak megjelenni. Egy kamera rendelkezik külső és belső tulajdonságokkal. 
+\paragraph{Külső tulajdonság} Így nevezzük, a 3D pozíció és  orientáció együttesét. Az előbb említett összetett  tulajdonság különösebb bizonyítás nélkül belátható, hogy egy transzformációs mátrix segítségével leírható.
+\paragraph{Belső tulajdonság} 
+Összetett tulajdonság mátrixban tárolva. A kamera középpontjának koordinátáit, a pixelek méreteit tartalmazza.  A kamerák képei nem tökéletesek. Tangenciális torzulás lehetséges az objektív miatt, ezt hívják halszem hatásnak is, ennek a korrigálását teszi lehetővé ezen tulajdonságok pontos meghatározása. 
+\par  A kamera külső és belső paramétereinek megismerése érdekében a kamerakalibráció egy szükséges lépés a 3D gépi látáshoz. Itt \cite{zhang1999flexible} láthatunk, egy  napjainkban is elterjedt módszer működését.
+\paragraph{A bemutatott módszer előnyei} 
+\begin{compactitem}
+	\item Nem igényel különösebben drága felszelést. 
+	\item A folyamat könnyen kivitelezhető a kamera, mintázat szabad kézzel tartható 
+	\item Pontosabb mint, az automatikus kalibrációs módszerek.
+\end{compactitem}
+
+
+
+
 
 \chapter{Részletes munkaterv}
 asdasd
