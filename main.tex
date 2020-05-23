@@ -368,22 +368,7 @@ Számomra fontos volt, hogy az AR rendszer átlátható kegyen, nem csak egy has
 
 \begin{figure}[H]
 	\centering
-	
-%	\begin{tikzpicture}
-%	
-%	\matrix (first) [table,text width=9em]
-%	{
-%		& Játékmotorok   & Fizetős könyvtárak & Egyedi megoldás\\
-%		Forráskód   & Zárt & Zárt & NyíltC \\
-%		Sebesség   & OptimalizáltF & Többnyire optimalizált & A fejlesztőn múlik \\
-%		Egyedi igények   & A & B & C \\
-%		Módosítás   & F & G & H \\
-%	};
-%	
-%	\end{tikzpicture}
-
-%\rowcolors{2}{gray!100!white!10}{gray!100!white!1}
-\begin{tabular}{s|p{3.5cm}|p{3.5cm}|p{3.5cm} }
+	\begin{tabular}{s|p{3.5cm}|p{3.5cm}|p{3.5cm} }
 	%\hline
 	%\rowcolor{lightgray} \multicolumn{3}{|c|}{Country List} \\
 	%\hline
@@ -401,9 +386,11 @@ Számomra fontos volt, hogy az AR rendszer átlátható kegyen, nem csak egy has
 \end{figure}
 
 A különböző megoldásokat összehasonlítva, a saját AR megoldás megvalósítása mellet döntöttem. Fő indokom, egy olyan rendszer készítése, melynek a működése megérthető ennélfogva, amennyire lehetséges nem támaszkodik fekete-dobozokra.
-\section{Mások által elkészült tanulmányozható megoldások}
+\section{Hasonló megoldások}
+
+Gyakorlati \cite{prochazka2011augmented} összefoglalót láthatunk  arról, hogy különböző alkalmazások segítségével milyen kihívásokkal kell szembenézni AR megvalósítása során. 
 todo
-\section{Saját AR elméleti felépítése}
+\section{Saját AR készítéshez szükséges irodalomkutatás}
 Annak érdekében, hogy saját AR rendszert készítsek, igyekeztem utána járni a lehetséges módszereknek, és azok alapfogalmainak.
 Alapvetően abból indultam ki, hogy egy átlagos telefon kameraképeivel működjön a rendszer, így reális minőségű képekkel tudok dolgozni.
 \subsection{Kamera kalibráció}
@@ -412,16 +399,99 @@ Kalibrált képen a valóságban egyenes szakaszok a képeken is így fognak meg
 \paragraph{Belső tulajdonság} 
 Összetett tulajdonság mátrixban tárolva. A kamera középpontjának koordinátáit, a pixelek méreteit tartalmazza.  A kamerák képei nem tökéletesek. Tangenciális torzulás lehetséges az objektív miatt, ezt hívják halszem hatásnak is, ennek a korrigálását teszi lehetővé ezen tulajdonságok pontos meghatározása. 
 \par  A kamera külső és belső paramétereinek megismerése érdekében a kamerakalibráció egy szükséges lépés a 3D gépi látáshoz. Itt \cite{zhang1999flexible} láthatunk, egy  napjainkban is elterjedt módszer működését.
-\paragraph{A bemutatott módszer előnyei} 
+\paragraph{A bemutatott kalibráció előnyei} 
 \begin{compactitem}
 	\item Nem igényel különösebben drága felszelést. 
 	\item A folyamat könnyen kivitelezhető a kamera, mintázat szabad kézzel tartható 
 	\item Pontosabb mint, az automatikus kalibrációs módszerek.
 \end{compactitem}
 
+\subsection{Képpontok egymásnak megfeleltetése}
+Egy digitális képen alapvetően színek, fényességértékek sokaságaként tárolunk, ebből szeretnénk egy adott pontot megnevezni. A következő megközelítéseket vizsgáltam meg. Egy egyszerűbb megközelítés, a klasszikusnak számító Multiple View Geometry című könyvben is találunk \cite[ó.~140]{hartley2003multiple}, melyben példaképp RANSAC \cite{derpanis2010overview} algoritmus segítségével, közelít optimális képpont megfeleltetést. Legegyszerűbben szerintem ezen a példán érthető meg.
+
+\paragraph{Jellemző pontok keresése}
+Az úgy nevezett, \textit{wide baseline stereo} megközelítésbe tartozik eza fajta megközelítés.
+Bizonyos jellemzők \textit{feature} alapján lehetséges jellemezni képen egy pontot. Az a cél, hogy az adott karakterisztika, tulajdonság amivel jellemeztünk egy pontot, folyamatosan minél tovább, megmaradjon az egymás utáni képeken. Így az adott ''egyedi`` pont, több képen is beazonosítható. A jellemzőt előállító algoritmust \textins{feature descriptor}-nak hívja szakirodalom. Később fogok  ezzel részletesebben foglalkozni.
+
+\paragraph{Jellemző leírók}
+Egy képből jellegzetes, többnyire nagy lokális kontrasztú pontokat jelölünk el. Ezeket a pontokat fényviszony változása mellet, illetve átméretezett és átforgatott képen is szeretnénk megtalálni, ezt utóbbit hívják méretezés és forgatás invarianciának.
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{s|p{3.5cm}|p{3.5cm}|p{3.5cm} }
+		%\hline
+		%\rowcolor{lightgray} \multicolumn{3}{|c|}{Country List} \\
+		%\hline
+		& SIFT \cite{lowe2004distinctive} & SURF \cite{bay2006surf} &  ORB \cite{rublee2011orb} \\
+		\hline
+		Ingyenes? & Nem & Nem & Igen \\
+		Méret invarián? & Igen & Igen & Igen \\
+		Forgatás invariáns? & Igen & Igen & Nem \\
+		Elterjedtség & Mára kevésbé népszerű & Népszerű & Népszerű \\
+		Egyéb tulajdonság 
+		& Képes a pontról 8 irányban gradiens jellemzők alapján beazonosítást végezni.
+		Minden talált ponthoz egy orientációt is meghatároz. 
+		& A SIFT gyorsított változat., Kicsit pontatlanabb, de sokkal gyorsabb. Jól párhuzamosítható algoritmus. Közelítő módszerekkel számol, a gyorsaság édenkében 
+		& Ingyenes alternatíva a SIFT és SURF algoritmusokra. Több módszer kombinációjaként született meg.\\
+	
+		%\hline
+	\end{tabular}
+	\caption{Jellemző leírók összehasonlítása}
+\end{figure}
 
 
+\paragraph{Optikai-folyam}
+\textit{Optical Flow} (OF), \textit{Small deformation} kategóriába lehet sorolni, mely alap feltételezésében eltér a korábban említett \textit{wide baseline stereo} megközelítéstől. Az alap feltételezés, hogy nagyon kicsi két képkocka között a különbség, továbbá egy adott és pixel környezet, nem feltétlen ugyanolyan, de hasonló  mozgást végez. A teljes mozgás \textit{smooth}, sima, nincsenek olyan pixelek amik külön utat járnak.  A modell \textit{dense} sűrű ábrázolására alkalmasak, ellentétben a jellemzőpont keresésessel.Kötelező megemlítenem a Lucas-Kanade \cite{lucas1981iterative} és Horn-Schunck \cite{horn1981determining} egyszerre, igen korán 1981-ben bemutatott kutatását. Horn a az összes pixelhez  mozgás vektort rendel, ezért a korai időszakban nem volt valósidejű, de mára már annak lehet tekinteni. Kanade megoldása viszont, könnyebben megérthető. Ma már alap algoritmusnak annyira közkedvelt és alapvető algoritmusnak számítanak, hogy videokártyák minta kódja között is lehet találkozni ezekkel.
+ 
 
+\subsection{Kamera mozgásának rekonstrukciója}
+Miután ismerjük a kamera tulajdonságait a képekkel torzítás mentesen tudunk a továbbiakban dolgozni.
+A kamera mozgásának meghatározása a kamerával készült képekből. A videó feldolgozása során, szeretnénk minden képhez egy merev-test mozgást meghatározni, melyre igaz, hogy a virtuális objektumra történő alkalmazás esetén a tanformáció után az objektum a kamera képen, megfelelő szögbe és pozícióba kerül az objektum. (Az első kép esetén természetesen külön kell dönteni a virtuális objektum elhelyezkedéséről.)
+
+\subsubsection{Simultaneous Localisation and Mapping}
+Meg kell különböztetni az ismert és ismeretlen \textit{scene} ''jelenet``-ben történő kamera \textit{tracking} ''követés``-t. Ismeretlen jelenet esetén, egy lehetséges kidolgozott megközelítés a ''Simultaneous Localisation and Mapping`` (SLAM). Egy módszer arra, hogy a kialakított modell, \textit{structure} és kapott kép információk alapján lehetőleg minél pontosabban szeretnénk a kamera merev-test mozgását meghatározni.
+Az egyik nagy előrehaladás a 2003-ban bemutatott sokat hivatkozott valósidejű megvalósítás \cite{davison2003real}. A megoldás egy kamerát használt, \textit{monocular} SLAM-nek szokás nevezni. 
+Az ötlet a Kálmán szűrőn alapszik \cite{welch1995introduction}, mely a egy optimális becslő algoritmus. Egy modell állapotából és tapasztalat által szerzett zajos állapotból igyekszik optimális állapotot meghatározni. Ennek egy továbbfejlesztett megoldására latunk példát itt \cite{klein2008improving} mely a modellt magasabb szintű részekkel bővítette ki. A SLAM módszerekről elmondható, hogy legtöbb esetben a jellemző képpontok keresését és azok egymásnak való megfeleltetésének módszereket használnak, de optikai-folyam módszer alapján is működhetnek. 
+Robotika területén, gyakran alkalmazzák, legtöbb specifikus programkönyvtár több variánsát támogatja.
+
+\subsection{Saját AR, jelölő keresésén alapuló módszerrel}
+Az eddigiektől egészen eltérően megközelítés. A kamera mozgásának meghatározása helyett, egy előre ismert \textit{marker}, ''jelölő``  keresése a cél. 
+
+Egy előre kiszámolt hasítótáblázatból keres jelölőket a képeken. Fontos, hogy a jelölők konkrét fizikai méretének az ismeret is szükséges. Bináris négyzet alakú jelölőket keres. 
+A \cite{garrido2014automatic} munkában részletesen leírják a jelölők detektálásának működését. Nagy vonalakban a következőképpen működik. 
+\begin{enumerate}
+	\item Szűrést véges négyzetnek tűnő alakzatokra, ezeket a jelölteknek hívjuk. Itt érdemes megemlíteni, hogy a keresett négyzetek tetszőlegesen elforgatva lehetnek a képeken.
+	\item  Miután a jelöltek megvannak a tartalmukat bizonyos szabályossági tesztnek, idegenszóval a kijelölt négyzet belső tartalom kodifikációját kell ellenőrizni. Magyarán ellenőrizzük, hogy megfelel-e bizonyos szabályoknak, pl. mivel a jelölők mind fekete sávval vannak körbe véve, ezért lehet vizsgálni hogy a konkáv tulajdonságnak megfelelnek-e fekete sávok, vagy egyéb komplexebb tulajdonságot.
+	\item Az elkészült modul, élő kamera folyamon próbál keresni egy előre megadott jelölő listákból minél többet, majd megjeleníti a 3D-s elhelyezkedését a talált jelölőknek.
+\end{enumerate}
+egy    Jelző beazonosításhoz szükség van kalibrált kamerára, magyarán ismerni kell a kamera és objektív torzulás mátrixokra, mert a torzítást ki kell korrigálni a keresés elött. Ezt a feladatot a OpenCV Aruco könyvtár segítségével oldottam meg.  A jelölő detektálást a könyvtár végzi. Az eredmény 6 jelölő alapú póz meghatározás ábrán is látható, a módszer valós idejű gyors, 
+
+\paragraph{Összehasonlítás a korábbi ötlettel}
+ Ennek a feladatnak a megvalósítása sokkal kisebb számítás igénnyel rendelkezik.
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{s|p{5.5cm}|p{5.5cm} }
+		%\hline
+		%\rowcolor{lightgray} \multicolumn{3}{|c|}{Country List} \\
+		%\hline
+		& AR kamera pozíció rekonstrukcióval &  AR jelölő kereséssel \\
+		\hline
+		Kamera kalibráció & Szükséges & Szükséges \\
+		Erőforrásigény & Magas & Közepes \\
+		Használatához szükséges eszközök & Kamera & Kamera, jelölő \\
+		Megvalósítás & Bonyolult & Kevésbé bonyolult \\
+		Előnyök, hátrányok 
+		& Jól tűri a hibákat, viszont jelölő nélkül nem használható. 
+		& Robusztusabb rendszer, elfordulhat drift jelenség.
+		
+		%\hline
+	\end{tabular}
+	\caption{Saját AR alapvető ötleteinek összehasonlítása}
+\end{figure}
+
+
+\subsection{Saját AR Konklúzió}
+Az előbb tárgyalt módszerek, legtöbbjének legalább alapvető ismeretére, de adott esetben a teljes  működésével tisztában kell lenni, saját AR készítése során. Előreláthatólag nem lesz könnyű feladat megvalósítani. Főleg a futásidőre történő optimalizáció szempontjából sokkal rosszabb helyzetben van, mint nagy gyártók által elkészült alternatívák. Mérlegelve a feladat nagyságát és értelmét, arra döntésre jutottam, hogy saját AR rendszer elkészítésébe kezdek. Úgy gondolom, hogy megéri ezen a területen kutatni, és egy egyszerűbb, de teljesen igényeknek megfelelő AR alkalmazást készíteni, ha más nem a elkészítés során szerzett új ismeretek miatt is.
 
 \chapter{Részletes munkaterv}
 asdasd
