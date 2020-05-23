@@ -10,9 +10,13 @@
 \selectlanguage{magyar}
 \usepackage[utf8]{inputenc}
 
+\usepackage[table]{xcolor}
+
 \usepackage{csquotes}
 
 \usepackage{paralist}
+
+
 
 % for esoteric file path
 \usepackage{grffile}
@@ -20,9 +24,21 @@
 % load pdf files
 \usepackage{pdfpages}
 
- 
-%\usepackage{tabularx}
-%\usepackage[table]{xcolor}
+% create neat tables
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usepackage{tabularx}
+\setlength{\extrarowheight}{2pt}
+
+
+% UML
+%\usepackage{emp}
+\usepackage[school,simplified]{pgf-umlcd}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usepackage{fullpage}
+
+% monospae font
 
 % images 
 \usepackage{graphicx}
@@ -57,6 +73,15 @@
 \BiblatexHungarianWarningOff
 \addbibresource{./mainbibliography.bib}
 
+% compare table settings
+%\setlength{\arrayrulewidth}{0.1mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{1.6}
+
+\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{2.5cm}}
+
+
+
 
 
 %top matter
@@ -74,6 +99,7 @@
 \date{\today}
 
 \begin{document}
+
 \includepdf[page={1,2}]{resources/feladatlap}
 \pagenumbering{Alph}
 \begin{titlepage}
