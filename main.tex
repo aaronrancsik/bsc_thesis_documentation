@@ -126,13 +126,13 @@ Az oktatásban manapság elterjedt gyakorlat az oktatott anyag játékos megfoga
 \par Úgy gondolom, hogy a programozásoktatást egyik legszemléletesebb területe a robotprogramozás, ezért azt célt is kitűztem, hogy az egyetemen elérhető da Vinci robotot is lehessen a rendszer által vezérelni. Magas-szintű program utasítások biztosításának a segítségével könnyen, érthetően lehet szemléltetni a robotika területét is, és a programozáson túl, az orvostudomány robotika iránt is  lehetséges érdeklődést kelteni a fiatalokban.
 \par Röviden összefoglalva, a következő irodalomkutatást készítettem a fent megfogalmazott célok ügyében. Első lépésként, a kitűzött célok  megvalósítsa érdekében, a \ref{vizuprogkor} részben a vizuális programozási környezet elkészítésének lehetőségeit részletezem, mely abban segít, hogy egy konkrét programozási nyelv tanulásának kezdeti nehézségein átugorva, vizuális eszközökkel teszi elérhetővé a programozást, akár laikusok számára is. A \nameref{modtan} szekció \ref{davinci} részben azt vizsgálom, milyen lehetőségek vannak a Da Vinci robot egyszerű maga-szintű programozására. A \ref{kitvalo} szekcióban, a napjainkban népszerű, kiterjesztett valóság megvalósításának lehetőségeit részletezem. A \nameref{modtan} utolsó szekciójában \ref{kezvez} a kézvezérlés funkció megvalósításához szükséges ismereteket igyekszem analizálni.
 
-%\section{Algoritmus elmélet}
-%Az algoritmus definiálása nehéz feladat, erre nem vállalkoznék, az kijelenthető, hogy azokat a feladatokat lehet algoritmizálni melyek működése Turing gép segítségével megvalósítható.  
+\paragraph{Algoritmus elmélet}
+Az algoritmus definiálása nehéz feladat, erre nem vállalkoznék, azt ki merem jelenteni, hogy azokat a feladatokat lehet algoritmizálni, melyek működése Turing-gép segítségével megvalósítható. A fiatalok számára az algoritmikus gondolkozást igyekszem szemléltetni. Az évek során több paradigma kialakult a programozásra, melyek inkább már az absztrakt gondolkozást részesítik előnyben. Úgy gondolom, hogy termesztésen ezeknek is helyük van az oktatásban, de az alapvető algoritmikus gondolkozásmód kialakításához nem szükségesek sőt, véleményem szerint hátráltatóak. A későbbikben részletezett vizuális programozó környezet vizsgálatakor, termesztésen alapvető elvárás volt részemről, hogy az adott megoldás ''Turing-teljes`` legyen. Bár a vizsgált megoldások többsége több, különböző paradigma eszközeit tartalmazza, ezeknek a tulajdonságoknak nem tulajdonítottam különösebb prioritást a vizsgálat során. A későbbiekben választott módszer, a strukturált programozási paradigmát támogatja.
 
 \chapter{Módszertan}
 \label{modtan}
 A korában megfogalmazott célok elérése érdekében végzett kutatómunkát részletezem, ebben a fejezetben.
-Az is célom hogy az elkészült alkalmazás működése is oktatási célokra bemutatható legyen. Ezért a megvalósítás során, olyan könyvtárakat igyekszem használni,  melyek forráskódja, működése szabadon elérhető. Amennyire lehetséges igyekszem az egyszerűbb megvalósítások irányában hajlani, értem ez alatt azt, hogy inkább olyan megoldások használatát preferálom ami, ''csak`` egy adott feladatra biztosít megoldást, de a használatához nem szükséges egy nagy, bonyolult rendszert használni. Ebből  kifolyólag például mellőzni igyekszem a különböző felhőszolgáltatások és zárt könyvtárak, valamint az ilyen komplett óriási kódbázisok, játékmotorok használatát.
+Az is célom, hogy az elkészült alkalmazás működése is oktatási célokra bemutatható legyen. Ezért a megvalósítás során, olyan könyvtárakat igyekszem használni,  melyek forráskódja, működése szabadon elérhető. Amennyire lehetséges igyekszem az egyszerűbb megvalósítások irányában hajlani, értem ez alatt azt, hogy inkább olyan megoldások használatát preferálom ami, ''csak`` egy adott feladatra biztosít megoldást, de a használatához nem szükséges egy nagy, bonyolult rendszert használni. Ebből  kifolyólag például mellőzni igyekszem a különböző felhőszolgáltatások és zárt könyvtárak, valamint az ilyen komplett óriási kódbázisok, játékmotorok használatát.
 \section{Vizuális programozási környezet}
 \subsection{Alternatív megoldások vizuális programozásra}
 \label{vizuprogkor}
@@ -140,7 +140,7 @@ Mivel a dolgozatban vizuális  programozást  is szeretnék biztosítani, ezért
 \subsubsection{Scratch} 
 \label{scratch}
 Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környezet \cite{maloney2010scratch, resnick2009scratch, ScratchUrl2019Jan}, mely vizuális programozást tesz lehetővé. Az alapvető célja olyan média alkalmazások mint pl.: animáció, köszöntések, történet mesélés, zeneklip elkészítésének folyamata közben megtanítani a programozást. Az egyedüli, intuitív tanulás is előnyben részesíti. Főleg kisebb 8-16 éves korosztály számára készült. 
-\par Az elkészült program alapértelmezetten egy saját ``{színpad}'' környezetben futtatható. Esemény vezérelt programozást is lehetővé tesz, ebben az esetben az egyszerre fellépő konkurens utasítások között esetleges versenyhelyzetet kezeli, de nem minden esetben úgy ahogy azt elsőre a használó gondolná.  A programból \textit{broadcast} utasításokkal, saját parancsok, szkriptek végrehajtása lehetséges. A \textit{broadcast} utasítássokkal lehetséges a külvilággal történő kommunikáció is, de körülményes. Kiegészítőkkel bővíthető, de így sem nem lehet az alap működésre kiható szignifikáns módosításokat végrehajtani.
+\par Az elkészült program alapértelmezetten egy saját ``{színpad}'' környezetben futtatható. Esemény vezérelt programozást is lehetővé tesz, ebben az esetben az egyszerre fellépő konkurens utasítások között esetleges versenyhelyzetet kezeli, de nem minden esetben úgy ahogy azt elsőre a használó gondolná.  A programból \textit{broadcast} utasításokkal, saját parancsok, szkriptek végrehajtása lehetséges. A \textit{broadcast} utasítássokkal lehetséges a külvilággal történő kommunikáció is, de körülményes. Kiegészítőkkel bővíthető, de így sem lehet az alap működésre kiható szignifikáns módosításokat eszközölni.
 \paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú.
@@ -222,10 +222,10 @@ A fenti részben az általam, a dolgozatommal legjobban összehasonlítható sze
 	\item Game Maker \cite{jenson2016exploring} 2D játék készítő, vizuális és saját szkriptnyelvvel is rendelkezik. A teljes verzió pénzbe kerül.
 	\item Stencyl \cite{liu2014making} 2D Játék készítő alkalmazás melyben vizuálisan lehet programozni.
 \end{compactitem}
-A továbbiakban kész alkalmazások helyett, vizuális programozásra készült programkönyvtárak bemutatásával fogom folytatni az választható megoldások listáját.  
+A továbbiakban kész alkalmazások helyett, vizuális programozásra készült programkönyvtárak bemutatásával fogom folytatni a választható megoldások listáját.  
 \subsubsection{Blockly}
 \label{blocly}
-Google által fejlesztett, vizuális programozást támogató program könyvtár \cite{BlocklyUrl2020Feb} \cite{pasternak2017tips}. A vizuális megjelenésért felelős, nem egy programozási nyelv, csak egy vizuális leíró nyelv, mely könnyedén exportálható vallós programozási kóddá. Több létező programozási nyelv kódot lehet a vizuális környezetből generálni, többek között: Javascript, Python, Lua, Dart nyelvű kódokat is. A Blockly könyvtárat sok kész alkalmazás használja a saját egyedi vizuális környezetének megvalósítására.
+Google által fejlesztett, vizuális programozást támogató programkönyvtár \cite{BlocklyUrl2020Feb} \cite{pasternak2017tips}. A vizuális megjelenésért felelős, nem egy programozási nyelv, csak egy vizuális leíró nyelv, mely könnyedén exportálható vallós programozási kóddá. Több létező programnyelv kódot lehet a vizuális környezetből generálni, többek között: JavaScript, Python, Lua, Dart nyelvű kódokat is. A Blockly könyvtárat sok kész alkalmazás használja a saját egyedi vizuális környezetének megvalósítására.
 Például a korábban említett \nameref{scratch}, \nameref{snap} is használja vizuális könyvtárként, de az ezután részletezett \nameref{pxt} környezet is Blockly-t használ a vizuális megjelenítésre.
 \paragraph{Előnyei} 
 \begin{compactitem}
@@ -246,7 +246,7 @@ Például a korábban említett \nameref{scratch}, \nameref{snap} is használja 
 
 \subsubsection{MakeCode (PXT)}
 \label{pxt}
-Microsoft által fejlesztett, összetett, vizuális programozói környezet támogató, nyílt forráskódú programkönyvtár \cite{seneviratne2019makecode}. A \nameref{blocly} könyvtárat felhasználja a blokk alapú vizuális programozás biztosítására. A blokk alapú programozáson túl biztosít lehetőséget a szöveges programozásra is, egy beépített weboldalon futamítható fejlesztő környezetben. Abban különbözik a korábban alternatív lehetőségektől, hogy egyben nyújt egy teljes fejlesztő környezetet, amihez könnyen hozzá lehet csatolni egy saját \textit{target} modult egyedi utasításokkal. \cite{devine2018makecode} Kutatás részletesen bemutatja, hogyan lehet használni beágyazott rendszerekhez. A fejlesztő környezethez alacsony szintű mikrokontrollerhez való fordítót csatlakoztatva.
+Microsoft által fejlesztett, összetett, vizuális programozói környezetet biztosító, nyílt forráskódú programkönyvtár \cite{seneviratne2019makecode}. A \nameref{blocly} könyvtárat felhasználja a blokk alapú vizuális programozás biztosítására. A blokk alapú programozáson túl biztosít lehetőséget a szöveges programozásra is, egy beépített weboldalon futamítható fejlesztő környezetben. Abban különbözik a korábbi alternatív lehetőségektől, hogy egyben nyújt egy teljes fejlesztő környezetet, amihez könnyen hozzá lehet csatolni egy saját \textit{target} modult egyedi utasításokkal. A \cite{devine2018makecode} kutatás részletesen bemutatja, hogyan lehet használni beágyazott rendszerekhez. A fejlesztő környezethez alacsony szintű mikrokontrollerhez való fordítót csatlakoztatva.
 \paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú.
@@ -271,7 +271,7 @@ A Blockly kellőképpen módosítható és könnyen egyedi környezetbe illeszth
 A célok között szerepelt a da Vinci robot egyszerű vezérlése. 
 Az elkövetkező részben, igyekszem körbejárni a lehetőségeket és elemezni előnyeit hátrányait, melyek segítségével lehet kapcsolódni a da Vinci rendszerhez. Az egyetemen egy 2010-ben bemutatott első generációs da Vinci classic rendszerhez van lehetőség hozzáférni, ezért ehhez készül az alkalmazás. A továbbiakban mindig erről a modellről lesz szó.
 \subsection{Robot Operating System}
-Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan egy fizikai da Vinci rendszerrel dolgozni, egy olyan környezetre van szükség ami képes biztosítani da Vinci robotot virtuálisan. Több rendszer elérhető mely robot programozás vezérlő környezetet biztosít, csak felsorolás szintjén néhány \cite{BibEntry2020May, montemerlo2003perspectives}, azonban az egyik legkorábbi és legnépszerűbb lehetőség a Robot Operating System \cite{quigley2009ros} továbbiakban csak ROS. A ROS órási és növekvő közösséggel rendelkezik, \textit{de facto} standard az iparban és kutatásban. Dolgozatomban több szempont miatt is a legjobb választásnak a ROS rendszert bizonyult. Attól a hátrányától eltekintve, hogy nem multiplatform azaz csak Ubuntu GNU/Linux és annak is csak bizonyos verzióihoz támogatott hivatalosan, rengeteg előnnyel rendelkezik. Sok robotvezérléssel kapcsolatos alapfunkciót tartalmaz, amit így nem kell újból megírni, biztosít egy jól elszeparált keretet külön a kommunikációra és az üzleti logikára.
+Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan egy fizikai da Vinci rendszerrel dolgozni, egy olyan környezetre van szükség ami képes biztosítani da Vinci robotot virtuálisan. Több rendszer elérhető mely robot programozás vezérlő környezetet biztosít, csak felsorolás szintjén néhány \cite{BibEntry2020May, montemerlo2003perspectives}, azonban az egyik legkorábbi és legnépszerűbb lehetőség a Robot Operating System \cite{quigley2009ros} továbbiakban ROS. A ROS órási és növekvő közösséggel rendelkezik, \textit{de facto} standard az iparban és kutatásban. Dolgozatomban több szempont miatt is a legjobb választásnak a ROS rendszer bizonyult. Attól a hátrányától eltekintve, hogy nem multiplatform azaz csak Ubuntu GNU/Linux és annak is csak bizonyos verzióihoz támogatott hivatalosan, rengeteg előnnyel rendelkezik. Sok robotvezérléssel kapcsolatos alapfunkciót tartalmaz, amit így nem kell újból megírni, biztosít egy jól elszeparált keretet külön a kommunikációra és az üzleti logikára.
 \paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú
@@ -288,8 +288,8 @@ Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan egy fizika
 
 \subsection{Da Vinci Research Kit}
 \label{davinci}
-A da Vinci Research Kit továbbiakban dVRK egy nyílt forráskódú rendszer ami lehetővé teszi a Da Vinci robot karok programozását \cite{kazanzides2014open}. A ROS rendszerhez kapcsolódik, könnyen lehetséges az utasításait használni egy ROS  modult biztosít használatra.  A célkitűzéseimhez képest viszonylag alacsony-szintű da Vinci robotkarvezérlő utasítások kiadására alkalmas.
-Ennek a modulnak a segítségivel lehetséges a ROS rendszerrel da Vinci robotot vezérelni, továbbá virtuálisan szimulált robotkar létrehozása is lehetséges. Erre keretrendszerre mindenképp szükség van amennyiben ROS rendszerhez szeretnénk kapcsolnia a da Vinci robotot. 
+A da Vinci Research Kit továbbiakban dVRK egy nyílt forráskódú rendszer, ami lehetővé teszi a Da Vinci robot karok programozását \cite{kazanzides2014open}. Gyakorlatilag ''firmware``-ként lehet rá tekinteni, ami képes meghajtani a robotkarokat.  A ROS rendszerhez kapcsolódik, könnyen lehetséges az utasításait használni egy ROS  modult biztosít használatra.  A célkitűzéseimhez képest viszonylag alacsony-szintű da Vinci robotkarvezérlő utasítások kiadására alkalmas.
+Ennek a modulnak a segítségivel lehetséges a ROS rendszerrel da Vinci robotot vezérelni, továbbá virtuálisan szimulált robotkar létrehozása is lehetséges. Erre keretrendszerre mindenképp szükség van amennyiben ROS rendszerhez szeretnénk kapcsolni a da Vinci robotot. 
 \subsection{iRob Surgical Subtask Automation Framework}
 \label{irob}
 Nagy D. Tamás és Haidegger Tamás által fejlesztett keretrendszer továbbiakban SAF \cite{irobsaf2019}.
@@ -298,7 +298,7 @@ Alapvetően arra a célra készült, hogy részleges automatizáció segítség�
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú
 	\item Moduláris
-	\item Kutatási célokhoz megfelelő
+	\item Alkalmas Kutatási célokhoz
 	\item Érthető, naprakész, jó dokumentáció áll rendelkezésre
 \end{compactitem}
 \paragraph{Hátrányai} 
@@ -309,20 +309,21 @@ Alapvetően arra a célra készült, hogy részleges automatizáció segítség�
 
 \section{Kiterjesztett valóság}
 \label{kitvalo}
-A célok között szerepelt egy olyan funkció, melynek a segítségével lehetséges kiterjesztett valóság segítésével követni a játékmenetet. Itt szeretném részletezni a hasonló megoldásokat azokból levont következtetéseket.
+A célok között szerepelt egy olyan funkció, melynek a segítségével lehetséges kiterjesztett valóság segítésével követni a játékmenetet. Itt szeretném részletezni a hasonló megoldásokat, azokból levont következtetéseket.
 A \cite{azuma2001recent} kutatásból idézve  kiterjesztett valóságot a következő módon definiálhatjuk. Az a rendszer, ami a következőket teljesíti:
 \begin{compactitem}
 	\item Kombinálja a valós és virtuális objektumokat a valós környezetben.
 	\item Azonnal fut, és valós időben.
-	\item Egymáshoz rögzíti (igazítja) %a valós és virtuális objektumokat.
+	\item Egymáshoz rögzíti (igazítja) a valós és virtuális objektumokat.
 \end{compactitem}
+Továbbikban az AR rövidítést fogom használni. 
 Virtuális objektumokat szeretnénk elhelyezni a kamera képen úgy, hogy azok mozgása a kamera 3D mozgásához igazodjon. 
-\par Több létező megoldás van kiterjesztett valóság elkészítéséhez, ezen megoldások összehasonlításáról lesz itt szó.
-A legtöbb esetben nagyobb gyártók szolgáltatásaként lehetséges különböző kiterjesztett valóság
+\par Több létező megoldás van AR elkészítéséhez, ezen megoldások összehasonlításáról lesz itt szó.
+A legtöbb esetben nagyobb gyártók szolgáltatásaként lehetséges használni.
 \subsection{Alternatív kiterjesztett valóság megoldások}
 \subsubsection{Unity}
 Unity Technologies által fejlesztet játékmotor. 2D és 3D számítógépes játékok elkészítésre alkalmas. Napjaink egyik, ha nem a legnépszerűbb játék fejlesztő motorja \cite{haas2014history}.
-Rengeteg játékkészítéssel kapcsolatos funkciót biztosít. Kiterjesztett valóság megvalósításához rendelkezik saját megoldással. Itt \cite{kim2014using} egy példa látható arra, hogyan lehetséges a Unity kiterjesztett valóság megoldását használni és milyen előnyök származnak ebből. Az előbbi hivatkozott példában láthatjuk, hogy rengeteg kényelmi funkcióval rendelkezik, melyek használata, csupán kiterjesztett valóság rendszerekben, játékmotor nélkül, sokkal körülményesebb.  További előnye, hogy a Unity rendszerrel készült alkalmazások az összes ma használatos platformra fordíthatóak. 
+Rengeteg játékkészítéssel kapcsolatos funkciót biztosít. AR megvalósításához rendelkezik saját megoldással. Itt \cite{kim2014using} egy példa látható arra, hogyan lehetséges a Unity beépített AR megoldását használni és milyen előnyök származnak ebből, illetve a Unity használatából. Az előbbi hivatkozott példában láthatjuk, hogy rengeteg kényelmi funkcióval rendelkezik, melyek használata, csupán kiterjesztett valóság rendszerekben, játékmotor nélkül, sokkal körülményesebb.  További előnye, hogy a Unity rendszerrel készült alkalmazások az összes ma használatos platformra fordíthatóak. 
 \paragraph{Előnyei} 
 \begin{compactitem}
 	\item Ingyenesen használható
@@ -338,30 +339,30 @@ Rengeteg játékkészítéssel kapcsolatos funkciót biztosít. Kiterjesztett va
 	\item Nem nyílt a forráskódja
 \end{compactitem}
 \paragraph{Konklúzió}
-Úgy gondolom, hogy túlságosan nagy erőforrás és munka pazarlás lenne Unity-t csak kiterjesztett valóság elkészítésére használni. Egyáltalán nem vagy csak nagyon sok plusz munka árán lehetne alkalmazásba integrálni, inkább az alkalmazást kellene a Unity-ba integrálni használata esetén.
+Úgy gondolom, hogy túlságosan nagy erőforrás és munka pazarlás lenne Unity-t csak kiterjesztett valóság elkészítésére használni. Egyáltalán nem vagy csak nagyon sok plusz munka árán lehetne alkalmazásba integrálni, inkább az alkalmazást kellene a Unity-be integrálni használata esetén.
 
 \subsubsection{Unreal Engine}
-Egy szoftver amely valósidejű 3D grafika készítésére készítettek \cite{unrealengine}. Szűkebb értelemben játékmotornak is lehet  nevezni. Szintén rendelkezik saját megoldással virtuális valóság, kiterjesztett valóság és kevert valóság számára is.
-\paragraph{Konklúzió} Többnyire ugyanazok igazak rá mint a Unitire ezért külön nem tárgyalom. A fejlesztést meghatározná, a motor használatához kellene alkalmazkodni.
+Egy szoftver amely valósidejű 3D grafika készítésére készítettek \cite{unrealengine}. Szűkebb értelemben játékmotornak is lehet  nevezni. Szintén rendelkezik saját megoldással Virtuális valóság (VR), AR és kevert valóság (MR) számára is.
+\paragraph{Konklúzió} Többnyire ugyanazok igazak rá mint a Unity-re ezért külön nem tárgyalom. A fejlesztést marginálisan meghatározná, a motor használatához kellene alkalmazkodni.
 \subsubsection{Mobil megoldások}
 \paragraph{iOS ARKit}
-Az ARKit segítségével, Apple iOS platformra lehetséges kiterjesztett valóság alkalmazást készíteni \cite{arkit}. A korábban említett különböző maga-szintű megoldások pl. Unity ezt a rendszert is használja, ha iOS platformra készítünk projektet. Egy AR alkalmazás számára szükséges összes funkciót megvalósítja, pl. a telefon kamera pozíció becslését, virtuális objektumok elhelyezését.
+Az ARKit segítségével, Apple iOS platformra lehetséges AR alkalmazást készíteni \cite{arkit}. A korábban említett különböző maga-szintű megoldások pl. Unity ezt a rendszert is használja, ha iOS platformra készítünk projektet. Egy AR alkalmazás számára szükséges összes funkciót megvalósítja, pl. a telefon kamera pozíció becslését, virtuális objektumok elhelyezését. Természetesen mint mobil megoldás, a telefon kameráját illetve szenzorrendrendszerét használja a működéshez.
 \paragraph{ARCore}
-Hasonlóan az ARKite-hez, az ARCore az Android operációs rendszerrel rendelkező telefonokon elérhető kiterjesztett valóságot biztosító API \cite{arcore}.
+Hasonlóan az ARKite-hez, az ARCore a modern Android operációs rendszerrel rendelkező telefonokon elérhető kiterjesztett valóságot biztosító API \cite{arcore}.
 \paragraph{Konklúzió}
-Az előbb említett megoldások használatához Andoid vagy iOS alkalmazás készítése szükséges. A legtöbb játékmotor is ezeket a megoldásokat használja mobil platformokon. Ezeknek a rendszereknek a teljes műkése rejtett, egy API-t biztosítanak melyen keresztűl lehetséges használni, ugyan az API-n keresztül minden kínált funkció elérhető ,a működéshez ezen túl nem lehet módosítani. Ezek megoldások jól működnek, de egyedi igényeket nem lehetséges velük kiszolgálni. A működésüket nem lehet megismerni továbbá zárt forráskódú rendszerek. Ezeket figyelembe véve számomra nem megfelelő a használatuk.
+Az előbb említett megoldások használatához Andoid vagy iOS alkalmazás készítése szükséges. A legtöbb játékmotor is ezeket a megoldásokat használja mobil platformokon. Ezeknek a rendszereknek a teljes műkése rejtett, egy API-t biztosítanak melyen keresztül lehetséges használni, ugyan az API-n keresztül minden kínált funkció elérhető ,a működéshez ezen túl nem lehet hozzáférni. Ezek a megoldások jól működnek, de egyedi igényeket nem lehetséges velük kiszolgálni. A működésüket nem lehet megismerni, továbbá zárt forráskódú rendszerek. Ezeket figyelembe véve, számomra nem megfelelőek.
 \subsubsection{Egyéb kész megoldások}
-Itt olyan megoldásokat említek, melyeket kész alkalmazásként vagy könyvtárként lehetséges használni. Felsorolás szintjén  Vuforia \cite{vuforia}, Wikitude \cite{wikitude}.
-Ezekről általánosan elmondható, hogy használatuk részben vagy teljesen nem ingyenes. Igyekeznek komplett felhőszolgáltatást kényszeríteni a használathoz. Forráskódjuk ezeknek is zárt. Használatukhoz a biztosított API-t kell használni egyedi megoldások megvalósítása ezekkel is körülményes.  A felsorolt hátrányok miatt számomra alapvetően nem alkalmasak használatra.
-Az EasyAR \cite{ezar} és Kudan \cite{kudan} rendszerek használata bizonyos feltételek mellet ingyenes, de forrásuk továbbra is zárt. Többnyire ezekre is igazak a  fizetősre felsorolt hátrányok.
+Itt olyan megoldásokat említek, melyeket kész alkalmazásként vagy könyvtárként lehetséges használni. Felsorolás szintjén a Vuforia \cite{vuforia}, Wikitude \cite{wikitude}.
+Ezekről általánosan elmondható, hogy használatuk részben vagy teljesen nem ingyenes. Igyekeznek saját komplett felhőszolgáltatást kényszeríteni a használathoz. Forráskódjuk ezeknek is zárt. Használatukhoz a biztosított API-t kell használni egyedi megoldások megvalósítása ezekkel is körülményes.  A felsorolt hátrányok miatt számomra alapvetően nem alkalmasak használatra.
+Az EasyAR \cite{ezar} és Kudan \cite{kudan} rendszerek használata bizonyos feltételek mellet ingyenes, de forrásuk továbbra is zárt. Többnyire ezekre is igazak a  fizetősekre felsorolt hátrányok.
 
 \subsubsection{Egyedi megoldás}
 További lehetőség saját kiterjesztett valóság megvalósítása ingyenes program könyvtárak segítségével. 
 
-
 \chapter{Részletes munkaterv}
-
-\chapter{Megvalósítás}
+asdasd
+\begin{figure}[H]
+\end{figure}
 \section{Kézvezérlés}
 \label{kezvez}
 \section{Kamera mozgás becslés}
@@ -407,7 +408,7 @@ A SAF felépítését a \ref{fig:irob} ábra szemlélteti. A SAF ''subtask`` nev
 	\centering
 	\label{fig:irob_web}
 	\includegraphics[width=14cm]{irob_web}
-	\caption{ROS web node ki/be meneteli csatlakozásai \cite{Abc-irobotics2020May} }
+	\caption{ROS web node ki/be meneteli csatlakozásai}
 \end{figure}
 \newpage
 \subsection{Standard ROS JavaScript könyvtár}
