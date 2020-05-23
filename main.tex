@@ -357,12 +357,60 @@ Ezekről általánosan elmondható, hogy használatuk részben vagy teljesen nem
 Az EasyAR \cite{ezar} és Kudan \cite{kudan} rendszerek használata bizonyos feltételek mellet ingyenes, de forrásuk továbbra is zárt. Többnyire ezekre is igazak a  fizetősekre felsorolt hátrányok.
 
 \subsubsection{Egyedi megoldás}
-További lehetőség saját kiterjesztett valóság megvalósítása ingyenes program könyvtárak segítségével. 
+Egy jó lehetőség lehet, saját kiterjesztett valóság megvalósítása, ingyenes program könyvtárak segítségével.
+Azt értem az ilyen megoldás alatt, hogy a készítés során alacsonyabb-szintű gépi látás könyvtár segítségével egy saját kiterjesztett valóság szolgáltatást építünk. Egy ilyen megoldásnak több nehezebb feladatot kell tudni megoldania. A kiterjesztett valóság elkészítse a feladat és nem pedig mint AR szolgáltatás használata. Elkészítése a korábbiaknál nagyobb kihívást jelent. Az elérhető ''kész`` alkalmazások, könyvtárak komplett fejlesztő csapatok által, több év óta folyamatosan fejlesztés alatt vannak. Így teljesítmény szempontjából ezekkel szemben felvenni a versenyt szerintem lehetetlen, viszont modularitás és megérthetőség szempontjából úgy gondolom, hogy van értelme megpróbálni. A különböző megvalósítási lehetőségek megértése és adott feladathoz történő választása továbbra is egy előny, mert nem feltétlen kell általános megoldást készíteni.
+
+\par Az egyik legnépszerűbb és  legjobban elterjedt gépi látással kapcsolatos programkönyvtár az eredetileg Intel által fejlesztett,  majd később nyílt forráskódú közösség által, a mai napig is folytatott OpenCV \cite{opencv_library}. Az OpenCV \cite{pulli2012real} \cite{opencv}
+\subsection{Választott módszer}
+Számomra fontos volt, hogy az AR rendszer átlátható kegyen, nem csak egy használható, de a működését megismerhető rendszert szeretnék használni. Korábban már többször említettem, hogy különböző játékmotorok használatát elvetettem, mert túlságosan alkalmazkodni kellene hozzá. 
+\par A felsorolt (többnyire) zárt könyvtárak, használata sem biztosítja a megfelelő szabadságot, továbbá előnytelennek találtam azt, hogy forrásuk zárt.
+
+
+\begin{figure}[H]
+	\centering
+	
+%	\begin{tikzpicture}
+%	
+%	\matrix (first) [table,text width=9em]
+%	{
+%		& Játékmotorok   & Fizetős könyvtárak & Egyedi megoldás\\
+%		Forráskód   & Zárt & Zárt & NyíltC \\
+%		Sebesség   & OptimalizáltF & Többnyire optimalizált & A fejlesztőn múlik \\
+%		Egyedi igények   & A & B & C \\
+%		Módosítás   & F & G & H \\
+%	};
+%	
+%	\end{tikzpicture}
+
+%\rowcolors{2}{gray!100!white!10}{gray!100!white!1}
+\begin{tabular}{s|p{3.5cm}|p{3.5cm}|p{3.5cm} }
+	%\hline
+	%\rowcolor{lightgray} \multicolumn{3}{|c|}{Country List} \\
+	%\hline
+	& Játékmotorok &(Részben) fizetős könyvtárak &  Egyedi megoldás \\
+	\hline
+	Forráskód & Zárt & Zárt & Nyílt \\
+	%\rowcolor{gray}
+	AR Sebesség & Jól optimalizált & Jól optimalizált & A fejlesztő feladata az optimalizáció \\
+	Egyedi igények   & A maga játékmotor kínál rengeteg lehetőséget, hozzáköt a motorhoz & Saját ökoszisztémát nyújt, vagy korlátozottak a lehetőségek   & Teljes mértékben lehetőségünk van egyedi igények megvalósításra  \\
+	Ár & Bizonyos feltételek mellet ingyenes & Bizonyos feltételek mellet ingyenes & Ingyenes\\% \cellcolor[HTML]{AA0044}
+
+	%\hline
+	\end{tabular}
+	\caption{Főbb AR lehetőségek összehasonlítása}
+\end{figure}
+
+A különböző megoldásokat összehasonlítva, a saját AR megoldás megvalósítása mellet döntöttem. Fő indokom, egy olyan rendszer készítése, melynek a működése megérthető ennélfogva, amennyire lehetséges nem támaszkodik fekete-dobozokra.
+
+\section{Saját AR elméleti felépítése}
+Annak érdekében, hogy saját AR rendszert készítsek, igyekeztem utána járni a lehetséges módszereknek, és azok alapfogalmainak.
+Alapvetően abból indultam ki, hogy egy átlagos telefon kameraképeivel működjön a rendszer, így reális minőségű képekkel tudok dolgozni. 
 
 \chapter{Részletes munkaterv}
 asdasd
 \begin{figure}[H]
 \end{figure}
+\chapter{Megvalósítás}
 \section{Kézvezérlés}
 \label{kezvez}
 \section{Kamera mozgás becslés}
