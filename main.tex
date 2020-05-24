@@ -519,14 +519,56 @@ Az előbb tárgyalt módszerek, legtöbbjének legalább alapvető ismeretére, 
 
 \chapter{Részletes munkaterv}
 \label{munakterv}
+\section{Nevezéktan}
+\paragraph{Fiatal} Azok a felhasználók, akik a célcsoportjai ennek az alkalmazásnak.
+\paragraph{Oktató} Azok a felhasználók, akik a fiatalokat koordinálják, segítik.
+
 \section{Feladat felosztása}
-A feladat méretére való tekintettel, az elkövetkező részekre a következő fogalmak bevezetését eszközölöm.
+A feladat méretére való tekintettel, a következő fogalmak bevezetését eszközölöm.
 \paragraph{Rendszer}
-''Rendszer``-ként fogok hivatkozni a teljes elkészült megoldásomra.
+''Rendszer``-ként fogok hivatkozni a teljes elkészült megoldásra.
 \paragraph{Alkalmazások}
-A rendszeren belül külön ''alkalmazásokra`` osztom a különálló megoldandó feladatokat, melyek egymással ethernet hálózaton kommunikálnak.
-A következő alkalmazások elkészítésére fog sor kerülni.
-\subparagraph{title}
+A rendszeren belül külön ''alkalmazásokra`` osztom a különálló, megoldandó feladatokat, melyek egymással ethernet hálózaton vagy interneten kommunikálnak.
+A következő alkalmazásokra és a hozzájuk  tartozó feladatokra bontottam a rendszert.
+\begin{enumerate}
+	\item Felhasználói kliens alkalmazás.
+	\par Fő feladata, biztosítani: 
+	\begin{compactitem}
+		\item Grafikus programozási felületet
+		\item Oktatók számára szükséges kezelőfelületet
+		\item Közdelem megjelenítését
+	\end{compactitem}
+	\par További feladat:
+	\begin{compactitem}
+		\item Oktatói gépről, játék állapot adatok küldése a kiterjesztett valóság megjelenítő számára.
+		\item Oktatói gépről, kapcsolat kiépítése és utasítások küldése a ROS WebSocket szerviz alkalmazás felé.
+	\end{compactitem}
+
+	
+	\item Felhasználói szerver alkalmazás.
+	\par Fő feladatai:
+	\begin{compactitem}
+		\item Autentikáció
+		\item Fiatalok ágenseinek tárolása 
+		\item Az ágensek eljuttatása az oktatói gépre.
+	\end{compactitem}
+
+	\item Kiterjesztett valóság megjelenítő alkalmazás
+	\par Fő feladata: Folyamatosan beérkező adatok 3D megjelenítése a kamera mozgásához igazítva.
+	\par További feladat: kamerakalibráció elvégzése.
+
+	\item da Vinci ROS környezet. Azon ROS modulok összessége, melyek szükségesek a da Vinci, ROS keretrendszerbe történő csatlakoztatásához illetve a szimulációhoz.
+	
+	\item ROS WebShocket szerviz alkalmazás
+	\par Mediátor feladata van. Az oktatói számítógépről jövő utasítás, eljuttatja  a da Vinci ROS környezet megfelelő moduljának, valamint a választ továbbítja az oktató gépre.
+\end{enumerate}
+
+\subparagraph{Modulok}
+Az alkalmazások belül, modulokból épülnek fel a részfeladatok megoldása mentén, egyszerű esetben egy osztály egy modult reprezentál, de vannak ennél összetettebb esetek is. 
+
+
+\section{Alkalmazások közötti kapcsolatok}
+Korábban már említettem, hogy az alkalmazások Ethernet hálózaton, akár interneten keresztül tarthatják egymással a kapcsolatot. 
 
 
 \begin{figure}[H]
