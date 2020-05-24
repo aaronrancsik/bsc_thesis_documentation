@@ -118,19 +118,43 @@
 
 % Introductory chapters
 \chapter{Bevezetés}
-\par 
-Az oktatásban manapság elterjedt gyakorlat az oktatott anyag játékos megfogalmazása \cite{riar2020game}, idegen szóval a \textit{gamification} \cite{Deterding2011}. A módszer lényege, hogy a megtanítani kívánt ismeretet  nyers forma helyett, játékos formában tesszük érthetővé a tanulók számára. Dolgozatomban a programozást szeretném a tanulni vágyok elé tárni, olyan formában, hogy az ne okozzon nehézséget, illetve a tanulás emléke inkább egy élmény legyen, egy unalmas óra helyett.
-\par Az alábbi célokat tűztem ki. Programozás egyik motivációjának azt szeretném, hogy a felhasználók által készített különböző programkódok, ágensek, egymás ellen tudjanak versenyezni. A programozáshoz ne legyen szükséges konkrét programozási nyelv ismerete. Legyen lehetőség kézvezérléssel végezni a programozást. Az ágensek megmérettetését akár már létező, ismert számítógépes játékokhoz csatlakozva, vagy saját egyedi játékban is lelehessen bonyolítani. További tervezett funkció, hogy az írt kódok összecsapását, kiterjesztett valóságon keresztül is legyen lehetőség követni. 
-\par Úgy gondolom, hogy a programozásoktatást egyik legszemléletesebb területe a robotprogramozás, ezért azt célt is kitűztem, hogy az egyetemen elérhető da Vinci robotot is lehessen a rendszer által vezérelni. Magas-szintű program utasítások biztosításának a segítségével könnyen, érthetően lehet szemléltetni a robotika területét is, és a programozáson túl, az orvostudomány robotika iránt is  lehetséges érdeklődést kelteni a fiatalokban.
-\par Röviden összefoglalva, a következő irodalomkutatást készítettem a fent megfogalmazott célok ügyében. Első lépésként, a kitűzött célok  megvalósítsa érdekében, a \ref{vizuprogkor} részben a vizuális programozási környezet elkészítésének lehetőségeit részletezem, mely abban segít, hogy egy konkrét programozási nyelv tanulásának kezdeti nehézségein átugorva, vizuális eszközökkel teszi elérhetővé a programozást, akár laikusok számára is. A \nameref{modtan} szekció \ref{davinci} részben azt vizsgálom, milyen lehetőségek vannak a Da Vinci robot egyszerű maga-szintű programozására. A \ref{kitvalo} szekcióban, a napjainkban népszerű, kiterjesztett valóság megvalósításának lehetőségeit részletezem. A \nameref{modtan} utolsó szekciójában \ref{kezvez} a kézvezérlés funkció megvalósításához szükséges ismereteket igyekszem analizálni.
+\par Először szeretném bemutatni azokat a célkitűzéseket, nem funkcionális követelményeket, különböző elvárásaimat melyek megvalósítását tervezem dolgozatomban. 
+\par Fő célom, egy olyan rendszer elkészítése, melynek a segítségével, fiatal (10-16 éves) korosztály számára  lehet, elérhetővé, élvezetessé tenni a  programozást, algoritmizálást. Kedvcsináló módon,  szeretném az algoritmizálás tanulásra rávezetni a fiatalokat. Egy szokványos tanóra kereteit, jóval túlhaladó igényeket kielégítő rendszer elkészítését tervezem.
+\paragraph{További fontos követelmények, célok}
+A fő célon túl, további ötleteim, terveim vannak, ezeket részletezem itt.
+\begin{enumerate}
+	\item Nem egy létező programozási nyelv keretin belül szeretném  az algoritmizálás bemutatását megtenni. Ezzel szembeni követelményem, egy grafikus felület, \textit{GUI} melyen, egyedi utasításokat teljesítő algoritmusokat lehet szerkeszteni, barátságos módon.
+	\item Cél, hogy ne szokványos (logikai) feladatok elvégzésére készüljenek, a felhasználók által összerakott algoritmusok. Az előbb említett algoritmusokra, továbbiakban az ''ágens`` kifejezést használom. Az előbbi állítással szemben, azt szeretném, hogy az ágensek,  egymás elleni versengés, megmérettetés és játék, céljából készüljenek.
+	\par Egy példán keresztül szemléltetve azt szeretném, hogy egy egymás ellen játszható játékon belül, minden felhasználó egy számára kijelölt ''játékost`` irányíthasson az ágensével, és így az ágensek és a felhasználók is versengjenek, küzdjenek egymással. Az ilyen eszközöket használó oktatást játékos oktatásnak  \cite{riar2020game}, vagy idegen szóval a \textit{gamification}-nek \cite{Deterding2011} nevezik. 
+	\item Az ágensek küzdelmét. kiterjesztett valóságon keresztül is figyelemmel kísérhetővé szeretném tenni. Ennek a szemléltetésére is szeretnék példát írni. Tegyük fel, hogy  az ágensek küzdelme, egy kitüntetett környezetben, számítógépen történik, azon túl hogy az adott gép kijelzőjét ki lehet vetíteni, a közdelem telefon és annak kamerája segítségével, az íróasztal lapjára is kiterjeszthető. Ezzel további jó hangulatot lehet teremteni.
+	\item Az egymás ellen küzdő ágens programozáson túl, szeretném, ha a programozást biztosító grafikus felület, a da Vinci robotkar könnyű programozásra is használható legyen. Úgy gondolom, hogy a programozásoktatást egyik legszemléletesebb területe, a robotprogramozás. Továbbá, magas-szintű program utasítások biztosításának a segítségével könnyen, érthetően lehet szemléltetni a robotika és orvosinformatika területének szépségeit is, és a programozáson túl, az orvostudomány, robotika iránt is  lehetséges érdeklődést kelteni a fiatalokban.
+\end{enumerate}
 
-\paragraph{Algoritmus elmélet}
-Az algoritmus definiálása nehéz feladat, erre nem vállalkoznék, azt ki merem jelenteni, hogy azokat a feladatokat lehet algoritmizálni, melyek működése Turing-gép segítségével megvalósítható. A fiatalok számára az algoritmikus gondolkozást igyekszem szemléltetni. Az évek során több paradigma kialakult a programozásra, melyek inkább már az absztrakt gondolkozást részesítik előnyben. Úgy gondolom, hogy termesztésen ezeknek is helyük van az oktatásban, de az alapvető algoritmikus gondolkozásmód kialakításához nem szükségesek sőt, véleményem szerint hátráltatóak. A későbbikben részletezett vizuális programozó környezet vizsgálatakor, termesztésen alapvető elvárás volt részemről, hogy az adott megoldás ''Turing-teljes`` legyen. Bár a vizsgált megoldások többsége több, különböző paradigma eszközeit tartalmazza, ezeknek a tulajdonságoknak nem tulajdonítottam különösebb prioritást a vizsgálat során. A későbbiekben választott módszer, a strukturált programozási paradigmát támogatja.
+\newpage
+\paragraph{A dolgozat áttekintése és kihívások bemutatása}
+Most egy kis előretekintő és a dolgozatot valamelyest összefoglaló, vázlatot példát szeretnék mutatni arra, hogy, hogyan gondoltam el, az egész rendszer használatát, működését. Az elkövetkező példán keresztű továbbá szeretném bemutatni, hogy a különböző kihívásokat az irodalom kutatás, mely részében tárgyalom részletesebben.
+\par A rendszer konkrét működését, felosztását, architektúráját a különböző alrészekben lehet megtekinteni itt: \fullref{munakterv}.
+
+\subparagraph{Vázlatos működés felhasználó szempontjából}
+\begin{enumerate}
+	\item Egy felületen csatlakozik, megad egy egyedi azonosítót, nevét, esetleg regisztrálhat is.
+	\item Hozzáfér a grafikus programozást nyújtó szerkesztői felülethez. Azt, hogy milyen lehetőségek vannak, ilyen grafikus programozó készítésére a: \fullref{vizuprogkor} résznél fogom tárgyalni.
+	\item Attól függően, hogy da Vinci vagy játék programozási módban vagyunk, a felhasználó különböző egyedi utasításokat illeszthet össze ágenssé, például da Vinci esetén ''Fogd meg az 1. objektumot`` vagy játék módban ''Lépj jobbra`` , illetve alapvető ciklus és elágazás, utasításokat is tud használni. 
+	\item Van lehetőség helyi gépen történő tesztelésre. Mindenki futtathatja, tesztelheti saját eszközén is az elkészült ágensét.
+	\item Miután mindenki összerakta az ágenseit, az oktató ezeket távolról összegyűjtheti és egy kijelölt gépen elindíthatja. Így például játék módban a küzdelem, valamilyen nagyobb kijelzőn  mindenki számára  megtekinthető. 
+	\item Da Vinci mód esetén az összegyűjtött ágensekből az oktatónak egy kiválasztottat van lehetősége futtatni a da Vinci roboton. A da Vinci robothoz történő kapcsolódási lehetőségek,  kifejtett irodalomkutatás megtekinthető itt: \fullref{sec:davi}.
+	\item Akár, mindenki telefonján elérhető, vagy egy erre szolgáló  eszközön kiterjesztett valóság által is  követhető a küzdelem. A kiterjesztett valósággal kapcsolatos irodalom kutatás megtekinthető itt: \fullref{kitval}. Igyekeztem áttekinteni a kész megoldások listáját, továbbá utánajárni, a saját készítésű kiterjesztett valóság megvalósítás hátterének.
+\end{enumerate}
+ 
+
+
+%\paragraph{Algoritmus elmélet}
+%Az algoritmus definiálása nehéz feladat, erre nem vállalkoznék, azt ki merem jelenteni, hogy azokat a feladatokat lehet algoritmizálni, melyek működése Turing-gép segítségével megvalósítható. A fiatalok számára az algoritmikus gondolkozást igyekszem szemléltetni. Az évek során több paradigma kialakult a programozásra, melyek inkább már az absztrakt gondolkozást részesítik előnyben. Úgy gondolom, hogy termesztésen ezeknek is helyük van az oktatásban, de az alapvető algoritmikus gondolkozásmód kialakításához nem szükségesek sőt, véleményem szerint hátráltatóak. A későbbikben részletezett vizuális programozó környezet vizsgálatakor, termesztésen alapvető elvárás volt részemről, hogy az adott megoldás ''Turing-teljes`` legyen. Bár a vizsgált megoldások többsége több, különböző paradigma eszközeit tartalmazza, ezeknek a tulajdonságoknak nem tulajdonítottam különösebb prioritást a vizsgálat során. A későbbiekben választott módszer, a strukturált programozási paradigmát támogatja.
 
 \chapter{Módszertan}
 \label{modtan}
 A korában megfogalmazott célok elérése érdekében végzett kutatómunkát részletezem, ebben a fejezetben.
-Az is célom, hogy az elkészült alkalmazás működése is oktatási célokra bemutatható legyen. Ezért a megvalósítás során, olyan könyvtárakat igyekszem használni,  melyek forráskódja, működése szabadon elérhető. Amennyire lehetséges igyekszem az egyszerűbb megvalósítások irányában hajlani, értem ez alatt azt, hogy inkább olyan megoldások használatát preferálom ami, ''csak`` egy adott feladatra biztosít megoldást, de a használatához nem szükséges egy nagy, bonyolult rendszert használni. Ebből  kifolyólag például mellőzni igyekszem a különböző felhőszolgáltatások és zárt könyvtárak, valamint az ilyen komplett óriási kódbázisok, játékmotorok használatát.
+Az elkészült alkalmazás működését is szeretném oktatási célokra felhasználni. Ezért a megvalósítás során, olyan könyvtárakat igyekszem használni,  melyek forráskódja, működése szabadon elérhető. Amennyire lehetséges igyekszem az egyszerűbb megvalósítások irányában hajlani, értem ez alatt azt, hogy inkább olyan megoldások használatát preferálom, ami ''csak`` egy adott feladatra biztosít megoldást, de a használatához nem szükséges egy nagy, bonyolult rendszert használni. Ebből  kifolyólag például mellőzni igyekszem a különböző felhőszolgáltatások és zárt könyvtárak, valamint az ilyen komplett óriási kódbázisok, játékmotorok használatát.
 \section{Vizuális programozási környezet}
 \subsection{Alternatív megoldások vizuális programozásra}
 \label{vizuprogkor}
@@ -266,6 +290,7 @@ A Blockly kellőképpen módosítható és könnyen egyedi környezetbe illeszth
 
 
 \section{Da Vinci}
+\label{sec:davi}
 A célok között szerepelt a da Vinci robot egyszerű vezérlése. 
 Az elkövetkező részben, igyekszem körbejárni a lehetőségeket és elemezni előnyeit hátrányait, melyek segítségével lehet kapcsolódni a da Vinci rendszerhez. Az egyetemen egy 2010-ben bemutatott első generációs da Vinci classic rendszerhez van lehetőség hozzáférni, ezért ehhez készül az alkalmazás. A továbbiakban mindig erről a modellről lesz szó.
 \subsection{Robot Operating System}
@@ -319,6 +344,7 @@ Virtuális objektumokat szeretnénk elhelyezni a kamera képen úgy, hogy azok m
 \par Több létező megoldás van AR elkészítéséhez, ezen megoldások összehasonlításáról lesz itt szó.
 A legtöbb esetben nagyobb gyártók szolgáltatásaként lehetséges használni.
 \subsection{Alternatív kiterjesztett valóság megoldások}
+\label{kitval}
 \subsubsection{Unity}
 Unity Technologies által fejlesztet játékmotor. 2D és 3D számítógépes játékok elkészítésre alkalmas. Napjaink egyik, ha nem a legnépszerűbb játék fejlesztő motorja \cite{haas2014history}.
 Rengeteg játékkészítéssel kapcsolatos funkciót biztosít. AR megvalósításához rendelkezik saját megoldással. Itt \cite{kim2014using} egy példa látható arra, hogyan lehetséges a Unity beépített AR megoldását használni és milyen előnyök származnak ebből, illetve a Unity használatából. Az előbbi hivatkozott példában láthatjuk, hogy rengeteg kényelmi funkcióval rendelkezik, melyek használata, csupán kiterjesztett valóság rendszerekben, játékmotor nélkül, sokkal körülményesebb.  További előnye, hogy a Unity rendszerrel készült alkalmazások az összes ma használatos platformra fordíthatóak. 
