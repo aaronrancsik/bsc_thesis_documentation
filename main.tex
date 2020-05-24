@@ -29,6 +29,7 @@
 \usetikzlibrary{matrix}
 \usepackage{tabularx}
 \setlength{\extrarowheight}{2pt}
+\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{2.5cm}}
 
 
 \newcommand*{\fullref}[1]{\hyperref[{#1}]{\ref*{#1} \nameref*{#1}}} % One single link
@@ -47,9 +48,9 @@
 \graphicspath{ {./images/} }
 
 % set margins
-\addtolength{\oddsidemargin}{-1.2cm}
-\addtolength{\evensidemargin}{-1.2cm}
-\addtolength{\textwidth}{2.4cm}
+%\addtolength{\oddsidemargin}{-cm}
+%\addtolength{\evensidemargin}{-1.2cm}
+%\addtolength{\textwidth}{2.4cm}
 \addtolength{\topmargin}{-1.5cm}
 \addtolength{\textheight}{3cm}
 
@@ -57,12 +58,12 @@
 \usepackage{float}
 
 % set TOC depth
-\setcounter{tocdepth}{4}
+\setcounter{tocdepth}{3}
 
 % remove red color for hyperref in TOC
 \usepackage[unicode]{hyperref}
 \hypersetup{
-   pdfborderstyle={/S/U/W 2.5}% border style will be underline of width 1pt
+pdfborderstyle={/S/U/W 2.5}% border style will be underline of width 1pt
 }
 
 
@@ -76,7 +77,6 @@
 \setlength{\tabcolsep}{18pt}
 \renewcommand{\arraystretch}{1.6}
 
-\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{2.5cm}}
 
 
 
@@ -84,14 +84,14 @@
 
 %top matter
 \title{%
-	\includegraphics[scale=0.1]{logo_oe}\\
-	ÓBUDAI EGYETEM\\
-	Neumann János Informatikai kar\\
-	Mérnök informatikus BSc\\
-	\vfill
-	\large \textbf{Vizuális, interaktív programozás oktató rendszer moduláris megvalósítása\\}
-	%\large Projektmunka dokumentáció
-	\vfill
+\includegraphics[scale=0.1]{logo_oe}\\
+ÓBUDAI EGYETEM\\
+Neumann János Informatikai Kar\\
+Mérnök informatikus BSc\\
+\vfill
+\large \textbf{Vizuális, interaktív programozás oktató rendszer moduláris megvalósítása\\}
+%\large Projektmunka dokumentáció
+\vfill
 }
 \author{Ráncsik Áron}
 \date{\today}
@@ -101,8 +101,8 @@
 % \includepdf[page={1,2}]{resources/feladatlap}
 \pagenumbering{Alph}
 \begin{titlepage}
-\maketitle
-\thispagestyle{empty}
+	\maketitle
+	\thispagestyle{empty}
 \end{titlepage}
 \pagenumbering{arabic}
 
