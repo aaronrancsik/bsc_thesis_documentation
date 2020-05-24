@@ -402,7 +402,8 @@ Számomra fontos volt, hogy az AR rendszer átlátható kegyen, nem csak egy has
 	%\rowcolor{gray}
 	AR Sebesség & Jól optimalizált & Jól optimalizált & A fejlesztő feladata az optimalizáció \\
 	Egyedi igények   & A maga játékmotor kínál rengeteg lehetőséget, hozzáköt a motorhoz & Saját ökoszisztémát nyújt, vagy korlátozottak a lehetőségek   & Teljes mértékben lehetőségünk van egyedi igények megvalósításra  \\
-	Ár & Bizonyos feltételek mellet ingyenes & Bizonyos feltételek mellet ingyenes & Ingyenes\\% \cellcolor[HTML]{AA0044}
+	Ár & Bizonyos feltételek mellet ingyenes & Bizonyos feltételek mellet ingyenes & Ingyenes\\
+% \cellcolor[HTML]{AA0044}
 
 	%\hline
 	\end{tabular}
@@ -520,8 +521,8 @@ Az előbb tárgyalt módszerek, legtöbbjének legalább alapvető ismeretére, 
 \paragraph{Fiatal} Azok a felhasználók, akik a célcsoportjai ennek az alkalmazásnak.
 \paragraph{Oktató} Azok a felhasználók, akik a fiatalokat koordinálják, segítik.
 
-\section{Feladat felosztása}
-A feladat méretére való tekintettel, a következő fogalmak bevezetését eszközölöm.
+\section{Felosztás}
+A dolgozat méretére való tekintettel, a következő fogalmak bevezetésével felosztom a dolgozatot.
 \paragraph{Rendszer}
 ''Rendszer``-ként fogok hivatkozni a teljes elkészült megoldásra.
 \paragraph{Alkalmazások}
@@ -550,7 +551,7 @@ A következő alkalmazásokra és a hozzájuk  tartozó feladatokra bontottam a 
 		\item Az ágensek eljuttatása az oktatói gépre.
 	\end{compactitem}
 
-	\item Kiterjesztett valóság megjelenítő alkalmazás
+	\item AR megjelenítő alkalmazás
 	\par Fő feladata: Folyamatosan beérkező adatok 3D megjelenítése a kamera mozgásához igazítva.
 	\par További feladat: kamerakalibráció elvégzése.
 
@@ -561,15 +562,75 @@ A következő alkalmazásokra és a hozzájuk  tartozó feladatokra bontottam a 
 \end{enumerate}
 
 \subparagraph{Modulok}
-Az alkalmazások belül, modulokból épülnek fel a részfeladatok megoldása mentén, egyszerű esetben egy osztály egy modult reprezentál, de vannak ennél összetettebb esetek is. 
+Az alkalmazások belül, modulokból épülnek fel a részfeladatok megoldása mentén, egyszerű esetben egy osztály egy modult reprezentál, de vannak ennél összetettebb esetek is.
 
+\section{Alkalmazásokhoz választott alapvető technológiák}
+A teljes fejlesztés alapvetően GNU/Linux operációs rendszer alól történik. Több éve használom, és minden szempontból jobb számomra mint a többi konkurens OS.
+\par Első döntésem az volt, hogy a felhasználói alkalmazásokat, webes technológiák segítségével fogom elkészíteni. Böngészőből futtatható lesz  az alkalmazás azon része, mely a felhasználókkal tartja a kapcsolatot. Így gyakorlatilag a platform különbséggel alkalmatosos problémák megszűnnek, manapság mindenhol fut a böngésző. A konkrét webes technológiát később részletezem. 
+\par Az AR megjelenítő alkalmazás C++ és OpenCV segítségével fog elkészülni. C++ a sebesség, optimalizáció és népszerűsége szempontjából egy jó választás. A nehézkes szintaktikája, viszont megnehezíti a használatát. Korábban már említettem az OpenCV pozitív tulajdonságait, gyakorlatilag \textit{de facto} sztenderd gépi látással kapcsolatos programkönyvtár. 
+\par A da Vinci rendszerhez történő kapcsolathoz szintén C++ nyelvet fogok, ahsonló okok miatt elletve már választásom itt nem is lenne. Továbbá a ROS  programkönyvtárat fogom még használni.  A ROS ról is elmondható, hogy robotika területén \textit{de facto} sztenderd. A ROS környezethez készült, dVRK és az ezen alapuló SAF könyvtárak használatára is szükségem lesz, a magas-szintű da Vinci utasítások kiadására. 
 
 \section{Alkalmazások közötti kapcsolatok}
-Korábban már említettem, hogy az alkalmazások Ethernet hálózaton, akár interneten keresztül tarthatják egymással a kapcsolatot. 
-
-
-\begin{figure}[H]
+Korábban említésre került, hogy az alkalmazások Ethernet hálózaton, akár interneten keresztül kommunikálnak. A \ref{fig:kapcs} ábrán, a rendszer felépítésének terve és alkalmazások között közötti kommunikációs kapcsolatok láthatóak.
+\begin{figure}[h]
+	\label{fig:kapcs}
+	\centering
+	\includegraphics[width=0.75\textwidth]{dias/alkalmazas_kapcsolatok}
+	\caption{Alkalmazások közötti kapcsolatok}
 \end{figure}
+
+\section{Alkalmazások tervezett felépítése}
+Az egyes alkalmazások részletes tervezése 
+\subsection{Felhasználói szerver}
+Korábban a webalkalmazás mellet döntöttem a felhasználói alkalmazásokkal kapcsolatban. Webes technológiákból rengeteg létezik, jobbnál-jobb újításokkal, azonban a felhasználói szerver nem annyira kulcsfontosságú része az alkalmazásnak. Gyakorlatilag bármilyen értelmes technológiával elkészülhetne, olyan kevés funkcióra lesz szükségem, hogy különösebb kutatás nélkül kiválasztottam az egyik kedvencemet a NodeJS-t.
+Napjainkban továbbra is töretlenül népszerű technológia a NodeJS. Nem kifejezetten bonyolult webvállalkozásokhoz a használata kényelmes. Vertikálisan könnyen skálázható. Rengeteg elérhető programkönyvtár miatt pedig nagyon gyorsan lehetséges benne fejleszteni.
+Az objektum orientált paradigma kényelmes támogatása céljából TypeScript nyelven tervezek írni. Express és WebShocket.io és egyéb csomagok segítségével egy egyszerű, minimális szervert szeretnék készíteni.
+\subsubsection{Külső funkciók}
+\begin{compactitem}
+	\item Regisztráció / Autentikáció
+	\item Ágens mentése / betöltése
+	\item Ágensek begyűjtése
+	\item Begyűjtött ágensek kiküldése oktató felé
+	\item Felhasználók online állapotának nyilvántartása.
+	\item Összes online felhasználó lekérése
+\end{compactitem}
+\subsubsection{Fiatal felhasználók tárolt adatai}
+\begin{compactitem}
+	\item Felhasználónév
+	\item E-mail
+	\item Sózott jelszó hash
+	\item Ágens (több verzióban lehetséges tárolni)
+	\item Iskola
+	\item Online-e?
+	\item Utoljára mikor volt online
+\end{compactitem}
+Az egész szervert \textit{production} környezetben majd egy később választott, valószínűleg Azure felhőszolgáltatásban fog futni. Egy felhőszolgáltató specifikus nem relációs adatbázisban  kerülnek majd az adatok eltárolásra. Fejlesztési idő alatt MongoDB adatbázismotort fogok használni.
+A szerver megvalósítása közben szeretnék  a REST megszorításoknak megfelelni.
+
+\subsection{Felhasználói kliens}
+Gyakorlatilag a \textit{front-end} része megvalósítani kívánt teljes rendszernek minden felhasználó ezen a ponton keresztül használja az rendszert kivéve a AR alkalmazást mely saját megjelenítéssel kell, hogy rendelkezzen.
+Statikus weboldal technológiával szeretném megvalósítani. A HTML oldalak, magasabb szintű kódból lesznek generálva. A kód generálásához, lehetséges a Github alap ajánlását a Jenkins-t használni, de terveim szerint a Vue.JS -re épülő Nuxt.JS framworokot fogom használni, mely szintén támogatja a statikus weboldal generálást. A Github Pages szolgáltatás ingyenesen támogatja az ilyen jellegű weboldalak kiszolgálását, így semmilyen plusz költséggel nem fog járni ennek a fenntartása. A kliens aszinkron http hívásokkal vagy szintén aszinkron WebShocket hívásokkal, eseményekkel tud kommunikálni a szerverrel és környezetével is adott esetben.
+
+\par A felhasználói kliens alaklámázás a következő három fő összetett modulból fog állni.
+\subsubsection{Control}
+Az oktató feladatinak ellátására szolgáló modul. Tipikusan ez az a modult mely biztosan az oktató számítógépnépnek böngészőjében fut.
+Ezen keresztül vezérelhető a rendszer viselkedése, állapota.
+\paragraph{A elérhető funkciók}
+\begin{compactitem}
+	\item Alkalmazáshoz csatlakozott online felhasználok kilistázása.
+	\item Ágensek begyűjtése
+	\item Ágensek vagy ágen betöltése a ''view`` modulba.
+	\item Ágensek elindítása, egymás ellen történő párhuzamos futtatása
+	\item Kiválasztott ágens elindítása, utasításainak da Vinci ROS környezetben történő elküldése céljából.
+	\item Da Vinci és játék mód közötti váltás.
+	\item Esetleges adminisztratív feladatok elvégzése
+	\item ROS rendszer IP beállítása
+\end{compactitem}
+
+\subsubsection{View}
+Szintén az oktató által futtatott modul, mely nem feltétlen kell, hogy az oktató számítógépének böngészőjében fusson. Előfordulhat, hogy a nagyobb kijelzőre külön számítógép van csatlakoztatva, így azon szeretnénk futtatni ezt a modult. Továbbá, annak nagy valószínűsége van, hogy a ROS rendszerhez történő csatlakozás külön számítógépről történik. Ekkor ezen a számítógépen kell futtatni. 
+Ebbe a modulba töltjük  az ágenseket, illetve itt van lehetőség azok futtatására. A ''control`` modul betölti  a Blockly utasításait. A Blockly utasítások JavaScript nyelvi utasításokra fordulnak ebben a modulban. . A különböző egyedi Blockly utasítások számára itt lehetséges egyedi JavaScript utasításokat definiálni. A JavaScript-re fordított ágens kódját ''JS-Interpreter`` segítségével futtatom \cite{BibEntry2020Feb}. A ''JS-Interpreter`` egy JavaScriptben írt JavaScript értelmező ''sandbox`` környezet, melyben biztonságosan van lehetőségem elválasztani az ágensek kódjait a böngésző valós JavaScript motorjától. Az ágensek kódja csak és kizárólag egyedileg definiált függvények segítségével tudnak kommunikálni a valós környezettel ezt a dokumentáció ''API hívásnak`` nevezi, jelen esetben a ''JS-Interpreter``-t könyvtárat használó fejlesztő feladata a hivatkozott ''API`` elkészítése. Az utasítások végrehajtása nem valós-időben történik, folyamatosan megvárja a utasítás végrehajtásának sikerességét. 
+
 \chapter{Megvalósítás}
 \section{Kézvezérlés}
 \label{kezvez}
@@ -592,7 +653,7 @@ Ez a módul ténylegesen használja a Blockly könyvtárat. Böngészőből a fe
 \end{figure}
 
 \subsection{View}
-Ebbe a modulba töltjük  a felhasználók által létrehozott algoritmust, illetve itt van lehetőség annak futtatására. A ''control`` modul tölti be a kiválasztott felhasználó Blockly utasításait, a Blockly utasítások JavaScript nyelvi utasításokra fordulnak ebben a modulban. A különböző Blockly utasítások számára itt lehetséges egyedi JavaScript utasításokat definiálni. A JavaScript-re fordított ágens kódját ''JS-Interpreter`` segítségével futtatom \cite{BibEntry2020Feb}. A ''JS-Interpreter`` egy JavaScriptben írt JavaScript értelmező ''sandbox`` környezet, melyben biztonságosan van lehetőségem elválasztani az ágensek kódjait a böngésző valós JavaScript motorjától. Az ágensek kódja csak és kizárólag egyedileg definiált függvények segítségével tudnak kommunikálni a valós környezettel ezt a dokumentáció ''API hívásnak`` nevezi, jelen esetben a ''JS-Interpreter``-t könyvtárat használó fejlesztő feladata a hivatkozott ''API`` elkészítése. Az utasítások végrehajtása nem valós-időben történik, folyamatosan megvárja a utasítás végrehajtásának sikerességét. 
+. A különböző Blockly utasítások számára itt lehetséges egyedi JavaScript utasításokat definiálni. A JavaScript-re fordított ágens kódját ''JS-Interpreter`` segítségével futtatom \cite{BibEntry2020Feb}. A ''JS-Interpreter`` egy JavaScriptben írt JavaScript értelmező ''sandbox`` környezet, melyben biztonságosan van lehetőségem elválasztani az ágensek kódjait a böngésző valós JavaScript motorjától. Az ágensek kódja csak és kizárólag egyedileg definiált függvények segítségével tudnak kommunikálni a valós környezettel ezt a dokumentáció ''API hívásnak`` nevezi, jelen esetben a ''JS-Interpreter``-t könyvtárat használó fejlesztő feladata a hivatkozott ''API`` elkészítése. Az utasítások végrehajtása nem valós-időben történik, folyamatosan megvárja a utasítás végrehajtásának sikerességét. 
 
 \begin{figure}[H]
 \centering
