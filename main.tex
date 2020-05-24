@@ -98,7 +98,7 @@
 
 \begin{document}
 
-\includepdf[page={1,2}]{resources/feladatlap}
+% \includepdf[page={1,2}]{resources/feladatlap}
 \pagenumbering{Alph}
 \begin{titlepage}
 %\maketitle
@@ -118,7 +118,7 @@
 
 % Introductory chapters
 \chapter{Bevezetés}
-\par Először szeretném bemutatni azokat a célkitűzéseket, nem funkcionális követelményeket, különböző elvárásaimat melyek megvalósítását tervezem dolgozatomban. 
+\par Először szeretném bemutatni azokat a célkitűzéseket, nem-funkcionális követelményeket, különböző elvárásaimat, melyek megvalósítását tervezem dolgozatomban. 
 \par Fő célom, egy olyan rendszer elkészítése, melynek a segítségével, fiatal (10-16 éves) korosztály számára  lehet, elérhetővé, élvezetessé tenni a  programozást, algoritmizálást. Kedvcsináló módon,  szeretném az algoritmizálás tanulásra rávezetni a fiatalokat. Egy szokványos tanóra kereteit, jóval túlhaladó igényeket kielégítő rendszer elkészítését tervezem.
 \paragraph{További fontos követelmények, célok}
 A fő célon túl, további ötleteim, terveim vannak, ezeket részletezem itt.
@@ -551,7 +551,7 @@ A következő alkalmazásokra és a hozzájuk  tartozó feladatokra bontottam a 
 		\item Az ágensek eljuttatása az oktatói gépre.
 	\end{compactitem}
 
-	\item AR megjelenítő alkalmazás
+	\item AR alkalmazás
 	\par Fő feladata: Folyamatosan beérkező adatok 3D megjelenítése a kamera mozgásához igazítva.
 	\par További feladat: kamerakalibráció elvégzése.
 
@@ -562,12 +562,16 @@ A következő alkalmazásokra és a hozzájuk  tartozó feladatokra bontottam a 
 \end{enumerate}
 
 \subparagraph{Modulok}
-Az alkalmazások belül, modulokból épülnek fel a részfeladatok megoldása mentén, egyszerű esetben egy osztály egy modult reprezentál, de vannak ennél összetettebb esetek is.
+Az alkalmazások belül, modulokból épülnek fel a részfeladatok megoldása mentén, egyszerű esetben egy osztály egy modult reprezentál, de vannak ennél összetettebb esetek is. Egy modul akár több másik modulra épülhet.
+
+\subparagraph{Layout}
+Főleg a rendszer \textit{front-end} részénél van értelme ennek újabb absztrakt csoportnak a bevezetésére, több különböző modul összerakásával készíthetünk egy ilyen felületet, melyen keresztül egy adott feladatot lehet ellátni, a modulok több \textit{layout}-ban is újrahasználhatóak, így igyekszem elkerülni a duplikációkat.
+
 
 \section{Alkalmazásokhoz választott alapvető technológiák}
 A teljes fejlesztés alapvetően GNU/Linux operációs rendszer alól történik. Több éve használom, és minden szempontból jobb számomra mint a többi konkurens OS.
 \par Első döntésem az volt, hogy a felhasználói alkalmazásokat, webes technológiák segítségével fogom elkészíteni. Böngészőből futtatható lesz  az alkalmazás azon része, mely a felhasználókkal tartja a kapcsolatot. Így gyakorlatilag a platform különbséggel alkalmatosos problémák megszűnnek, manapság mindenhol fut a böngésző. A konkrét webes technológiát később részletezem. 
-\par Az AR megjelenítő alkalmazás C++ és OpenCV segítségével fog elkészülni. C++ a sebesség, optimalizáció és népszerűsége szempontjából egy jó választás. A nehézkes szintaktikája, viszont megnehezíti a használatát. Korábban már említettem az OpenCV pozitív tulajdonságait, gyakorlatilag \textit{de facto} sztenderd gépi látással kapcsolatos programkönyvtár. 
+\par Az AR alkalmazás C++ és OpenCV segítségével fog elkészülni. C++ a sebesség, optimalizáció és népszerűsége szempontjából egy jó választás. A nehézkes szintaktikája, viszont megnehezíti a használatát. Korábban már említettem az OpenCV pozitív tulajdonságait, gyakorlatilag \textit{de facto} sztenderd gépi látással kapcsolatos programkönyvtár. 
 \par A da Vinci rendszerhez történő kapcsolathoz szintén C++ nyelvet fogok, ahsonló okok miatt elletve már választásom itt nem is lenne. Továbbá a ROS  programkönyvtárat fogom még használni.  A ROS ról is elmondható, hogy robotika területén \textit{de facto} sztenderd. A ROS környezethez készült, dVRK és az ezen alapuló SAF könyvtárak használatára is szükségem lesz, a magas-szintű da Vinci utasítások kiadására. 
 
 \section{Alkalmazások közötti kapcsolatok}
@@ -580,12 +584,12 @@ Korábban említésre került, hogy az alkalmazások Ethernet hálózaton, akár
 \end{figure}
 
 \section{Alkalmazások tervezett felépítése}
-Az egyes alkalmazások részletes tervezése 
-\subsection{Felhasználói szerver}
+Az egyes alkalmazások tervezésének részletei a következőkben találhatóak.
+\subsection{Felhasználói szerver alkalmazás}
 Korábban a webalkalmazás mellet döntöttem a felhasználói alkalmazásokkal kapcsolatban. Webes technológiákból rengeteg létezik, jobbnál-jobb újításokkal, azonban a felhasználói szerver nem annyira kulcsfontosságú része az alkalmazásnak. Gyakorlatilag bármilyen értelmes technológiával elkészülhetne, olyan kevés funkcióra lesz szükségem, hogy különösebb kutatás nélkül kiválasztottam az egyik kedvencemet a NodeJS-t.
 Napjainkban továbbra is töretlenül népszerű technológia a NodeJS. Nem kifejezetten bonyolult webvállalkozásokhoz a használata kényelmes. Vertikálisan könnyen skálázható. Rengeteg elérhető programkönyvtár miatt pedig nagyon gyorsan lehetséges benne fejleszteni.
 Az objektum orientált paradigma kényelmes támogatása céljából TypeScript nyelven tervezek írni. Express és WebShocket.io és egyéb csomagok segítségével egy egyszerű, minimális szervert szeretnék készíteni.
-\subsubsection{Külső funkciók}
+\subsubsection{Felhasználói szerver külső funkciók}
 \begin{compactitem}
 	\item Regisztráció / Autentikáció
 	\item Ágens mentése / betöltése
@@ -606,20 +610,22 @@ Az objektum orientált paradigma kényelmes támogatása céljából TypeScript 
 \end{compactitem}
 Az egész szervert \textit{production} környezetben majd egy később választott, valószínűleg Azure felhőszolgáltatásban fog futni. Egy felhőszolgáltató specifikus nem relációs adatbázisban  kerülnek majd az adatok eltárolásra. Fejlesztési idő alatt MongoDB adatbázismotort fogok használni.
 A szerver megvalósítása közben szeretnék  a REST megszorításoknak megfelelni.
+\subsubsection{Felhasználói szerver belső felépítése}
+TODO
 
-\subsection{Felhasználói kliens}
-Gyakorlatilag a \textit{front-end} része megvalósítani kívánt teljes rendszernek minden felhasználó ezen a ponton keresztül használja az rendszert kivéve a AR alkalmazást mely saját megjelenítéssel kell, hogy rendelkezzen.
-Statikus weboldal technológiával szeretném megvalósítani. A HTML oldalak, magasabb szintű kódból lesznek generálva. A kód generálásához, lehetséges a Github alap ajánlását a Jenkins-t használni, de terveim szerint a Vue.JS -re épülő Nuxt.JS framworokot fogom használni, mely szintén támogatja a statikus weboldal generálást. A Github Pages szolgáltatás ingyenesen támogatja az ilyen jellegű weboldalak kiszolgálását, így semmilyen plusz költséggel nem fog járni ennek a fenntartása. A kliens aszinkron http hívásokkal vagy szintén aszinkron WebShocket hívásokkal, eseményekkel tud kommunikálni a szerverrel és környezetével is adott esetben.
+\subsection{Felhasználói kliens alaklámázás}
+Gyakorlatilag a \textit{front-end} része a megvalósítani kívánt teljes rendszernek, minden felhasználó ezen keresztül használja a rendszert, kivéve a AR alkalmazást mely saját megjelenítéssel kell, hogy rendelkezzen.
+Statikus weboldal technológiával szeretném megvalósítani. A HTML oldalak, magasabb szintű kódból lesznek generálva. A kód generálásához, lehetséges a Github ajánlását a Jenkins-t használni, de terveim szerint a Vue.JS -re épülő Nuxt.JS keretrendszert fogom használni, mely szintén támogatja a statikus weboldal generálást. A Github Pages szolgáltatás ingyenesen támogatja az ilyen jellegű weboldalak kiszolgálását, így semmilyen plusz költséggel nem fog járni ennek a fenntartása. A kliens, aszinkron http hívásokkal vagy szintén aszinkron WebShocket hívásokkal, eseményekkel tud kommunikálni a szerverrel és környezetével is adott esetben.
 
-\par A felhasználói kliens alaklámázás a következő három fő összetett modulból fog állni.
-\subsubsection{Control}
+\par A felhasználói kliens alaklámázás a következő fő összetett modulokból fog állni.
+\subsubsection{GameAdmin modul}
 Az oktató feladatinak ellátására szolgáló modul. Tipikusan ez az a modult mely biztosan az oktató számítógépnépnek böngészőjében fut.
 Ezen keresztül vezérelhető a rendszer viselkedése, állapota.
-\paragraph{A elérhető funkciók}
+\paragraph{GameAdmin modul külső funkciók}
 \begin{compactitem}
 	\item Alkalmazáshoz csatlakozott online felhasználok kilistázása.
 	\item Ágensek begyűjtése
-	\item Ágensek vagy ágen betöltése a ''view`` modulba.
+	\item Ágensek vagy ágen betöltése a ''GameView`` modulba.
 	\item Ágensek elindítása, egymás ellen történő párhuzamos futtatása
 	\item Kiválasztott ágens elindítása, utasításainak da Vinci ROS környezetben történő elküldése céljából.
 	\item Da Vinci és játék mód közötti váltás.
@@ -627,63 +633,75 @@ Ezen keresztül vezérelhető a rendszer viselkedése, állapota.
 	\item ROS rendszer IP beállítása
 \end{compactitem}
 
-\subsubsection{View}
-Szintén az oktató által futtatott modul, mely nem feltétlen kell, hogy az oktató számítógépének böngészőjében fusson. Előfordulhat, hogy a nagyobb kijelzőre külön számítógép van csatlakoztatva, így azon szeretnénk futtatni ezt a modult. Továbbá, annak nagy valószínűsége van, hogy a ROS rendszerhez történő csatlakozás külön számítógépről történik. Ekkor ezen a számítógépen kell futtatni. 
-Ebbe a modulba töltjük  az ágenseket, illetve itt van lehetőség azok futtatására. A ''control`` modul betölti  a Blockly utasításait. A Blockly utasítások JavaScript nyelvi utasításokra fordulnak ebben a modulban. . A különböző egyedi Blockly utasítások számára itt lehetséges egyedi JavaScript utasításokat definiálni. A JavaScript-re fordított ágens kódját ''JS-Interpreter`` segítségével futtatom \cite{BibEntry2020Feb}. A ''JS-Interpreter`` egy JavaScriptben írt JavaScript értelmező ''sandbox`` környezet, melyben biztonságosan van lehetőségem elválasztani az ágensek kódjait a böngésző valós JavaScript motorjától. Az ágensek kódja csak és kizárólag egyedileg definiált függvények segítségével tudnak kommunikálni a valós környezettel ezt a dokumentáció ''API hívásnak`` nevezi, jelen esetben a ''JS-Interpreter``-t könyvtárat használó fejlesztő feladata a hivatkozott ''API`` elkészítése. Az utasítások végrehajtása nem valós-időben történik, folyamatosan megvárja a utasítás végrehajtásának sikerességét. 
+\subsubsection{GameView modul}
+Szintén az oktató által futtatott modul, mely nem feltétlen kell, hogy az oktató számítógépének böngészőjében fusson. Előfordulhat, hogy a nagyobb kijelzőre külön számítógép van csatlakoztatva, így azon szeretnénk futtatni ezt a modult. 
+Ebbe a modulba töltjük  az ágenseket, illetve itt van lehetőség azok futtatására. A ''GameAdmin`` modul betölti  a Blockly utasításait. A Blockly utasítások JavaScript nyelvi utasításokra fordulnak ebben a modulban. . A különböző egyedi Blockly utasítások számára itt lehetséges egyedi JavaScript utasításokat definiálni. A JavaScript-re fordított ágens kódját ''JS-Interpreter`` segítségével futtatom \cite{BibEntry2020Feb}. A ''JS-Interpreter`` egy JavaScriptben írt JavaScript értelmező ''sandbox`` környezet, melyben biztonságosan van lehetőségem elválasztani az ágensek kódjait a böngésző valós JavaScript motorjától. Az ágensek kódja csak és kizárólag egyedileg definiált függvények segítségével tudnak kommunikálni a valós környezettel ezt a dokumentáció ''API hívásnak`` nevezi, jelen esetben a ''JS-Interpreter``-t könyvtárat használó fejlesztő feladata a hivatkozott ''API`` elkészítése. Az utasítások végrehajtása nem valós-időben történik, folyamatosan megvárja a utasítás végrehajtásának sikerességét. 
+\paragraph{GameView modul külső funkciók}
+\begin{compactitem}
+	\item Ágensek feltöltése
+	\item Minden beérkezett ágens futtatása, következő ágensutasítások párhuzamos végrehajtása.
+	\item Megjelenített állapot frissítése
+	\item Játék újraindítása
+\end{compactitem}
 
-\chapter{Megvalósítás}
-\section{Kézvezérlés}
-\label{kezvez}
-\section{Kamera mozgás becslés}
-\subsection{Markerek keresése}
+\subsubsection{DaVinciView modul}
+Szintén az oktató által futtatott modul, mely nem feltétlen kell, hogy az oktató számítógépének böngészőjében fusson. Nagy valószínűsége van annak, hogy a ROS rendszerhez történő csatlakozás külön számítógépről történik. Ekkor ezen a számítógépen kell elérni ezt a modult. Működése nagyon hasonló a ''GameView``-hoz a különbség annyi, hogy a futtatott utasításokat, megjelenítés helyett da Vinci ROS modul számára továbbítja.
 
-\section{Da Vinci vizuális programozási környezete}
-A korábbi irodalomkatatusban arra a következtetésre jutottam hogy a Blockly rendszert fogom használni a  grafikus programozás megvalósítására.
-A da Vinci kar programozásának a példáján keresztül fogom bemutatni a létrehozott vizuális programozási környezetet.
-A Blockly egy JavaScript könyvtár melyet böngészőből lehetséges használni. Az Blocly használatával készült weboldal kiszolgálásához NodeJS szervert választottam. Úgy gondolom, hogy NodeJS segítségével kellőképpen egyszerűen lehetséges a weboldal kiszolgálása és WebSocket szervert készítése is könnyen megvalósítható. A NodeJS szerver segítségével három fontosabb modult létrehoztam. A vizuális programozást biztosító továbbiakban ''editor`` modul, a felhasználó által létrehozott ágens futtatására alkalmas ''view`` modul és a különböző felhasználók adminisztratív kezelésére szolgáló ''control`` modul.
-\subsection{Control}
-Ennek a modulnak a segítségével ki tudjuk listázni az alkalmazáshoz csatlakozott felhasználókat. A csatlakozott felhasználók által létrehozott Blockly utasítás struktúrák minden módodaíráskor automatikusan mentésre kerülnek. A ''control`` modul segítségével lehetséges egy felhasználó egy mentett struktúrájának a betöltése a  ''view`` modulba. Az teljes alkalmazásnak van olyan funkciója melynek segítségével a felhasználók által létrehozott ágensek küzdhetnek egymással, ennek a kezelése is ebből a modulból érhető el ez keserűbb részletezem. Jelen példában maradunk a da Vinci programozásánál. A da Vinci számára létrehozott algoritmust miután betöltjük a ''view`` modulba akkor ''control`` modulnak van lehetősége azt elindítani a da Vinci rendszeren. 
-\subsection{Editor}
-Ez a módul ténylegesen használja a Blockly könyvtárat. Böngészőből a felhasználóknak van lehetősége ezt a modult használni. Ennek a segítségével vizuálisan lehetséges algoritmusokat létrehozni. A da Vinci rendszert programozásához szükséges volt egyedi utasítások létrehozása, hogy a da Vinci rendszer számára tudjunk magas-szintű utasításokat létrehozni. Jelen esetben még csak tárgyak megfogásának utasítását lehetséges használni.
-\begin{figure}[H]
-	\centering
-	\label{fig:myblockly}
-	\includegraphics[width=10cm]{myblockly}
-	\caption{A felhasználó által használható editor felület. }
-\end{figure}
+\paragraph{DaVinciView modul külső funkciók}
+\begin{compactitem}
+	\item Utasítás küldés Da Vinci ROS alkalmazásnak
+	\item Ágens kiválasztása
+	\item Ágens futtatása, da Vinci utasítások utáni visszajelzések figyelembe vételével
+\end{compactitem}
 
-\subsection{View}
-. A különböző Blockly utasítások számára itt lehetséges egyedi JavaScript utasításokat definiálni. A JavaScript-re fordított ágens kódját ''JS-Interpreter`` segítségével futtatom \cite{BibEntry2020Feb}. A ''JS-Interpreter`` egy JavaScriptben írt JavaScript értelmező ''sandbox`` környezet, melyben biztonságosan van lehetőségem elválasztani az ágensek kódjait a böngésző valós JavaScript motorjától. Az ágensek kódja csak és kizárólag egyedileg definiált függvények segítségével tudnak kommunikálni a valós környezettel ezt a dokumentáció ''API hívásnak`` nevezi, jelen esetben a ''JS-Interpreter``-t könyvtárat használó fejlesztő feladata a hivatkozott ''API`` elkészítése. Az utasítások végrehajtása nem valós-időben történik, folyamatosan megvárja a utasítás végrehajtásának sikerességét. 
+\subsubsection{BlocklyEditor modul}
+\paragraph{BlocklyEditor modul külső funkciók}
 
-\begin{figure}[H]
-\centering
-\label{fig:davinciblock}
-\includegraphics[width=10cm]{davinciblock}
-\caption{A da Vinci számára történő utasítás kiadására alkalmas Blockly vezérlési szerkezet }
-\end{figure}
+\subsection{Felhasználói kliens alkalmazás layout-ok}
+TODO
+\subsection{Felhasználó kliens alkalmazás belső felépítése}
+TODO
+\subsection{AR alaklámázás}
+Az AR alaklámázás a következő fő összetett modulokból fog állni.
+\subsubsection{Kamera kalibráció modul} 
+A kamera mátrixok meghatározásara készül, több megfelelően rögzített kép lehet a bemenete, de élő módban is lehetséges használni, a kamerával folyamatosan új képek készítésével. A kimenete egy kamera mátrixokat leíró állomány.
+\subsubsection{Kamera SLAM tracker modul}
+Az egyik saját készítésű. Segítségével a kamera pozícióját lehet valós-időben hozzárendelni egy bemeneti képfolyamhoz.
+\subsubsection{Kamera marker tracker modul}
+Szinték saját készítésű. Segítségével a jelölő (\textit{marker}) kamerához viszonyított relatív 3D pozícióját és orientációját lehetséges meghatározni.
+\subsubsection{AR megjelenítő modul}
 
-\section{Da Vinci webes elérhetősége}
+\subsection{Da Vinci ROS alkalmazás}
+
+\subsection{Da Vinci web modul}
+A ROS környezetben sok modul foglal helyet melyek nem én készítettem hanem többnyire a SAF könyvtárból érkeznek melyet én használok az Web elnevezésű modul az egyik ROS modul amit én készítettem a következő módon kerül majd megvalósításra. 
 Először meg kellet ismerkednem a ROS architektúra és a korábban részletezett \ref{irob} SAF keretrendszer használatával.
-A SAF felépítését a \ref{fig:irob} ábra szemlélteti. A SAF ''subtask`` nevű legfelső moduljában található ''megfogás`` művelet külső meghívásának megvalósítását készítettem el. A meglévő SAF kódból leágazva Létrehoztam egy  ROS web modult, amely ROS action kezelésére alkalmas. Az új modul a ''web`` témakörre van feliratkozva, innen vár goal definíciókat, amiket kiszolgálhat. Jelenleg csak a megfogás művelet van implementálva, de később kibővíthető a további műveletek elvégzésére is. ROS szolgáltatásként lehetséges elindítani a webes modult. Összefoglalva a következőképpen működik: a ROS web modul a következő részben ismertetett \nameref{roslibjs} segítségével lehetséges megszólítani. A webes kérés ROS action formában érkezik. Amennyiben kérés érkezett a SAF \nameref{irob} modult hívja a kérésnek megfelelő utasítással. A mennyiben a kiadott utasítás sikeresen befejeződött ezt egy action alapértelmezett műjkédésének megfelelően egy sikeres callback függvény segítségével visszajelzi a kérést kiadó böngészőnek. A böngésző és a  ROS közötti kommunikáció a \nameref{roslibjs} működéséből következően WebShocket protokollon keresztül történik. A WebShocket protokol előnye a http-vel szemben, hogy kétirányú kapcsolat könnyű kialakítására alkalmas.
-
+A SAF felépítését a \ref{fig:irob} ábra szemlélteti. A SAF ''subtask`` nevű legfelső moduljában található ''megfogás`` művelet külső meghívásának megvalósítását készítem el ezt a modult. A meglévő SAF kódból leágazva hozom létre a ROS web modult, amely ROS action kezelésére alkalmas. Az új modul a ''web`` témakörre van feliratkozva, innen vár goal definíciókat, amiket kiszolgálhat. ROS szolgáltatásként lehetséges elindítani a webes modult. Összefoglalva a következőképpen működik: a ROS web modul a következő részben ismertetett \nameref{roslibjs} segítségével lehetséges megszólítani. A webes kérés ROS action formában érkezik. Amennyiben kérés érkezett a SAF \nameref{irob} megfelelő modult hívja a kérésnek megfelelő utasítással. A mennyiben a kiadott utasítás sikeresen befejeződött ezt egy action alapértelmezett művelődésének megfelelően egy \textit{callback} függvény segítségével visszajelzi a kérést kiadónak. A böngésző és a  ROS közötti kommunikáció a \nameref{roslibjs} működéséből következően WebShocket protokollon keresztül fog történik. A WebShocket protokol előnye a http-vel szemben, hogy kétirányú kapcsolat könnyű kialakítására alkalmas.
 \begin{figure}[H]
 	\label{fig:irob}
-\begin{center}
-	\includegraphics[width=14cm]{irobArch}
-	\caption{A SAF sematikus működése, felépítése \cite{Abc-irobotics2020May} }
-\end{center}
+	\begin{center}
+		\includegraphics[width=14cm]{irobArch}
+		\caption{A SAF sematikus működése, felépítése \cite{Abc-irobotics2020May} }
+	\end{center}
 \end{figure}
+A \ref{fig:irob_web} ábrán láthatjuk a modul tervezett felépítését.
 \begin{figure}[H]
 	\centering
 	\label{fig:irob_web}
 	\includegraphics[width=14cm]{irob_web}
 	\caption{ROS web node ki/be meneteli csatlakozásai}
 \end{figure}
-\newpage
-\subsection{Standard ROS JavaScript könyvtár}
+
+
+\subsubsection{Da Vinci WebShocket szerviz modul}
+A modul működéséhez szorosan kapcsolódó programkönyvtár.
+\paragraph{Standard ROS JavaScript könyvtár}
 \label{roslibjs}
-A Standard ROS JavaScript könyvtár továbbiakban roslibjs a Robot Web Tools része \cite{toris2015robot}.  Alap JavaScript könyvtár, ami a ROS környezettel való böngészőből történő interakció kialakítására készítettek. A Robot Web Tools olyan eszközök fejlesztésének gyűjteménye melyek célkitűzése a ROS rendszer böngészőből történő használatához készítenek, napjainkban is folyamatosan egyre több funkciót lehetséges elérni benne. A könyvtár két részből áll. Biztosít egy JavaScript könyvtárat melyen keresztül kéréseket tudunk megfogalmazni a ROS szerver számára nevezzük ezt most JavaScript könyvtárnak. A Robot Web Tools legfontosabb része a \textit{rosbridge} protokoll ami a kiadott kérések fogadására van. A \textit{rosbridge\_server} egy ROS szolgáltatás amit el kell indítani, hogy továbbítsa a kéréseinket megfelelő modulok számára.
-\subsubsection{JavaScript könyvtár}  A segítségével ROS alapértelmezett kommunikációs rendszeréhez lehet kéréseket küldeni, üzenet küldések, szervizhívások, és akcióhívások segítségével. A hívás válaszakor egy eseménykezelő \textit{callback} függvény meghívódik (WebShocket-es esemény hatására), amiben le tudjuk kezelni, hogy mi történjen a kiadott utasítás után. Mint korábban már említettem a hálózati kommunikáció a WebShcoket protokoll \cite{fette2011websocket} használatával történik, ennek a segítségével hálózaton keresztül egyszerű esemény alapú programozást lehet megvalósítani, a JavaScript az ilyen típusú programozás közkedvelt nyelve.
+A Standard ROS JavaScript könyvtár továbbiakban roslibjs a Robot Web Tools része \cite{toris2015robot}.  Alap JavaScript könyvtár, ami a ROS környezettel való böngészőből történő interakció kialakítására készítettek. A Robot Web Tools olyan eszközök fejlesztésének gyűjteménye melyek célkitűzése a ROS rendszer böngészőből történő használatához készítenek, napjainkban is folyamatosan egyre több funkciót lehetséges elérni benne. A könyvtár két részből áll. Biztosít egy JavaScript könyvtárat melyen keresztül kéréseket tudunk megfogalmazni a ROS szerver számára nevezzük ezt most JavaScript könyvtárnak. A Robot Web Tools legfontosabb része a \textit{rosbridge} protokoll, ami a kiadott kérések fogadására van. A \textit{rosbridge\_server} egy ROS szolgáltatás amit el kell indítani, hogy továbbítsa a kéréseinket megfelelő ROS modul számára.
+
+Ennek egy kiegészítő modul mely a konkrét csatlakozást teszi lehetővé a böngésző számára a ROS környezethez, ezt a modult nem nekem kell készítenem, csak használom a ROS környezet által nyújtott lehetőségeket.
+
+\chapter{Megvalósítás}
 \section{Da Vinci vizuális programozás összefoglaló}
 A ROS modulok használata jelenleg Ubuntu 16.04-es verzióval van tesztelve. A Web modulokat én a mindenkori legfrissebb Manjaro Linux alól tesztelem, de elvi szinten bármilyen disztribúció alkalmas ezek használatra, a megfelelő függőségek feltelítése után. Az Ubuntu 16.04-et javaslom virtualizált környezetben futtatni.
 Az alkalmazás szimulációval történő  da Vinci programozás használathoz a következőket kell tenni. A SAF keretrendszer leírásának megfelelően  el kell indítani egy dVRK PSM kar szimulációt \cite{irobotics2020May}. Majd egy SAF ''dummy`` objektumot kell elhelyezni a szimulációban. A szimulált kar állapotát ''home`` pozíció kell hozni. ''Dummy vision`` elindítás is szükséges. Következő szükséges lépés továbbra is a leírásának megfelelően irob\_robot szolgáltatás majd surgeme\_server szolgáltatás elindítása. A leírástól eltérve kell folyatni. Ez után a web\_actions modul futtatása szükséges. Következő lépésként pedig a '' rosbridge\_websocket`` futtatása szükséges. Ezek után meg vagyunk ROS oldalról. A következőkben az NodeJS szerver modul leírásának megfelelő utasítások futtatása szükséges \cite{aaronrancsik2020May}. Amennyiben ezzel is megvagyunk az alkalmazás localhost hálózton elindította szolgáltatásait. Melyet modern böngészők segítségivel el lehet érni.
