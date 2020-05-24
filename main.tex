@@ -202,7 +202,6 @@ Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környeze
 	\item Monolitikus, bővítésre nézve többnyire zárt rendszer.
 	\item A objektum orientáltság különböző megkötésekkel érhető el.
 \end{compactitem}
-
 \subsubsection{GP} Általános célú blokk alapú \cite{ohshima2015module} \cite{monig2015blocks} programozási nyelv. Egy valódi programozási nyelv, mely blokk és kód alapú programozási lehetőséggel is rendelkezik.  Sok alacsony szintű funkciók érhetőek el benne. Sokkal közelebb áll a valóságos programozáshoz a korábban említett lehetőségekhez képest, rendelkezik webes felülettel és a külvilággal internetes \textit{get}, \textit{put} utasítás lehetséges a kommunikáció egyedi rendszerekkel. Támogatja az objektum orientált paradigmát. Tartalmaz bonyolultabb adatszerkezeteket is.
 \paragraph{Előnyei} 
 \begin{compactitem}
@@ -235,7 +234,6 @@ Nagyon népszerű, oktatásban méltán közkedvelten használt teljes környeze
 	\item Nincs webes felülete, futtatható állományok telepítését igényli.
 	\item Kissé régi, idejét múlt, már kevésbé támogatott.
 \end{compactitem}
-
 \subsubsection{Egyéb kész megoldások}
 A fenti részben, a dolgozatommal legjobban összehasonlítható szempontok alapján fontosnak tartott kész megoldásokat mutattam be. Természetesen rengeteg egyéb kész alkalmazás létezik mely vizuális programozási lehetőséget biztosít. Felsorolás szintjén itt leírok pár szerintem említésre méltó alkalmazást. 
 \begin{compactitem}
@@ -468,8 +466,8 @@ Miután ismerjük a kamera tulajdonságait a képekkel torzítás mentesen tudun
 A kamera mozgásának meghatározása a kamerával készült képekből. A videó feldolgozása során, szeretnénk minden képhez, egy merev-test mozgást meghatározni, melyre igaz, hogy a virtuális objektumra történő alkalmazás esetén a tanformáció után az objektum a kamera képen, megfelelő szögbe és pozícióba kerül az objektum. Az első kép esetén természetesen külön kell dönteni a virtuális objektum elhelyezkedéséről.
 
 \subsubsection{Simultaneous Localisation and Mapping}
-Meg kell különböztetni az ismert és ismeretlen \textit{scene} ''jelenet``-ben történő kamera \textit{tracking} ''követés``-t. Ismeretlen jelenet esetén, egy lehetséges kidolgozott megközelítés a ''Simultaneous Localisation and Mapping`` (SLAM). Egy módszer arra, hogy a kialakított modell, \textit{structure} és kapott kép információk alapján lehetőleg minél pontosabban szeretnénk a kamera merev-test mozgását meghatározni.
-Az egyik nagy előrehaladás a 2003-ban bemutatott sokat hivatkozott valósidejű megvalósítás \cite{davison2003real}. A megoldás egy darab kamerát használt, \textit{monocular} ezt SLAM-nek szokás nevezni. 
+Meg kell különböztetni az ismert és ismeretlen \textit{scene} ''jelenet``-ben történő kamera \textit{tracking} ''követés``-t. Ismeretlen jelenet esetén, egy lehetséges kidolgozott megközelítés a ''Simultaneous Localisation and Mapping`` (SLAM). Módszer arra, hogy a kialakított modell, \textit{structure} és kapott kép információk alapján, lehetőleg minél pontosabban szeretné a kamera, merev-test mozgását meghatározni.
+Az egyik nagy előrehaladás a 2003-ban bemutatott sokat hivatkozott valósidejű megvalósítás \cite{davison2003real}. A megoldás egy darab kamerát használt, \textit{monocular} ezt SLAM-nek hívják. 
 Az ötlet a Kálmán szűrőn alapszik \cite{welch1995introduction}, mely a egy optimális becslő algoritmus. Egy modell állapotából és tapasztalat által szerzett zajos állapotból igyekszik optimális állapotot meghatározni. Ennek egy továbbfejlesztett megoldására latunk példát itt \cite{klein2008improving} mely a modellt magasabb szintű részekkel bővítette ki. A SLAM módszerekről elmondható, hogy legtöbb esetben a jellemző képpontok keresését és azok egymásnak való megfeleltetésének módszereket használnak, de optikai-folyam módszer alapján is működhetnek. 
 Robotika területén, gyakran alkalmazzák, legtöbb specifikus programkönyvtár több variánsát támogatja.
 
@@ -563,7 +561,7 @@ A következő alkalmazásokra és a hozzájuk  tartozó feladatokra bontottam a 
 Az alkalmazások belül, modulokból épülnek fel a részfeladatok megoldása mentén, egyszerű esetben egy osztály egy modult reprezentál, de vannak ennél összetettebb esetek is. Egy modul akár több másik modulra épülhet.
 
 \subparagraph{Layout}
-Főleg a rendszer \textit{front-end} részénél van értelme ennek újabb absztrakt csoportnak a bevezetésére, több különböző modul összerakásával készíthetünk egy ilyen felületet, melyen keresztül egy adott feladatot lehet ellátni, a modulok több \textit{layout}-ban is újrahasználhatóak, így igyekszem elkerülni a duplikációkat.
+Főleg a rendszer \textit{front-end} részénél van értelme ennek újabb absztrakt csoportnak a bevezetésére, több különböző modul összerakásával készíthetünk egy ilyen felületet, melyen keresztül egy adott komplex feladatot lehet ellátni, a modulok több \textit{layout}-ban is újrahasználhatóak, így igyekszem elkerülni a duplikációkat.
 
 
 \section{Alkalmazásokhoz választott alapvető technológiák}
@@ -608,8 +606,7 @@ Az objektum orientált paradigma kényelmes támogatása céljából TypeScript 
 \end{compactitem}
 Az egész szervert \textit{production} környezetben majd egy később választott, valószínűleg Azure felhőszolgáltatásban fog futni. Egy felhőszolgáltató specifikus nem relációs adatbázisban  kerülnek majd az adatok eltárolásra. Fejlesztési idő alatt MongoDB adatbázismotort fogok használni.
 A szerver megvalósítása közben szeretnék  a REST megszorításoknak megfelelni.
-\subsubsection{Felhasználói szerver belső felépítése}
-TODO
+
 
 \subsection{Felhasználói kliens alaklámázás}
 \label{felhkliens}
@@ -654,12 +651,17 @@ Szintén az oktató által futtatott modul, mely nem feltétlen kell, hogy az ok
 \end{compactitem}
 
 \subsubsection{BlocklyEditor modul}
+Célja, grafikus programozási környezet biztosítása. A korábban kiválasztott Blockly programkönyvtárat használja. 
+\begin{figure}[h]
+	\label{fig:Block}
+	\centering
+	\includegraphics[width=0.75\textwidth]{2Vf5as}
+	\caption{Vizuális tervet láthatunk a működésére.}
+\end{figure}
+
+
 \paragraph{BlocklyEditor modul külső funkciók}
 
-\subsection{Felhasználói kliens alkalmazás layout-ok}
-TODO
-\subsection{Felhasználó kliens alkalmazás belső felépítése}
-TODO
 \subsection{AR alaklámázás}
 Az AR alaklámázás a következő fő összetett modulokból fog állni.
 \subsubsection{Kamera kalibráció modul} 
@@ -670,9 +672,18 @@ Az egyik saját készítésű. Segítségével a kamera pozícióját lehet val�
 Szinték saját készítésű. Segítségével a jelölő (\textit{marker}) kamerához viszonyított relatív 3D pozícióját és orientációját lehetséges meghatározni.
 \subsubsection{AR megjelenítő modul}
 
+\paragraph{Belső felépítése}
+A  \nameref{fig:arseq} árbán az AR logika fő lépéseinek tervezett működése látható
+\begin{figure}[h]
+	\label{fig:arseq}
+	\centering
+	\includegraphics[width=0.75\textwidth]{dias/arseq}
+	\caption{AR SLAM logika fő lépéseinek tervezett működése}
+\end{figure}
+
 \subsection{Da Vinci ROS alkalmazás}
 
-\subsection{Da Vinci web modul}
+\subsubsection{Da Vinci Web modul}
 A ROS környezetben sok modul foglal helyet melyek nem én készítettem hanem többnyire a SAF könyvtárból érkeznek melyet én használok az Web elnevezésű modul az egyik ROS modul amit én készítettem a következő módon kerül majd megvalósításra. 
 Először meg kellet ismerkednem a ROS architektúra és a korábban részletezett \ref{irob} SAF keretrendszer használatával.
 A SAF felépítését a \ref{fig:irob} ábra szemlélteti. A SAF ''subtask`` nevű legfelső moduljában található ''megfogás`` művelet külső meghívásának megvalósítását készítem el ezt a modult. A meglévő SAF kódból leágazva hozom létre a ROS web modult, amely ROS action kezelésére alkalmas. Az új modul a ''web`` témakörre van feliratkozva, innen vár goal definíciókat, amiket kiszolgálhat. ROS szolgáltatásként lehetséges elindítani a webes modult. Összefoglalva a következőképpen működik: a ROS web modul a következő részben ismertetett \nameref{roslibjs} segítségével lehetséges megszólítani. A webes kérés ROS action formában érkezik. Amennyiben kérés érkezett a SAF \nameref{irob} megfelelő modult hívja a kérésnek megfelelő utasítással. A mennyiben a kiadott utasítás sikeresen befejeződött ezt egy action alapértelmezett művelődésének megfelelően egy \textit{callback} függvény segítségével visszajelzi a kérést kiadónak. A böngésző és a  ROS közötti kommunikáció a \nameref{roslibjs} működéséből következően WebShocket protokollon keresztül fog történik. A WebShocket protokol előnye a http-vel szemben, hogy kétirányú kapcsolat könnyű kialakítására alkalmas.
@@ -693,17 +704,17 @@ A \ref{fig:irob_web} ábrán láthatjuk a modul tervezett felépítését.
 
 
 \subsubsection{Da Vinci WebShocket szerviz modul}
+Kiegészítő modul mely a konkrét csatlakozást teszi lehetővé a böngésző számára a ROS környezethez, ezt a modult nem nekem kell készítenem, csak használom a ROS környezet által nyújtott lehetőségeket.
 A modul működéséhez szorosan kapcsolódó programkönyvtár.
 \paragraph{Standard ROS JavaScript könyvtár}
 \label{roslibjs}
 A Standard ROS JavaScript könyvtár továbbiakban roslibjs a Robot Web Tools része \cite{toris2015robot}.  Alap JavaScript könyvtár, ami a ROS környezettel való böngészőből történő interakció kialakítására készítettek. A Robot Web Tools olyan eszközök fejlesztésének gyűjteménye melyek célkitűzése a ROS rendszer böngészőből történő használatához készítenek, napjainkban is folyamatosan egyre több funkciót lehetséges elérni benne. A könyvtár két részből áll. Biztosít egy JavaScript könyvtárat melyen keresztül kéréseket tudunk megfogalmazni a ROS szerver számára nevezzük ezt most JavaScript könyvtárnak. A Robot Web Tools legfontosabb része a \textit{rosbridge} protokoll, ami a kiadott kérések fogadására van. A \textit{rosbridge\_server} egy ROS szolgáltatás amit el kell indítani, hogy továbbítsa a kéréseinket megfelelő ROS modul számára.
 
-Ennek egy kiegészítő modul mely a konkrét csatlakozást teszi lehetővé a böngésző számára a ROS környezethez, ezt a modult nem nekem kell készítenem, csak használom a ROS környezet által nyújtott lehetőségeket.
 
 \chapter{Megvalósítás}
-\section{Da Vinci vizuális programozás összefoglaló}
-A ROS modulok használata jelenleg Ubuntu 16.04-es verzióval van tesztelve. A Web modulokat én a mindenkori legfrissebb Manjaro Linux alól tesztelem, de elvi szinten bármilyen disztribúció alkalmas ezek használatra, a megfelelő függőségek feltelítése után. Az Ubuntu 16.04-et javaslom virtualizált környezetben futtatni.
-Az alkalmazás szimulációval történő  da Vinci programozás használathoz a következőket kell tenni. A SAF keretrendszer leírásának megfelelően  el kell indítani egy dVRK PSM kar szimulációt \cite{irobotics2020May}. Majd egy SAF ''dummy`` objektumot kell elhelyezni a szimulációban. A szimulált kar állapotát ''home`` pozíció kell hozni. ''Dummy vision`` elindítás is szükséges. Következő szükséges lépés továbbra is a leírásának megfelelően irob\_robot szolgáltatás majd surgeme\_server szolgáltatás elindítása. A leírástól eltérve kell folyatni. Ez után a web\_actions modul futtatása szükséges. Következő lépésként pedig a '' rosbridge\_websocket`` futtatása szükséges. Ezek után meg vagyunk ROS oldalról. A következőkben az NodeJS szerver modul leírásának megfelelő utasítások futtatása szükséges \cite{aaronrancsik2020May}. Amennyiben ezzel is megvagyunk az alkalmazás localhost hálózton elindította szolgáltatásait. Melyet modern böngészők segítségivel el lehet érni.
+%\section{Da Vinci vizuális programozás összefoglaló}
+%A ROS modulok használata jelenleg Ubuntu 16.04-es verzióval van tesztelve. A Web modulokat én a mindenkori legfrissebb Manjaro Linux alól tesztelem, de elvi szinten bármilyen disztribúció alkalmas ezek használatra, a megfelelő függőségek feltelítése után. Az Ubuntu 16.04-et javaslom virtualizált környezetben futtatni.
+%Az alkalmazás szimulációval történő  da Vinci programozás használathoz a következőket kell tenni. A SAF keretrendszer leírásának megfelelően  el kell indítani egy dVRK PSM kar szimulációt \cite{irobotics2020May}. Majd egy SAF ''dummy`` objektumot kell elhelyezni a szimulációban. A szimulált kar állapotát ''home`` pozíció kell hozni. ''Dummy vision`` elindítás is szükséges. Következő szükséges lépés továbbra is a leírásának megfelelően irob\_robot szolgáltatás majd surgeme\_server szolgáltatás elindítása. A leírástól eltérve kell folyatni. Ez után a web\_actions modul futtatása szükséges. Következő lépésként pedig a '' rosbridge\_websocket`` futtatása szükséges. Ezek után meg vagyunk ROS oldalról. A következőkben az NodeJS szerver modul leírásának megfelelő utasítások futtatása szükséges \cite{aaronrancsik2020May}. Amennyiben ezzel is megvagyunk az alkalmazás localhost hálózton elindította szolgáltatásait. Melyet modern böngészők segítségivel el lehet érni.
 \chapter*{Irodalomjegyzék}
 \addcontentsline{toc}{chapter}{Irodalomjegyzék}  
 \printbibliography[heading=none]
