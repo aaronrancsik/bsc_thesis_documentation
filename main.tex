@@ -90,7 +90,7 @@
 	Mérnök informatikus BSc\\
 	\vfill
 	\large \textbf{Vizuális, interaktív programozás oktató rendszer moduláris megvalósítása\\}
-	\large Projektmunka dokumentáció
+	%\large Projektmunka dokumentáció
 	\vfill
 }
 \author{Ráncsik Áron}
@@ -101,7 +101,7 @@
 % \includepdf[page={1,2}]{resources/feladatlap}
 \pagenumbering{Alph}
 \begin{titlepage}
-%\maketitle
+\maketitle
 \thispagestyle{empty}
 \end{titlepage}
 \pagenumbering{arabic}
@@ -119,15 +119,15 @@
 % Introductory chapters
 \chapter{Bevezetés}
 \par Először szeretném bemutatni azokat a célkitűzéseket, nem-funkcionális követelményeket, különböző elvárásaimat, melyek megvalósítását tervezem dolgozatomban. 
-\par Fő célom, egy olyan rendszer elkészítése, melynek a segítségével, fiatal (10-16 éves) korosztály számára  lehet, elérhetővé, élvezetessé tenni a  programozást, algoritmizálást. Kedvcsináló módon,  szeretném az algoritmizálás tanulásra rávezetni a fiatalokat. Egy szokványos tanóra kereteit jóval túlhaladó igényeket kielégítő rendszer elkészítését tervezem.
+\par Fő célom egy olyan rendszer elkészítése, melynek a segítségével, fiatal (10-16 éves) korosztály számára  lehet, elérhetővé, élvezetessé tenni a  programozást, algoritmizálást. Kedvcsináló módon,  szeretném az algoritmizálás tanulásra rávezetni a fiatalokat. Egy szokványos tanóra kereteit jóval túlhaladó igényeket kielégítő rendszer elkészítését tervezem.
 \paragraph{További fontos követelmények, célok}
 A fő célon túl további ötleteim, terveim vannak, ezeket részletezem itt.
 \begin{enumerate}
-	\item Nem egy létező programozási nyelv keretin belül szeretném  az algoritmizálás bemutatását megtenni. Ezzel szembeni követelményem, egy grafikus felület, \textit{GUI}, mellyel egyedi utasításokat teljesítő algoritmusokat lehet szerkeszteni, barátságos módon.
-	\item Cél, hogy ne szokványos (logikai) feladatok elvégzésére készüljenek, a felhasználók által összerakott algoritmusok. Az előbb említett algoritmusokra, továbbiakban az ''ágens`` kifejezést használom. Az előbbi állítással szemben, azt szeretném, hogy az ágensek,  egymás elleni versengés, megmérettetés és játék, céljából készüljenek.
-	\par Egy példán keresztül szemléltetve, azt szeretném, hogy egy egymás ellen játszható játékon belül, minden felhasználó egy számára kijelölt ''játékost`` irányíthasson az ágensével, és így az ágensek és a felhasználók is versengjenek, küzdjenek egymással. Az ilyen eszközöket használó oktatási formát, játékos oktatásnak  \cite{riar2020game}, vagy idegen szóval a \textit{gamification}-nek \cite{Deterding2011} nevezik. 
-	\item Az ágensek küzdelmét, kiterjesztett valóságon keresztül is figyelemmel kísérhetővé szeretném tenni. Ennek a szemléltetésére is szeretnék példát írni. Tegyük fel, hogy  az ágensek küzdelme, egy kitüntetett környezetben, számítógépen történik, azon túl hogy az adott gép kijelzőjét kilehet vetíteni, a közdelem egy telefon és annak kamerája segítségével, az íróasztal lapjára is kiterjeszthető kell hogy legyen. Ezzel további jó hangulatot lehet teremteni.
-	\item Az egymás ellen küzdő ágens programozáson túl, szeretném, ha a programozást biztosító grafikus felület, a da Vinci robotkar könnyű programozásra is használható legyen. Úgy gondolom, hogy a programozásoktatást egyik legszemléletesebb területe, a robotprogramozás. Továbbá, magas-szintű program utasítások biztosításának a segítségével könnyen, érthetően lehet szemléltetni a robotika és orvosinformatika területének szépségeit is, és a programozáson túl, az orvostudomány, robotika iránt is  lehetséges érdeklődést kelteni a fiatalokban.
+	\item Nem egy létező programozási nyelv keretein belül szeretném  az algoritmizálás bemutatását megtenni. Ezzel szembeni követelményem, egy grafikus felület, \textit{GUI}, mellyel egyedi utasításokat teljesítő algoritmusokat lehet szerkeszteni, felhasználóbarát módon.
+	\item Cél, hogy ne szokványos (logikai) feladatok elvégzésére készüljenek a felhasználók által összerakott algoritmusok. Az előbb említett algoritmusokra, továbbiakban az ''ágens`` kifejezést használom. Az előbbi állításból kifolyólag, azt szeretném, hogy az ágensek  egymás elleni versengés, megmérettetés és játék, céljából készüljenek.
+	\par Egy példán keresztül szemléltetve, azt szeretném, hogy egy egymás ellen játszható játékon belül minden felhasználó, egy számára kijelölt ''játékost`` irányíthasson az ágensével, és így az ágensek és a felhasználók is versengjenek, küzdjenek egymással. Az ilyen eszközöket használó oktatási formát, játékos oktatásnak  \cite{riar2020game}, vagy idegen szóval a \textit{gamification}-nek \cite{Deterding2011} nevezik. 
+	\item Az ágensek küzdelmét kiterjesztett valóságon keresztül is figyelemmel kísérhetővé szeretném tenni. Ennek a szemléltetésére is szeretnék példát írni. Tegyük fel, hogy  az ágensek küzdelme egy kitüntetett környezetben, számítógépen történik. Azon túl, hogy az adott gép kijelzőjét kilehet vetíteni, a küzdelem egy telefon és annak kamerája segítségével az íróasztal lapjára is kiterjeszthető kell, hogy legyen. Ezzel további jó hangulatot lehet teremteni.
+	\item Az egymás ellen küzdő ágens programozáson túl szeretném, ha a programozást biztosító grafikus felület, a da Vinci robotkar könnyű programozására is használható legyen. Úgy gondolom, hogy a programozás oktatást egyik legszemléletesebb területe, a robot programozás. Továbbá, magas-szintű program utasítások biztosításának a segítségével könnyen, érthetően lehet szemléltetni a robotika és orvosinformatika területének szépségeit is, és a programozáson túl az orvostudomány, robotika iránt is  lehetséges érdeklődést felkelteni a fiatalokban.
 \end{enumerate}
 
 \newpage
@@ -152,7 +152,7 @@ Most egy előretekintő és a dolgozatot valamelyest összefoglaló, vázlatot, 
 \chapter{Módszertan}
 \label{modtan}
 A korában megfogalmazott célok elérése érdekében végzett, kutatómunkát részletezem itt.
-Az elkészült alkalmazás működését is szeretném oktatási célokra felhasználni, ezért a megvalósítás során, olyan könyvtárakat igyekszem használni,  melyek forráskódja, működése szabadon elérhető. Amennyire lehetséges igyekszem az egyszerűbb megvalósítások irányában hajlani, értem ez alatt azt, hogy inkább olyan megoldások használatát preferálom, ami ''csak`` egy adott feladatra biztosít megoldást, de a használatához nem szükséges egy nagy, bonyolult rendszert használni. Az előbbi állításomból kifolyólag, például mellőzni igyekszem a különböző felhőszolgáltatások és zárt könyvtárak, valamint az ilyen komplett óriási kódbázisok, játékmotorok használatát.
+Az elkészült rendszert szeretném oktatási célokra is felhasználni, ezért a megvalósítás során, olyan programkönyvtárakat igyekszem használni,  melyek forráskódja, működése szabadon elérhető. Amennyire lehetséges igyekszem egyszerűbb megvalósításokat alkalmazni, értem ez alatt azt, hogy inkább olyan megoldások használatát preferálom, ami ''csak`` egy adott feladatra biztosít megoldást, de a használatához nem szükséges egy nagy, bonyolult rendszert használni. Az előbbi állításomból kifolyólag, például mellőzni igyekszem a különböző felhőszolgáltatások és zárt könyvtárak, valamint az ilyen komplett óriási kódbázisok, játékmotorok használatát.
 \section{Vizuális programozási környezet}
 \subsection{Alternatív megoldások vizuális programozásra}
 \label{vizuprogkor}
@@ -363,10 +363,10 @@ Rengeteg játékkészítéssel kapcsolatos funkciót biztosít. AR megvalósít�
 
 \subsubsection{Unreal Engine}
 Egy szoftver amely valósidejű 3D grafika készítésére készítettek \cite{unrealengine}. Szűkebb értelemben játékmotornak is lehet  nevezni. Szintén rendelkezik saját megoldással Virtuális valóság (VR), AR és kevert valóság (MR) számára is.
-\paragraph{Konklúzió} Többnyire ugyanazok igazak rá mint a Unity-re ezért külön nem tárgyalom. A fejlesztést marginálisan meghatározná, a motor használatához kellene alkalmazkodni.
+\paragraph{Konklúzió} Többnyire ugyanazok igazak rá mint a Unity-re ezért külön nem tárgyalom. A fejlesztést alapjaiban meghatározná, a motor használatához kellene alkalmazkodni.
 \subsubsection{Mobil megoldások}
 \paragraph{iOS ARKit}
-Az ARKit segítségével, Apple iOS platformra lehetséges AR alkalmazást készíteni \cite{arkit}. A korábban említett különböző maga-szintű megoldások pl. Unity ezt a rendszert is használja, ha iOS platformra készítünk projektet. Egy AR alkalmazás számára szükséges összes funkciót megvalósítja, pl. a telefon kamera pozíció becslését, virtuális objektumok elhelyezését. Természetesen mint mobil megoldás, a telefon kameráját illetve szenzorrendrendszerét használja a működéshez.
+Az ARKit segítségével, Apple iOS platformra lehetséges AR alkalmazást készíteni \cite{arkit}. A korábban említett különböző magas-szintű megoldások pl. Unity ezt a rendszert is használja, ha iOS platformra készítünk projektet. Egy AR alkalmazás számára szükséges összes funkciót megvalósítja, pl. a telefon kamera pozíció becslését, virtuális objektumok elhelyezését. Természetesen mint mobil megoldás, a telefon kameráját illetve szenzorrendrendszerét használja a működéshez.
 \paragraph{ARCore}
 Hasonlóan az ARKite-hez, az ARCore a modern Android operációs rendszerrel rendelkező telefonokon elérhető kiterjesztett valóságot biztosító API \cite{arcore}.
 \paragraph{Konklúzió}
