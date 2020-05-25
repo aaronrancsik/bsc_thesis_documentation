@@ -138,12 +138,12 @@ Most egy előretekintő és a dolgozatot valamelyest összefoglaló, vázlatot, 
 \subparagraph{Vázlatos működés felhasználó szempontjából}
 \begin{enumerate}
 	\item Egy felületen csatlakozik, megad egy egyedi azonosítót, nevét, esetleg regisztrálhat is.
-	\item Hozzáfér a grafikus programozást nyújtó szerkesztői felülethez. Azt, hogy milyen lehetőségek vannak, ilyen grafikus programozó felület készítésére a: \fullref{vizuprogkor} résznél fogom tárgyalni.
+	\item Hozzáfér a grafikus programozást nyújtó szerkesztői felülethez. Azt, hogy milyen lehetőségek vannak, ilyen grafikus programozó felület készítésére a \fullref{vizuprogkor} résznél fogom tárgyalni.
 	\item Attól függően, hogy da Vinci vagy játék programozási módban vagyunk, a felhasználó különböző egyedi utasításokat illeszthet össze ágenssé, például da Vinci esetén ``Fogd meg az 1. objektumot'' vagy játék módban ``Lépj jobbra'' , illetve alapvető ciklus és elágazás, utasításokat is tud használni.
 	\item Van lehetősége helyi gépen történő tesztelésre. Mindenki futtathatja, tesztelheti saját eszközén is az elkészült ágensét.
 	\item Miután mindenki összerakta az ágenseit, az oktató ezeket távolról összegyűjtheti és egy kijelölt gépen elindíthatja. Így például játék módban a küzdelem, valamilyen nagyobb kijelzőn  mindenki számára  megtekinthető.  Az előbbi lépések konkrét megvalósítási terve a későbbiekben bemutatott \fullref{felhkliens} különböző alrészeiben található.
-	\item Da Vinci mód esetén az összegyűjtött ágensekből, oktatóknak van lehetősége egyet kiválasztva futtatnia a da Vinci roboton, vagy annak szimulációjában. A da Vinci robothoz történő kapcsolódási lehetőségek irodalomkutatása megtekinthető \fullref{sec:davi}.
-	\item Akár, mindenki telefonján elérhető, vagy egy erre szolgáló  eszközön, kiterjesztett valóságon keresztül is követhető az ágensek  küzdelme. A kiterjesztett valósággal kapcsolatos irodalomkutatás megtekinthető \fullref{kitval}. Igyekeztem áttekinteni a kész megoldások listáját, továbbá utánajárni, a saját készítésű kiterjesztett valóság megvalósítás hátterének.
+	\item Da Vinci mód esetén az összegyűjtött ágensekből, oktatóknak van lehetősége egyet kiválasztva futtatnia a da Vinci roboton, vagy annak szimulációjában. A da Vinci robothoz történő kapcsolódási lehetőségek irodalomkutatása megtekinthető \fullref{sec:davi} résznél.
+	\item Akár, mindenki telefonján elérhető, vagy egy erre szolgáló  eszközön, kiterjesztett valóságon keresztül is követhető az ágensek  küzdelme. A kiterjesztett valósággal kapcsolatos irodalomkutatás megtekinthető \fullref{kitval} résznél. Igyekeztem áttekinteni a kész megoldások listáját, továbbá utánajárni, a saját készítésű kiterjesztett valóság megvalósítás hátterének.
 \end{enumerate}
 
 %\paragraph{Algoritmus elmélet}
@@ -151,7 +151,7 @@ Most egy előretekintő és a dolgozatot valamelyest összefoglaló, vázlatot, 
 
 \chapter{Módszertan}
 \label{modtan}
-A korában megfogalmazott célok elérése érdekében végzett, kutatómunkát részletezem itt.
+A korában megfogalmazott célok elérése érdekében végzett kutatómunkát részletezem.
 Az elkészült rendszert szeretném oktatási célokra is felhasználni, ezért a megvalósítás során, olyan programkönyvtárakat igyekszem használni,  melyek forráskódja, működése szabadon elérhető. Amennyire lehetséges igyekszem egyszerűbb megvalósításokat alkalmazni, értem ez alatt azt, hogy inkább olyan megoldások használatát preferálom, ami ``csak'' egy adott feladatra biztosít megoldást, de a használatához nem szükséges egy nagy, bonyolult rendszert használni. Az előbbi állításomból kifolyólag, például mellőzni igyekszem a különböző felhőszolgáltatások és zárt könyvtárak, valamint az ilyen komplett óriási kódbázisok, játékmotorok használatát.
 \section{Vizuális programozási környezet}
 \subsection{Alternatív megoldások vizuális programozásra}
@@ -159,8 +159,8 @@ Az elkészült rendszert szeretném oktatási célokra is felhasználni, ezért 
 Mivel a dolgozatban vizuális  programozást  is szeretnék biztosítani, ezért megvizsgálom milyen konkurens megoldások léteznek erre a célra. Az alábbiakban bemutatok és elemzek több kutatást, korábbi kész alkalmazásokat és programkönyvtárakat melyek mindegyike a vizuális blokk alapú programozásról szól.
 \subsubsection{Scratch} 
 \label{scratch}
-A Scratch nagyon népszerű, oktatásban méltán közkedvelten használt teljes környezet \cite{maloney2010scratch, resnick2009scratch, ScratchUrl2019Jan}, mely vizuális programozást tesz lehetővé. Az alapvető célja, média alkalmazások mint például animáció, köszöntések, történet mesélés, zeneklip elkészítésének - folyamata közben megtanítani a programozást. Az egyedüli, intuitív tanulást is előnyben részesíti. Főleg kisebb 8-16 éves korosztály számára készült. 
-\par Az elkészült program alapértelmezetten egy saját ''{színpad}`` környezetben futtatható. Esemény vezérelt programozást is lehetővé tesz, ebben az esetben, egyszerre fellépő konkurens utasítások között esetleges versenyhelyzetet kezeli, de nem minden esetben úgy ahogy azt elsőre a használó gondolná.  A programból \textit{broadcast} utasításokkal, saját parancsok, szkriptek végrehajtása lehetséges. A \textit{broadcast} utasítássokkal lehetséges a külvilággal történő kommunikáció is, de körülményes. Kiegészítőkkel bővíthető, de így sem lehet az alap működésre kiható szignifikáns módosításokat eszközölni.
+A Scratch nagyon népszerű, oktatásban méltán közkedvelten használt teljes környezet \cite{maloney2010scratch, resnick2009scratch, ScratchUrl2019Jan}, mely vizuális programozást tesz lehetővé. Az alapvető célja, média alkalmazások például animáció, köszöntések, történet mesélés, zeneklip elkészítésének elkészítése által megtanítani a programozást. Az egyedüli, intuitív tanulást is előnyben részesíti. Főleg kisebb 8--16 éves korosztály számára készült. 
+\par Az elkészült program alapértelmezetten egy saját ``{színpad}'' környezetben futtatható. Esemény vezérelt programozást is lehetővé tesz, ebben az esetben, az egyszerre fellépő konkurens utasítások között esetleges versenyhelyzetet kezeli, de nem minden esetben úgy ahogy azt elsőre a használó gondolná.  A programból \textit{broadcast} utasításokkal, saját parancsok, szkriptek végrehajtása lehetséges. A \textit{broadcast} utasítássokkal lehetséges a külvilággal történő kommunikáció is, de körülményes. Kiegészítőkkel bővíthető, de így sem lehet az alap működésre kiható szignifikáns módosításokat eszközölni.
 \paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú.
@@ -281,16 +281,16 @@ Microsoft által fejlesztett, összetett, vizuális programozói környezetet bi
 
 \subsection{Választott vizuális programozási környezet}
 Kipróbáltam, teszteltem a legtöbb felsorolt megoldást, továbbá a korábbi elemzés összevetése  után a Blockly környezet használata mellet döntöttem.
-A dolgozat igényeit nem lehet kész megoldásokkal pl. \nameref{scratch}, \nameref{snap} stb. kielégíteni, mert túlságosan zárt működésük nem teszik lehetővé, hogy egyedi környezethez lehessen programozni ezekben az alkalmazásokban.
+A dolgozat igényeit nem lehet kész megoldásokkal pl. \nameref{scratch}, \nameref{snap}, stb. kielégíteni, mert túlságosan zárt működésük nem teszik lehetővé, hogy egyedi környezethez lehessen programozni ezekben az alkalmazásokban.
 A Blockly kellőképpen módosítható és könnyen egyedi környezetbe illeszthető, vizuális programozást biztosító programkönyvtár, mely megfelel a feladat részéről támasztott elvárásoknak, továbbá kellőképpen egyszerűen használható.
 
 
 \section{Da Vinci vezérlése}
 \label{sec:davi}
-A célok között szerepelt a da Vinci robot egyszerű vezérlése. 
+A célok között szerepelt a da Vinci robotkar egyszerű vezérlése. 
 Az elkövetkező részben, igyekszem körbejárni a lehetőségeket és elemezni előnyeit hátrányait, melyek segítségével lehet kapcsolódni a da Vinci rendszerhez. Az egyetemen egy 2010-ben bemutatott első generációs da Vinci classic rendszerhez van lehetőség hozzáférni, ezért ehhez készül az alkalmazás. A továbbiakban mindig erről a modellről lesz szó.
 \subsection{Robot Operating System}
-Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan egy fizikai da Vinci rendszerrel dolgozni, egy olyan környezetre van szükség ami képes biztosítani da Vinci robotot virtuálisan. Több rendszer elérhető mely robot programozás vezérlő környezetet biztosít, csak felsorolás szintjén néhány \cite{BibEntry2020May, montemerlo2003perspectives}, azonban az egyik legkorábbi és legnépszerűbb lehetőség a Robot Operating System \cite{quigley2009ros} továbbiakban ROS. A ROS órási és növekvő közösséggel rendelkezik, \textit{de facto} standard az iparban és kutatásban. Dolgozatomban több szempont miatt is a legjobb választásnak a ROS rendszer bizonyult. Attól a hátrányától eltekintve, hogy nem multiplatform azaz csak Ubuntu GNU/Linux és annak is csak bizonyos verzióihoz támogatott hivatalosan, rengeteg előnnyel rendelkezik. Sok robotvezérléssel kapcsolatos alapfunkciót tartalmaz, amit így nem kell újból megírni, biztosít egy jól elszeparált keretet külön a kommunikációra és az üzleti logikára.
+Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan egy fizikai da Vinci rendszerrel dolgozni, egy olyan környezetre van szükség ami képes biztosítani da Vinci robotot virtuálisan. Több rendszer elérhető mely robot programozás vezérlő környezetet biztosít, csak hivatkozás szintjén néhány \cite{BibEntry2020May, montemerlo2003perspectives}, azonban az egyik legkorábbi és legnépszerűbb lehetőség a Robot Operating System \cite{quigley2009ros} továbbiakban ROS. A ROS órási és növekvő közösséggel rendelkezik, \textit{de facto} standard az iparban és kutatásban. Dolgozatomban több szempont miatt is a legjobb választásnak a ROS rendszer bizonyult. Attól a hátrányától eltekintve, hogy nem multiplatform azaz csak Ubuntu GNU/Linux és annak is csak bizonyos verzióihoz támogatott hivatalosan, rengeteg előnnyel rendelkezik. Sok robotvezérléssel kapcsolatos alapfunkciót tartalmaz, amit így nem kell újból megírni, biztosít egy jól elszeparált keretet külön a kommunikációra és az üzleti logikára.
 \paragraph{Előnyei} 
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú.
@@ -307,7 +307,7 @@ Annak érdekében, hogy a fejlesztés során, ne kelljen folyamatosan egy fizika
 
 \subsection{Da Vinci Research Kit}
 \label{davinci}
-A da Vinci Research Kit továbbiakban dVRK egy nyílt forráskódú rendszer, ami lehetővé teszi a Da Vinci robot karok programozását \cite{kazanzides2014open}. Gyakorlatilag ``firmware''-ként lehet rá tekinteni, ami képes meghajtani a robotkarokat.  A ROS rendszerhez kapcsolódik, könnyen lehetséges az utasításait használni egy ROS  modult biztosít használatra.  A célkitűzéseimhez képest viszonylag alacsony-szintű da Vinci robotkarvezérlő utasítások kiadására alkalmas.
+A da Vinci Research Kit továbbiakban dVRK egy nyílt forráskódú rendszer, ami lehetővé teszi a Da Vinci robot karok programozását \cite{kazanzides2014open}. Gyakorlatilag \textit{firmware}-ként lehet rá tekinteni, ami képes meghajtani a robotkarokat.  A ROS rendszerhez kapcsolódik, könnyen lehetséges az utasításait használni, ROS  modulokat biztosít használatra.  A célkitűzéseimhez képest viszonylag alacsony-szintű da Vinci robotkarvezérlő utasítások kiadására alkalmas.
 Ennek a modulnak a segítségivel lehetséges a ROS rendszerrel da Vinci robotot vezérelni, továbbá virtuálisan szimulált robotkar létrehozása is lehetséges. Mindenképp szükség van erre, amennyiben ROS rendszerhez szeretnénk kapcsolni da Vinci robotot. 
 \subsection{iRob Surgical Subtask Automation Framework}
 \label{irob}
@@ -317,7 +317,7 @@ Alapvetően arra a célra készült, hogy részleges automatizáció segítség�
 \begin{compactitem}
 	\item Szabadon elérhető, nyílt forráskódú.
 	\item Moduláris.
-	\item Alkalmas Kutatási célokhoz.
+	\item Alkalmas kutatási célokhoz.
 	\item Érthető, naprakész, jó dokumentáció áll rendelkezésre.
 \end{compactitem}
 \paragraph{Hátrányai} 
@@ -328,8 +328,8 @@ Alapvetően arra a célra készült, hogy részleges automatizáció segítség�
 
 \section{Kiterjesztett valóság}
 \label{kitvalo}
-A célok között szerepelt egy olyan funkció, melynek a segítségével lehetséges kiterjesztett valóság segítésével követni az ágensek küzdelmét. Itt szeretném részletezni a hasonló megoldásokat, azokból levont következtetéseket.
-A \cite{azuma2001recent} kutatásból idézve  kiterjesztett valóságot a következő módon definiálhatjuk. Az a rendszer, ami a következőket teljesíti:
+A célok között szerepelt, hogy legyen lehetőség kiterjesztett valóság segítésével követni az ágensek küzdelmét. Szeretném részletezni a hasonló megoldásokat, azokból levont következtetéseket.
+A \cite{azuma2001recent} kutatásból idézve a kiterjesztett valóságot a következő módon definiálhatjuk. Az a rendszer, ami a következőket teljesíti:
 \begin{compactitem}
 	\item Kombinálja a valós és virtuális objektumokat a valós környezetben.
 	\item Azonnal fut, és valós időben.
@@ -337,9 +337,7 @@ A \cite{azuma2001recent} kutatásból idézve  kiterjesztett valóságot a köve
 \end{compactitem}
 Továbbikban az AR rövidítést fogom használni. 
 Virtuális objektumokat szeretnénk elhelyezni a kamera képen úgy, hogy azok mozgása a kamera 3D mozgásához igazodjon. 
-\par Több létező megoldás van AR elkészítéséhez, ezen megoldások összehasonlításáról lesz itt szó.
-A legtöbb esetben nagyobb gyártók szolgáltatásaként lehetséges ilyen alkalmazásokat használni.
-\subsection{Alternatív kiterjesztett valóság megoldások}
+\subsection{Alternatív megoldások kiterjesztett valóság készítésre}
 \label{kitval}
 \subsubsection{Unity}
 Unity Technologies által fejlesztett játékmotor. 2D és 3D számítógépes játékok elkészítésre alkalmas. Napjaink egyik, ha nem a legnépszerűbb játék fejlesztő motorja \cite{haas2014history}.
@@ -381,7 +379,7 @@ Egy jó lehetőség lehet, saját kiterjesztett valóság megvalósítása, ingy
 Azt értem az ilyen megoldás alatt, hogy a készítés során alacsonyabb-szintű gépi látás szintjén, egy saját kiterjesztett valóság szolgáltatást építünk. Egy ilyen megoldásnak több nehezebb feladatot kell tudni megoldania. Ilyen esetben a kiterjesztett valóság elkészítse a feladat, nem pedig egy AR szolgáltatás használata. Elkészítése a korábbiaknál nagyobb kihívást jelent. Az elérhető ``kész'' alkalmazások, könyvtárak komplett fejlesztő csapatok által, több év óta folyamatosan fejlesztés alatt vannak. Így teljesítmény szempontjából ezekkel szemben felvenni a versenyt szerintem lehetetlen, viszont modularitás és megérthetőség szempontjából úgy gondolom, hogy van értelme megpróbálni. A különböző megvalósítási lehetőségek megértése és adott feladathoz történő választása továbbra is egy előny, mert nem feltétlen kell általános megoldást készíteni.
 
 \par Az egyik legnépszerűbb és  legjobban elterjedt gépi látással kapcsolatos programkönyvtár az eredetileg Intel által fejlesztett,  majd később nyílt forráskódú közösség által, a mai napig is folytatott OpenCV \cite{opencv_library}.
-\subsection{Választott módszer}
+\subsection{Választott AR módszer}
 Számomra fontos volt, hogy az AR rendszer átlátható kegyen, nem csak egy használható, de a működését megismerhető rendszert szeretnék használni. Korábban már többször említettem, hogy különböző játékmotorok használatát elvetettem, mert túlságosan alkalmazkodni kellene hozzá. 
 \par A felsorolt (többnyire) zárt könyvtárak, használata sem biztosítja a megfelelő szabadságot, továbbá előnytelennek találtam azt, hogy forrásuk zárt.
 
@@ -567,8 +565,8 @@ Főleg a rendszer \textit{front-end} részénél van értelme ennek újabb az ab
 \section{Alkalmazásokhoz választott alapvető technológiák}
 A teljes fejlesztés alapvetően GNU/Linux operációs rendszer alól történik. Több éve használom, és minden szempontból jobb számomra mint a többi konkurens OS.
 \par Első döntésem az volt, hogy a felhasználói alkalmazásokat, webes technológiák segítségével fogom elkészíteni. Böngészőből futtatható lesz  az alkalmazás azon része, mely a felhasználókkal tartja a kapcsolatot. Így gyakorlatilag a platform különbséggel kapcsolatos problémák megszűnnek, manapság mindenhol fut a böngésző. A konkrét webes technológiát később részletezem. 
-\par Az AR alkalmazás C++ és OpenCV segítségével fog elkészülni. C++ a sebesség, optimalizáció és népszerűsége szempontjából egy jó választás. A nehézkes szintaktikája, viszont megnehezíti a használatát. Korábban már említettem az OpenCV pozitív tulajdonságait, gyakorlatilag \textit{de facto} sztenderd gépi látással kapcsolatos programkönyvtár. 
-\par A da Vinci rendszerhez történő kapcsolathoz szintén C++ nyelvet fogok, hasonló okok miatt illetve már választásom itt nem is lenne. Továbbá a ROS  programkönyvtárat fogom még használni.  A ROS ról is elmondható, hogy robotika területén \textit{de facto} sztenderd. A ROS környezethez készült, dVRK és az ezen alapuló SAF könyvtárak használatára is szükségem lesz, a magas-szintű da Vinci utasítások kiadására. 
+\par Az AR alkalmazás C++ és OpenCV segítségével fog elkészülni. C++ a sebesség, optimalizáció és népszerűsége szempontjából egy jó választás. A nehézkes szintaktikája, viszont megnehezíti a használatát. Korábban már említettem az OpenCV pozitív tulajdonságait, gyakorlatilag \textit{de facto} standard gépi látással kapcsolatos programkönyvtár. 
+\par A da Vinci rendszerhez történő kapcsolathoz szintén C++ nyelvet fogok, hasonló okok miatt illetve már választásom itt nem is lenne. Továbbá a ROS  programkönyvtárat fogom még használni.  A ROS ról is elmondható, hogy robotika területén \textit{de facto} standard. A ROS környezethez készült, dVRK és az ezen alapuló SAF könyvtárak használatára is szükségem lesz, a magas-szintű da Vinci utasítások kiadására. 
 
 \section{Alkalmazások közötti kapcsolatok}
 Korábban említésre került, hogy az alkalmazások Ethernet hálózaton, akár interneten keresztül kommunikálnak. A \ref{fig:kapcs} ábrán, a rendszer felépítésének terve és alkalmazások között közötti kommunikációs kapcsolatok láthatóak.
@@ -674,7 +672,7 @@ Szintén saját készítésű. Segítségével a jelölő (\textit{marker}) kame
 \subsubsection{AR megjelenítő modul}
 Felhasználói felület melyen a teljes AR megjelenítésre fog kerülni.
 \paragraph{Belső felépítése}
-A  \nameref{fig:arseq} árbán az AR logika fő lépéseinek tervezett működése látható
+A  \ref{fig:arseq} árbán az AR logika fő lépéseinek tervezett működése látható.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{dias/arseq}
